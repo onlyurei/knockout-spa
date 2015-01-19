@@ -1,0 +1,47 @@
+<!--[if HTML5]><![endif]-->
+<!DOCTYPE html>
+<!--[if lte IE 9]>
+<html class="lte-ie9"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html><!--<![endif]-->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <title>Title</title>
+    <link rel="stylesheet" href="/styles/lib.css" />
+    <link rel="stylesheet" href="/styles/app.css" />
+</head>
+<body data-bind="attr: { 'class': bodyClass }">
+<div class="wrapper" onclick="">
+    <div data-bind="template: 'app/shared/header'"></div>
+    <div class="container content-container">
+        <noscript>
+            <div class="error-container">
+                <h3 class="label label-danger">In order to use the site, please enable JavaScript in the browser.</h3>
+            </div>
+        </noscript>
+        <div data-bind="template: { name: ['app', page().name.split('_'), page().name.split('_').last()].flatten().join('/'), data: page().data }">
+            <div class="position-fixed offset-center">
+                <i class="icon icon-spinner icon-2x icon-spin"></i>
+            </div>
+        </div>
+    </div>
+    <div class="footer-pusher"></div>
+</div>
+<div data-bind="template: 'app/shared/footer'"></div>
+<script src="/js/lib/require/require.js"></script>
+<script>
+    (function () {
+        require.config({
+            baseUrl: '/js'
+        });
+
+        require(['common'], function () {
+            require(['AppRouter']);
+        });
+    })();
+</script>
+</body>
+</html>
