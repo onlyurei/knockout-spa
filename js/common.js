@@ -1,6 +1,9 @@
 require.config({
     waitSeconds: 60,
     paths: {
+        /* TODO register all AMD modules by providing CamelCase aliases, exceptions are RequireJS plugins, whose names are fixed */
+        /* follow files dictionary order */
+
         //app/error
         'Error404': 'app/error/404/404',
 
@@ -64,6 +67,7 @@ require.config({
         'FormInputSorter': 'widget/form/form-input-sorter'
     },
     shim: {
+        /* TODO provide all needed shims for non-AMD modules */
         'Router': {
             exports: 'Router'
         }

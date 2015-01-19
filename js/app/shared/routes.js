@@ -1,4 +1,7 @@
 define({
+    /* TODO Add all client side routes.
+       If using HTML5 history (real URLs instead of hashes),
+       remember to modify the server side 404 responder to return index.html as the response. */
     '/': 'home /',
 
     //error
