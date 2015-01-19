@@ -12,9 +12,6 @@ define(['jQuery', 'Sugar'], function () {
                 a.click();
             }).delay((delay > 0) ? delay : 0);
         },
-        /* TODO: test-code */
-        fakeHttps: true,
-        /* TODO: end-test-code */
         ensureHttps: function () {
             if (Dom.fakeHttps) {
                 return true;
