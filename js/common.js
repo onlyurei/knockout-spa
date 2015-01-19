@@ -32,6 +32,7 @@ require.config({
 
         //lib
         'Router': 'lib/director-1.2.6',
+        'Class': 'lib/jsface-2.3.0',
         'Sugar': 'lib/sugar-1.4.1',
 
         //lib/jquery
@@ -68,6 +69,9 @@ require.config({
     },
     shim: {
         /* TODO provide all needed shims for non-AMD modules */
+        'Class': {
+            exports: 'Class'
+        },
         'Router': {
             exports: 'Router'
         }
