@@ -13,6 +13,9 @@ define(['RootBindings', 'Knockout', 'Sugar'], function (RootBindings, ko) {
             }
             Page.page().data.dispose(Page); // if the requested page is not the same page, dispose current page first before swap to the new page
             var initialized = data.init(Page); // init view model before template is swapped-in
+            if (initialized === false) {
+                return false; // stop initialization if page's init function return false
+            }
             Page.bodyClass([name.dasherize(), ('ontouchstart' in document.documentElement) ? 'touch' : 'no-touch'].join(' '));
             Page.page({
                 name: name,
