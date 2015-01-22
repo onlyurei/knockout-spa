@@ -2,16 +2,11 @@ define(['RootBindings', 'Knockout', 'Sugar'], function (RootBindings, ko) {
 
     var initialRun = true;
 
-    function setPageTitle() {
-        var title = Page.page().data.title;
-        document.title = title ? (Object.isFunction(title) ? title() : title) : (Page.title ? (Object.isFunction(Page.title) ? Page.title() : Page.title) : '');
-    }
-
     var Page = {
         init: function (name, data, callback) {
             name = name.toLowerCase();
             if ((Page.page().name == name) && (Page.page().data == data)) { // if the requested page is the same page, immediately callback
-                setPageTitle();
+                document.title = Page.title();
                 if (callback) {
                     callback(data);
                 }
@@ -27,7 +22,7 @@ define(['RootBindings', 'Knockout', 'Sugar'], function (RootBindings, ko) {
                 name: name,
                 data: data
             }); // to test if template finished rendering, use afterRender binding
-            setPageTitle();
+            document.title = Page.title();
             if (initialRun) {
                 ko.applyBindings(Page, document.getElementsByTagName('html')[0]);
                 initialRun = false;
