@@ -22,11 +22,12 @@
                 <h3 class="label label-danger">In order to use the site, please enable JavaScript in the browser.</h3>
             </div>
         </noscript>
-        <div data-bind="template: { name: ['app', page().name.split('_'), page().name.split('_').last()].flatten().join('/'), data: page().data }">
-            <div class="position-fixed offset-center">
-                <i class="icon icon-spinner icon-2x icon-spin"></i>
-            </div>
+        <div data-bind="template: { name: ['app', page().name.split('_'), page().name.split('_').last()].flatten().join('/'), data: page().data }"></div>
+        <!-- ko if: loading -->
+        <div class="position-fixed offset-center">
+            <i class="icon icon-spinner icon-2x icon-spin"></i>
         </div>
+        <!-- /ko -->
     </div>
     <div class="footer-pusher"></div>
 </div>

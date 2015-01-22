@@ -13,6 +13,7 @@ define(['Page', 'Routes', 'Router', 'jQuery', 'Sugar'], function (Page, Routes, 
         var pageName = values[0];
         var controller = values[1];
         routes[key] = function () {
+            Page.loading(true);
             var args = Array.prototype.slice.call(arguments, 0);
             var callback = controller ? function (page) {
                 page.controllers[controller].apply(null, args);

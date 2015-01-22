@@ -4,6 +4,7 @@ define(['RootBindings', 'Knockout', 'Sugar'], function (RootBindings, ko) {
 
     var Page = {
         init: function (name, data, callback) {
+            Page.loading(false);
             name = name.toLowerCase();
             if ((Page.page().name == name) && (Page.page().data == data)) { // if the requested page is the same page, immediately callback
                 document.title = Page.title();
@@ -40,6 +41,7 @@ define(['RootBindings', 'Knockout', 'Sugar'], function (RootBindings, ko) {
             }
         }),
         bodyClass: ko.observable(''),
+        loading: ko.observable(false),
         title: function () {
             return Page.page().name.titleize(); // override in RootBindings as needed
         }
