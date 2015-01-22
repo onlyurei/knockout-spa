@@ -50,6 +50,7 @@ define(['Page', 'Routes', 'Router', 'jQuery', 'Sugar'], function (Page, Routes, 
         if (href && !href.startsWith('http') && !href.startsWith('//') && !href.startsWith('#') &&
             ($(this).attr('target') != '_blank') && !$(this).data('go') && !event.ctrlKey && !event.metaKey) {
             event.preventDefault();
+            Page.loading(true);
             var hash = null;
             if (href.has('#')) {
                 hash = href.from(href.indexOf('#'));
