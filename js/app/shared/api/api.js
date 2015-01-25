@@ -38,6 +38,7 @@ define(['Dom', 'jQuery', 'Sugar',
             }
 
             if (synchronous) {
+
                 ajaxOptions.async = false;
 
                 if (error) {
@@ -53,10 +54,11 @@ define(['Dom', 'jQuery', 'Sugar',
                 return $.ajax(ajaxOptions).responseText;
 
             } else {
+
                 var ajax = $.ajax(ajaxOptions);
 
                 if (error) {
-                    ajax.error(onError);
+                    ajax.fail(onError);
                     ajax.done(onSuccess);
                 }
 
