@@ -1,5 +1,4 @@
 require.config({
-    waitSeconds: 60,
     paths: {
         /* TODO register all AMD modules by providing CamelCase aliases, exceptions are RequireJS plugins, whose names are fixed */
         /* follow files dictionary order */
