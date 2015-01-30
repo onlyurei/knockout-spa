@@ -51,17 +51,7 @@ define(['Page', 'Routes', 'Router', 'jQuery', 'Sugar'], function (Page, Routes, 
             ($(this).attr('target') != '_blank') && !$(this).data('go') && !event.ctrlKey && !event.metaKey) {
             event.preventDefault();
             Page.loading(true);
-            var hash = null;
-            if (href.has('#')) {
-                hash = href.from(href.indexOf('#'));
-                href = href.remove(hash);
-            }
             router.setRoute(href);
-            if (hash && router.historySupport) {
-                (function () {
-                    window.location.hash = hash.remove('#');
-                }).delay(100);
-            }
         }
     });
 
