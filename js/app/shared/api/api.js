@@ -98,6 +98,9 @@ define(['Dom', 'jQuery', 'Sugar',
                 update: {
                     url: '/{id}',
                     type: 'PUT'
+                },
+                populate: {
+                    url: '/{id}/{field}'
                 }
             }, arg);
         }
