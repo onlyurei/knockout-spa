@@ -1,10 +1,10 @@
 require.config({
     paths: {
-        /* TODO register all AMD modules by providing CamelCase aliases, exceptions are RequireJS plugins, whose names are fixed */
+        /* TODO: register all AMD modules by providing CamelCase aliases, exceptions are RequireJS plugins, whose names are fixed */
         /* follow files dictionary order */
 
         //app/error
-        'Error404': 'app/error/404/404',
+        'Error': 'app/error/error',
 
         //app/home
         'Home': 'app/home/home',
@@ -23,6 +23,7 @@ require.config({
 
         //framework
         'Page': 'framework/page',
+        'PageDisposer': 'framework/page-disposer',
         'AppRouter': 'framework/router',
 
         //i18n
@@ -30,26 +31,19 @@ require.config({
         'Resources': 'i18n/resources',
 
         //lib
-        'Router': 'lib/director-1.2.6',
-        'Class': 'lib/jsface-2.3.0',
-        'Sugar': 'lib/sugar-1.4.1',
+        'Router': 'lib/director',
+        'jQuery': 'lib/jquery',
+        'Class': 'lib/jsface',
+        'Knockout.Raw': 'lib/knockout',
+        'Knockout.AMDHelpers': 'lib/knockout-amd-helpers',
+        'i18n': 'lib/require-i18n',
+        'text': 'lib/require-text',
+        'Sugar': 'lib/sugar',
 
-        //lib/jquery
-        'jQuery': 'lib/jquery/jquery-2.1.1',
-
-        //lib/knockout
-        'Knockout.Raw': 'lib/knockout/knockout-3.2.0',
-        'Knockout.AMDHelpers': 'lib/knockout/knockout-amd-helpers-0.7.3',
-        'Knockout.DeferredUpdates': 'lib/knockout/knockout-deferred-updates-3.2.1',
-
-        //lib/require
-        'i18n': 'lib/require/require-i18n-2.0.4',
-        'text': 'lib/require/require-text-2.0.13',
-
-        //lib-ext/knockout
-        'Knockout.CustomBindings': 'lib-ext/knockout/knockout-custom-bindings',
-        'Knockout.CustomBindings.Core': 'lib-ext/knockout/knockout-custom-bindings-core',
-        'Knockout': 'lib-ext/knockout/knockout-extended',
+        //lib-ext
+        'Knockout.CustomBindings': 'lib-ext/knockout-custom-bindings',
+        'Knockout.CustomBindings.Core': 'lib-ext/knockout-custom-bindings-core',
+        'Knockout': 'lib-ext/knockout-extended',
 
         //util
         'Cache': 'util/cache',
@@ -67,7 +61,7 @@ require.config({
         'FormInputSorter': 'widget/form/form-input-sorter'
     },
     shim: {
-        /* TODO provide all needed shims for non-AMD modules */
+        /* TODO: provide all needed shims for non-AMD modules */
         'Class': {
             exports: 'Class'
         },

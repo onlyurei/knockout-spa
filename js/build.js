@@ -12,7 +12,7 @@
                 'Api',
                 'AppRouter',
                 'Page'
-                /* TODO add other common modules */
+                /* TODO: add other common modules */
             ]
         },
         {
@@ -27,6 +27,6 @@
             name: 'PathSubPath',
             exclude: ['common']
         }
-        /* TODO add other page modules */
+        /* TODO: add other page modules */
     ]
 })

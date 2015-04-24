@@ -1,6 +1,6 @@
 define({
     "root": {
-        /* TODO add app localized resources */
+        /* TODO: add app localized resources */
     },
     "en-gb": true
 });

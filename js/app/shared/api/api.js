@@ -1,5 +1,5 @@
 define(['Dom', 'jQuery', 'Sugar',
-        'ApiExample'/* TODO add API packages */], function (Dom) {
+        'ApiExample'/* TODO: add API packages */], function (Dom) {
 
     var prefix = '/api';
 

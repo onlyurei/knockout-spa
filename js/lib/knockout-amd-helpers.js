@@ -169,7 +169,7 @@ define(["Knockout.Raw"], function (ko) {
         var engine = new ko.nativeTemplateEngine(),
             sources = {};
 
-        engine.defaultPath = "/template";
+        engine.defaultPath = "/template"; //TODO: change to the root folder of your html templates
         engine.defaultSuffix = ".html";
         engine.defaultRequireTextPluginName = "text";
 

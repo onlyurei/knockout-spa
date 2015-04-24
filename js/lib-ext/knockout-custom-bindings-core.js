@@ -32,7 +32,7 @@ define(['Knockout.Raw', 'jQuery', 'Sugar'], function (ko) {
     };
     ko.bindingHandlers.string.update = ko.bindingHandlers.string.init;
 
-    /* TODO add other ko custom bindings */
+    /* TODO: add other ko custom bindings */
 
     return ko;
 

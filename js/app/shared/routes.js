@@ -1,11 +1,11 @@
 define({
-    /* TODO Add all client side routes.
-       If using HTML5 history (real URLs instead of hashes),
-       remember to modify the server side 404 responder to return index.html as the response. */
+    /* TODO: add all client side routes
+     If using HTML5 history (real URLs instead of hashes),
+     remember to modify the server side 404 responder to return index.html as the response and change response code to 200. */
     '/': 'home /',
 
     //error
-    '/error/404': 'error_404',
+    '/error/:code': 'error /:code',
 
     //path
     '/path/sub-path': 'path_sub-path',

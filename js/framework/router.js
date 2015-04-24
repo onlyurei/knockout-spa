@@ -1,9 +1,9 @@
 define(['Page', 'Routes', 'Router', 'jQuery', 'Sugar'], function (Page, Routes, Router) {
 
-    function initPage(pageName, callback) {
+    function initPage(pageName, controller) {
         var lowerCasePageName = pageName.toLowerCase();
         require([lowerCasePageName.camelize()], function (page) {
-            Page.init(lowerCasePageName, page, callback);
+            Page.init(lowerCasePageName, page, controller);
         });
     }
 
@@ -11,15 +11,14 @@ define(['Page', 'Routes', 'Router', 'jQuery', 'Sugar'], function (Page, Routes, 
     Object.each(Routes, function (key, value) {
         var values = value.split(' ');
         var pageName = values[0];
-        var controller = values[1];
+        var controllerName = values[1];
         routes[key] = function () {
             Page.loading(true);
             var args = Array.prototype.slice.call(arguments, 0);
-            var callback = controller ? function (page) {
-                page.controllers[controller].apply(null, args);
+            var controller = controllerName ? function (page) {
+                page.controllers[controllerName].apply(null, args);
             } : null;
-            //controller is always called before page template is rendered (when the page is swapped to), rest assured :)
-            initPage(pageName, callback);
+            initPage(pageName, controller);
         };
     });
 
@@ -28,7 +27,7 @@ define(['Page', 'Routes', 'Router', 'jQuery', 'Sugar'], function (Page, Routes, 
         html5history: true,
         convert_hash_in_init: false,
         notfound: function () {
-            routes['/error/404']();
+            routes['/error/:code'](404);
         }
     });
 
