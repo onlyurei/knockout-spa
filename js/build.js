@@ -16,7 +16,7 @@
             ]
         },
         {
-            name: 'Error404',
+            name: 'Error',
             exclude: ['common']
         },
         {
