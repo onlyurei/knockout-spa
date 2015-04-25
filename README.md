@@ -23,8 +23,8 @@ Take a SPA with Knockout.
 * Organized folder structure to help you stay sane for organizing and reusing JS, CSS, HTML
 * Using Knockout 3.3.0+ so ready for Knockout's flavor of web component and custom tags (http://knockoutjs.com/documentation/component-overview.html)
 * All documentation are in the major dependencies' own homepages, so that you don't need to completely learn a new framework
-  * Knockout http://knockoutjs.com/
-  * Require http://requirejs.org/
+  * Knockout http://knockoutjs.com
+  * Require http://requirejs.org
   * Director https://github.com/flatiron/director
-  * jQuery http://jquery.com/
-  * Sugar http://sugarjs.com/
+  * jQuery http://jquery.com
+  * Sugar http://sugarjs.com
