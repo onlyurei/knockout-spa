@@ -1,7 +1,7 @@
 /*
    run this command in project root folder for production build:
    r.js -o js/build.js
-   server the assets from /build folder in production
+   serve the assets from /build folder in production
 */
 ({
     appDir: '../',
