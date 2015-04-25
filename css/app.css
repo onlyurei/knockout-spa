@@ -1,5 +1,10 @@
+/* shared/component css first */
 /* shared */
 @import url(app/shared/shared.css);
+
+/* page-specific css in file directory order */
+/* error */
+@import url(app/error/error.css);
 
 /* home */
 @import url(app/home/home.css);
