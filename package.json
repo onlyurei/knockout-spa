@@ -4,7 +4,7 @@
   "description": "Mini SPA framework based on KnockoutJS, RequireJS, DirectorJS, SugarJS.",
   "repository": {
     "type": "git",
-    "url": "ssh://git@bitbucket.org/onlyurei/knockout-spa.git"
+    "url": "ssh://git@github.com:onlyurei/knockout-spa.git"
   },
   "scripts": {
     "preinstall": "npm install -g requirejs"
@@ -21,6 +21,5 @@
     "side",
     "routing"
   ],
-  "author": "Cheng Fan",
-  "private": true
+  "author": "Cheng Fan"
 }
