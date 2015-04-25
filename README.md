@@ -28,3 +28,9 @@ Take a SPA with Knockout.
   * Director https://github.com/flatiron/director
   * jQuery http://jquery.com
   * Sugar http://sugarjs.com
+
+### Demo ###
+
+Seeing/hacking is believing, here you go.
+
+RentEver - Social Rental Marketplace http://rentever.com
