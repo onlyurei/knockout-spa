@@ -11,9 +11,9 @@
     <meta data-bind="attr: { content: page().data.statusCode || 200 }" name="prerender-status-code">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/lib.css">
-    <link rel="stylesheet" href="/css/app.css">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="css/lib.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="shortcut icon" href="favicon.ico">
 </head>
 <body data-bind="attr: { 'class': bodyClass }">
 <div class="wrapper" onclick="">
@@ -32,13 +32,13 @@
     <div class="footer-pusher"></div>
 </div>
 <div data-bind="template: 'app/shared/footer'"></div>
-<script src="/js/lib/require.js"></script>
+<script src="js/lib/require.js"></script>
 <script>
     require.config({
-        baseUrl: '/js',
+        baseUrl: 'js',
         waitSeconds: 60
     });
 </script>
-<script src="/js/app.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
