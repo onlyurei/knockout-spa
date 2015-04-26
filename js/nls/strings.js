@@ -6,4 +6,5 @@ define({
         /* TODO: add app localized strings */
     },
     "en-gb": true
+    /* TODO: add other supported locales */
 });
