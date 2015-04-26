@@ -3,6 +3,10 @@ define(['jQuery', 'Sugar'], function () {
     var isIE = null;
     var isIE9AndBelow = null;
 
+    if (!window.location.origin) {
+        window.location.origin = window.location.protocol + '//' + window.location.hostname + (window.location.port ? (':' + window.location.port) : '');
+    }
+
     var Dom = {
         clickLink: function (url, delay) {
             (function () {

@@ -48,7 +48,9 @@ require.config({
         //util
         'Cache': 'util/cache',
         'Dom': 'util/dom',
+        'ErrorReporter': 'util/error-reporter',
         'Geolocation': 'util/geolocation',
+        'GA': 'util/google-analytics',
         'Json': 'util/json',
         'KeyboardEventHandler': 'util/keyboard-event-handler',
         'PersistedObservable': 'util/persisted-observable',
