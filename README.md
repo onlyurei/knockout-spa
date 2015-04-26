@@ -21,7 +21,7 @@ Take a SPA with Knockout.
 * Fast and lightweight (85 KB of JS minified and gizpped)
 * Two-tier bundle build for JS for production: common module that will be used by most pages, and page-specific modules that will be lazy-loaded
 * CSS will be inlined and minified into lib.css and app.css for production, so don't be wary about the `@import` lines in those 2 CSS files - only importing during development
-* No any grunt/gulp/watcher tasks required during development - you debug directly the exact same JS/CSS/HTML file you edit in the IDE. Only build task required is the RequireJS r.js optimizer task that's already predefined in build.js
+* No any grunt/gulp/watcher tasks required during development - you debug directly the exact same JS/CSS/HTML file you edit in the IDE. Only build task required for production is the RequireJS r.js optimizer task that's already predefined in build.js. Just figure out a config-based way to serve the assets from /build for production
 * Organized folder structure to help you stay sane for organizing and reusing JS, CSS, HTML
 * Using Knockout 3.3.0+ so ready for Knockout's flavor of web component and custom tags (http://knockoutjs.com/documentation/component-overview.html)
 * All documentation are in the major dependencies' own homepages, so that you don't need to completely learn a new framework
