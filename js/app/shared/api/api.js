@@ -1,29 +1,25 @@
-define(['Dom', 'jQuery', 'Sugar',
-        'ApiExample'/* TODO: add API packages */], function (Dom) {
+define([
+    'Dom', 'jQuery', 'Sugar',
+    'ApiExample'
+    /* TODO: add all API packages here */
+], function (Dom) {
 
     var prefix = '/api';
 
     var Api = {
-        call: function (apiPackage, apiMethod, urlParams, data, error, busy, synchronous) {
+        call: function (apiPackage, apiMethod, urlParams, data, error, loading, synchronousOrSocket) {
             var api = Api.list[apiPackage][apiMethod];
 
+            if (!api) {
+                return $.Deferred().reject('Api not found.');
+            }
+
             if (api.https && !Dom.ensureHttps()) {
-                return;
+                return $.Deferred().reject('Must call this api with HTTPS.');
             }
 
             var url = prefix + (('/' + apiPackage) + (api.url || '')).assign(urlParams);
-            var type = (api.type || 'GET').toUpperCase();
-
-            var ajaxOptions = {
-                url: url,
-                type: type
-            };
-
-            if ((type != 'GET') && data) {
-                ajaxOptions.data = JSON.stringify(data);
-                ajaxOptions.contentType = 'application/json';
-            }
-
+            var type = (api.type || 'get');
 
             function onError(data) {
                 error(data.responseText || data.statusText);
@@ -34,41 +30,91 @@ define(['Dom', 'jQuery', 'Sugar',
             }
 
             function onComplete() {
-                busy(false);
+                loading(false);
             }
 
-            if (synchronous) {
+            if (loading) {
+                loading(true);
+            }
 
-                ajaxOptions.async = false;
+            if (Object.isObject(synchronousOrSocket)) {
 
-                if (error) {
-                    ajaxOptions.error = onError;
-                    ajaxOptions.success = onSuccess;
-                }
+                var deferred = $.Deferred();
 
-                if (busy) {
-                    busy(true);
-                    ajaxOptions.complete = onComplete;
-                }
+                require(['io'], function (io) {
 
-                return $.ajax(ajaxOptions).responseText;
+                    if (synchronousOrSocket.subscription) {
+                        io.socket.on(synchronousOrSocket.subscription.event, synchronousOrSocket.subscription.callback); // CAUTION: don't subscribe more than once
+                    }
+
+                    io.socket[type.toLowerCase()](url, data, function (resData, jwres) {
+
+                        if (loading) {
+                            loading(false);
+                        }
+
+                        var _error = (resData && resData.error) || (jwres && (jwres.error || (jwres.statusCode && !String(jwres.statusCode).startsWith('2') && jwres.statusCode)));
+                        if (_error) {
+                            if (error) {
+                                error(_error);
+                            }
+                            deferred.reject(_error, jwres);
+                        } else {
+                            if (error) {
+                                error('');
+                            }
+                            deferred.resolve(resData, jwres);
+                        }
+
+                    });
+
+                });
+
+                return deferred;
 
             } else {
 
-                var ajax = $.ajax(ajaxOptions);
+                var ajaxOptions = {
+                    url: url,
+                    type: type.toUpperCase()
+                };
 
-                if (error) {
-                    ajax.fail(onError);
-                    ajax.done(onSuccess);
+                if ((type != 'GET') && data) {
+                    ajaxOptions.data = JSON.stringify(data);
+                    ajaxOptions.contentType = 'application/json';
                 }
 
-                if (busy) {
-                    busy(true);
-                    ajax.always(onComplete);
+                if (synchronousOrSocket) {
+
+                    ajaxOptions.async = false;
+
+                    if (error) {
+                        ajaxOptions.error = onError;
+                        ajaxOptions.success = onSuccess;
+                    }
+
+                    if (loading) {
+                        ajaxOptions.complete = onComplete;
+                    }
+
+                    return $.ajax(ajaxOptions).responseText;
+
+                } else {
+
+                    var ajax = $.ajax(ajaxOptions);
+
+                    if (error) {
+                        ajax.fail(onError);
+                        ajax.done(onSuccess);
+                    }
+
+                    if (loading) {
+                        ajax.always(onComplete);
+                    }
+
+                    return ajax;
+
                 }
-
-                return ajax;
-
             }
         },
         list: {}
