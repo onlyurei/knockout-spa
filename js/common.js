@@ -13,6 +13,7 @@ require.config({
         'PathSubPath': 'app/path/sub-path/sub-path',
 
         //app/shared
+        'Config': 'app/shared/config',
         'RootBindings': 'app/shared/root-bindings',
         'Routes': 'app/shared/routes',
         'UrlUtil': 'app/shared/url-util',
