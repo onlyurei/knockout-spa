@@ -43,11 +43,13 @@ define(['RootBindings', 'PageDisposer', 'Knockout', 'Sugar'], function (RootBind
             }
 
             var autoDispose = Page.page().data.dispose(Page); // if the requested page is not the same page, dispose current page first before swap to the new page
-            if (autoDispose !== false) { // auto-dispose observables and simple values to initial values, return false to suppress
+            if (autoDispose !== false) {
+                // auto-dispose page's exposed observables and primitive properties to initial values. if not desired, return false in dispose function to suppress
+                // auto-disposal for all public properties of the page, or make the particular properties private
                 PageDisposer.dispose(Page.page().data);
             }
 
-            PageDisposer.init(data); //store initial observable and simple properties values of the page
+            PageDisposer.init(data); //store initial observable and primitive properties values of the page
             var initialized = data.init(Page); // init view model and call controller (optional) before template is swapped-in
             if (initialized === false) {
                 return false; // stop initialization if page's init function return false (access control, etc.)
@@ -60,7 +62,7 @@ define(['RootBindings', 'PageDisposer', 'Knockout', 'Sugar'], function (RootBind
             Page.page({
                 name: name,
                 data: data
-            }); // to test if template finished rendering, use afterRender binding
+            }); // to test if template finished rendering, use afterRender binding in the template binding
 
             document.title = Page.title();
 
