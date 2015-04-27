@@ -21,14 +21,14 @@
 define(['Knockout', 'Sugar'], function (ko) {
 
     var initialValues = {};
-    
+
     var PageDisposer = {
         init: function (page) {
             initialValues = {};
             Object.each(page, function (key, value) {
-                if (ko.isObservable(value) && !ko.isComputed(value)) {
+                if (ko.isObservable(value) && !ko.isComputed(value)) { /* non-computed observables */
                     initialValues[key] = value();
-                } else if ((value === null) || (value === undefined) || Object.isString(value) || Object.isNumber(value)) {
+                } else if ((value === null) || (value === undefined) || Object.isString(value) || Object.isNumber(value) || Object.isBoolean(value)) { /* primitives */
                     initialValues[key] = value;
                 }
             });
@@ -50,3 +50,4 @@ define(['Knockout', 'Sugar'], function (ko) {
     return PageDisposer;
 
 });
+
