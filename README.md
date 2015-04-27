@@ -4,8 +4,12 @@ Take a SPA with Knockout.
 
 ### What is this? ###
 
-* A mini (but full-fledged) SPA framework built on top of Knockout (MVVM), Require (Module Organizer/Loader/Optimizer), Director (Router), jQuery (DOM Utilities), Sugar (FP/Low Level Utilities).
-* 1.0.0
+A mini (but full-fledged) SPA framework built on top of: 
+* Knockout (MVVM)
+* Require (Module Organizer/Loader/Optimizer)
+* Director (Router)
+* jQuery (DOM Utilities)
+* Sugar (FP/Low Level Utilities).
 
 ### How do I use it? ###
 
