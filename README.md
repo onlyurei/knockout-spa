@@ -4,7 +4,7 @@ Take a SPA with Knockout.
 
 ### What is this? ###
 
-A mini (but full-fledged) SPA framework built on top of: 
+A mini (less than 200 LOC but full-fledged) SPA framework built on top of: 
 * Knockout (MVVM)
 * Require (Module Organizer/Loader/Optimizer)
 * Director (Router)
