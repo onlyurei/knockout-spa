@@ -15,6 +15,7 @@ A mini (less than 200 LOC but full-fledged) SPA framework built on top of:
 
 * All required files are in the repo already
 * Take a look at the file structure and comments/TODOs in the bootstrapped setup - you'll figure out everything in 30 minutes
+* Start building your own SPA from the provided setup - be cautious of changing the files in `/js/framework`, `/js/util`, `/js/widget` folders, otherwise do whatever you want with the setup!
 * Only needed external thing is the RequireJS optimizer r.js, just run `npm install` in the repo
 
 ### Features ###
