@@ -67,7 +67,7 @@ define(['RootBindings', 'PageDisposer', 'Knockout', 'Sugar'], function (RootBind
             document.title = Page.title();
 
             if (Page.initExtra) {
-                Page.initExtra(name, data, controller);
+                Page.initExtra(name, data, controller); // useful for common init tasks for all pages such as anaylitics page view tracking, can be set in RootBindings
             }
 
             if (initialRun) {
@@ -78,10 +78,10 @@ define(['RootBindings', 'PageDisposer', 'Knockout', 'Sugar'], function (RootBind
             return data;
         },
         page: ko.observable({
-            name: '',
+            name: '', // name of the page - auto-set by the framework, no need to worry
             data: {
-                init: function () {},
-                dispose: function () {}
+                init: function () {}, // preparation before the page's template is rendered, such as checking access control, init/instantiate modules used by the page, etc.
+                dispose: function () {} // properly dispose the page to prevent memory leaks and UI leftovers (important for SPA since page doesn't refresh between page views) - remove DOM element event listeners, dispose knockout manual subscriptions, etc.
             }
         }),
         bodyClass: ko.observable(''),
