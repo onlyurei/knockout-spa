@@ -1,6 +1,6 @@
 {
   "name": "knockout-spa",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Mini SPA framework based on KnockoutJS, RequireJS, DirectorJS, SugarJS.",
   "repository": {
     "type": "git",
