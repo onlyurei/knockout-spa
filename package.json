@@ -4,7 +4,7 @@
   "description": "A mini (but full-fledged) SPA framework built on top of Knockout, Require, Director, jQuery, Sugar.",
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:onlyurei/knockout-spa.git"
+    "url": "https://github.com/onlyurei/knockout-spa.git"
   },
   "scripts": {
     "preinstall": "npm install -g requirejs"
