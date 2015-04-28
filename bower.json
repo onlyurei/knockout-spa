@@ -1,19 +1,20 @@
 {
   "name": "knockout-spa",
   "version": "1.0.5",
+  "homepage": "https://github.com/onlyurei/knockout-spa",
+  "authors": [
+    "Cheng Fan <fancheng33@hotmail.com>"
+  ],
   "description": "A mini (but full-fledged) SPA framework built on top of Knockout, Require, Director, jQuery, Sugar.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/onlyurei/knockout-spa.git"
-  },
-  "scripts": {
-    "preinstall": "npm install -g requirejs"
-  },
   "keywords": [
     "knockoutjs",
+    "knockout",
     "requirejs",
+    "require",
     "directorjs",
+    "director",
     "sugarjs",
+    "sugar",
     "spa",
     "amd",
     "framework",
@@ -21,5 +22,12 @@
     "side",
     "routing"
   ],
-  "author": "Cheng Fan"
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
