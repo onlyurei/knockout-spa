@@ -2,10 +2,10 @@
  * JSFace Object Oriented Programming Library
  * https://github.com/tnhu/jsface
  *
- * Copyright (c) 2009-2013 Tan Nhu
+ * Copyright (c) Tan Nhu
  * Licensed under MIT license (https://github.com/tnhu/jsface/blob/master/LICENSE.txt)
  */
-(function(context, OBJECT, NUMBER, LENGTH, toString, undefined, oldClass, jsface) {
+(function(context, OBJECT, NUMBER, LENGTH, toString, readyFns, readyCount, undefined, oldClass, jsface) {
   /**
    * Return a map itself or null. A map is a set of { key: value }
    * @param obj object to be checked
@@ -28,13 +28,6 @@
   function functionOrNil(obj) { return (obj && typeof obj === "function" && obj) || null; }
 
   /**
-   * Return a string itself or null
-   * @param obj object to be checked
-   * @return obj itself as a string or null
-   */
-  function stringOrNil(obj) { return (toString.apply(obj) === "[object String]" && obj) || null; }
-
-  /**
    * Return a class itself or null
    * @param obj object to be checked
    * @return obj itself as a class or false
@@ -53,7 +46,6 @@
   function copier(key, value, ignoredKeys, object, iClass, oPrototype) {
     if ( !ignoredKeys || !ignoredKeys.hasOwnProperty(key)) {
       object[key] = value;
-      if (iClass) { oPrototype[key] = value; }                       // class? copy to prototype as well
     }
   }
 
@@ -74,7 +66,7 @@
           oPrototype = object.prototype, supez, key, proto;
 
       // copy static properties and prototype.* to object
-      if (mapOrNil(subject)) {
+      if (mapOrNil(subject) || iClass) {
         for (key in subject) {
           copier(key, subject[key], ignoredKeys, object, iClass, oPrototype);
         }
@@ -93,6 +85,26 @@
   }
 
   /**
+   * To make object fully immutable, freeze each object inside it.
+   * @param object to deep freeze
+   */
+  function deepFreeze(object) {
+    var prop, propKey;
+    Object.freeze(object); // first freeze the object
+    for (propKey in object) {
+      prop = object[propKey];
+      if (!object.hasOwnProperty(propKey) || !(typeof prop === 'object') || Object.isFrozen(prop)) {
+        // If the object is on the prototype, not an object, or is already frozen,
+        // skip it. Note that this might leave an unfrozen reference somewhere in the
+        // object if there is an already frozen object containing an unfrozen object.
+        continue;
+      }
+
+      deepFreeze(prop); // recursively call deepFreeze
+    }
+  }
+
+  /**
    * Create a class.
    * @param parent parent class(es)
    * @param api class api
@@ -100,72 +112,152 @@
    */
   function Class(parent, api) {
     if ( !api) {
-      parent = (api = parent, 0);                                     // !api means there's no parent
+      parent = (api = parent, 0); // !api means there's no parent
     }
 
+    // TODO remove $statics, use $static instead
     var clazz, constructor, singleton, statics, key, bindTo, len, i = 0, p,
-        ignoredKeys = { constructor: 1, $singleton: 1, $statics: 1, prototype: 1, $super: 1, $superp: 1, main: 1, toString: 0 },
-        plugins     = Class.plugins;
+        ignoredKeys = { constructor: 1, $singleton: 1, $static:1, $statics: 1, prototype: 1, $super: 1, $superp: 1, main: 1, toString: 0 },
+        plugins     = Class.plugins,
+        rootParent, parentClass, Stub;
 
     api         = (typeof api === "function" ? api() : api) || {};             // execute api if it's a function
     constructor = api.hasOwnProperty("constructor") ? api.constructor : 0;     // hasOwnProperty is a must, constructor is special
     singleton   = api.$singleton;
-    statics     = api.$statics;
+    statics     = api.$statics || api.$static;
 
     // add plugins' keys into ignoredKeys
     for (key in plugins) { ignoredKeys[key] = 1; }
 
     // construct constructor
-    clazz  = singleton ? {} : (constructor ? constructor : function(){});
+    clazz  = singleton ? function(){} : (constructor ? constructor : function(){});
 
     // make sure parent is always an array
-    parent = !parent || arrayOrNil(parent) ? parent : [ parent ];
+    parent = !parent || parent instanceof Array ? parent : [ parent ];
     len = parent && parent.length;
+    rootParent = parent[0];
 
     if ( !singleton && len) {
-      clazz.prototype             = classOrNil(parent[0]) ? new parent[0] : parent[0];
-      clazz.prototype.constructor = clazz;
+      parentClass = rootParent.prototype && rootParent === rootParent.prototype.constructor && rootParent;
+
+      if ( !parentClass) {
+        clazz.prototype = rootParent;
+      } else {
+        // Constributed by Freddy Snijder (https://github.com/tnhu/jsface/issues/26)
+        Stub = function(){};
+
+        Stub.prototype                    = parentClass.prototype;
+        Stub.prototype.constructor        = Stub;
+        clazz.prototype                   = new Stub();
+        clazz.prototype.constructor       = clazz;       // restoring proper constructor for child class
+        parentClass.prototype.constructor = parentClass; // restoring proper constructor for parent class
+      }
     }
 
     // determine bindTo: where api should be bound
     bindTo = singleton ? clazz : clazz.prototype;
 
-    // do inherit
+    // do inherit static properties and extentions (parents other than the first one)
     while (i < len) {
       p = parent[i++];
+
+      // copy static properties
       for (key in p) {
         if ( !ignoredKeys[key]) {
-          bindTo[key] = p[key];
-          if ( !singleton) { clazz[key] = p[key]; }
+          clazz[key] = p[key];
         }
       }
-      for (key in p.prototype) { if ( !ignoredKeys[key]) { bindTo[key] = p.prototype[key]; } }
+      if ( !singleton && i !== 0) {
+        for (key in p.prototype) {
+          if ( !ignoredKeys[key]) {
+            bindTo[key] = p.prototype[key];
+          }
+        }
+      }
     }
 
     // copy properties from api to bindTo
     for (key in api) {
       if ( !ignoredKeys[key]) {
-        bindTo[key] = api[key];
+        var prop = api[key];
+
+        if (prop && (prop.get || prop.set)) {                 // check if it is a property descriptor
+          prop.enumerable = true;
+          Object.defineProperty(bindTo, key, prop);
+        } else {
+          bindTo[key] = prop;
+        }
       }
     }
 
-    // copy static properties from statics to both clazz and bindTo
-    for (key in statics) { clazz[key] = bindTo[key] = statics[key]; }
-
-    // if class is not a singleton, add $super and $superp
-    if ( !singleton) {
-      p = parent && parent[0] || parent;
-      clazz.$super  = p;
-      clazz.$superp = p && p.prototype ? p.prototype : p;
+    // copy static properties from statics to clazz
+    for (key in statics) {
+      clazz[key] = statics[key];
     }
 
-    for (key in plugins) { plugins[key](clazz, parent, api); }                 // pass control to plugins
-    if (functionOrNil(api.main)) { api.main.call(clazz, clazz); }              // execute main()
+    // add $super and $superp to refer to parent class and parent.prototype (if applied)
+    p = parent && rootParent || parent;
+    clazz.$super  = p;
+    clazz.$superp = p && p.prototype || p;
+
+    for (key in plugins) { plugins[key](clazz, parent, api); }            // pass control to plugins
+    if (typeof api.main === "function") { api.main.call(clazz, clazz); }  // execute main()
+
     return clazz;
   }
 
   /* Class plugins repository */
-  Class.plugins = {};
+  Class.plugins = {
+    $ready: function invoke(clazz, parent, api, loop) {
+      var r       = api.$ready,
+          len     = parent ? parent.length : 0,
+          count   = len,
+          _super  = len && parent[0].$super,
+          pa, i, entry;
+
+      // find and invoke $ready from parent(s)
+      while (len--) {
+        for (i = 0; i < readyCount; i++) {
+          entry = readyFns[i];
+          pa    = parent[len];
+
+          if (pa === entry[0]) {
+            entry[1].call(pa, clazz, parent, api);
+            count--;
+          }
+
+          if ( !count) { break; }
+        }
+      }
+
+      // call $ready from grandparent(s), if any
+      if (_super) {
+        invoke(clazz, [ _super ], api, true);
+      }
+
+      // in an environment where there are a lot of class creating/removing (rarely)
+      // this implementation might cause a leak (saving pointers to clazz and $ready)
+      if ( !loop && functionOrNil(r)) {
+        r.call(clazz, clazz, parent, api);  // invoke ready from current class
+        readyFns.push([ clazz,  r ]);
+        readyCount++;
+      }
+    },
+
+    $const: function (clazz, parent, api) {
+      var key,
+          consts = api.$const;
+
+      // copy immutable properties from consts to clazz and freeze them recursively
+      for (key in consts) {
+        Object.defineProperty(clazz, key, { enumerable: true, value: consts[key] }); // enumerable for proper inheritance
+
+        if ((typeof clazz[key] === 'object') && !Object.isFrozen(clazz[key])) {
+          deepFreeze(clazz[key]); // if property is an unfrozen object, freeze it recursively
+        }
+      }
+    }
+  };
 
   /* Initialization */
   jsface = {
@@ -174,7 +266,6 @@
     mapOrNil     : mapOrNil,
     arrayOrNil   : arrayOrNil,
     functionOrNil: functionOrNil,
-    stringOrNil  : stringOrNil,
     classOrNil   : classOrNil
   };
 
@@ -186,4 +277,4 @@
     context.jsface    = jsface;
     jsface.noConflict = function() { context.Class = oldClass; };              // no conflict
   }
-})(this, "object", "number", "length", Object.prototype.toString);
+})(this, "object", "number", "length", Object.prototype.toString, [], 0);
