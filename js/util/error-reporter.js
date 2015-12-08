@@ -18,7 +18,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-define(['GA', 'jQuery', 'Sugar'], function (GA) {
+define(['GA', 'jquery', 'sugar'], function (GA) {
 
     var apiUrl = '';
     var additionalInfo = {};

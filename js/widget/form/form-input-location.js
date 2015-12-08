@@ -18,7 +18,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-define(['Cache', 'FormInput', 'Class', 'Knockout', 'jQuery', 'Sugar'], function (Cache, FormInput, Class, ko) {
+define(['Cache', 'FormInput', 'Class', 'knockout', 'jquery', 'sugar'], function (Cache, FormInput, Class, ko) {
 
     var FormInputLocation = Class(FormInput, {
         $statics: {

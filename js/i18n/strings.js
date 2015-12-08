@@ -1,4 +1,4 @@
-define(['i18n!nls/strings', 'Sugar'], function (strings) {
+define(['i18n!nls/strings', 'sugar'], function (strings) {
 
     var string = function (key, tokens) {
         if (!key || !strings) {

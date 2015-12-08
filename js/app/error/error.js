@@ -1,4 +1,4 @@
-define(['Strings', 'Knockout'], function (Strings, ko) {
+define(['Strings', 'knockout'], function (Strings, ko) {
 
     var Error = {
         init: function (code) {

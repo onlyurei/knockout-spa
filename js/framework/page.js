@@ -18,7 +18,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-define(['RootBindings', 'PageDisposer', 'Knockout', 'Sugar'], function (RootBindings, PageDisposer, ko) {
+define(['RootBindings', 'PageDisposer', 'knockout', 'sugar'], function (RootBindings, PageDisposer, ko) {
 
     var initialRun = true;
 

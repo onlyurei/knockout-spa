@@ -1,6 +1,6 @@
 require(['common'], function () {
 
-    /*require(['Config', 'ErrorReporter', 'GA', 'Sugar'], function (Config, ErrorReporter, GA) {
+    /*require(['Config', 'ErrorReporter', 'GA', 'sugar'], function (Config, ErrorReporter, GA) {
         require.config({
             config: {
                 i18n: {

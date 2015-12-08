@@ -1,3 +1,3 @@
-define(['Knockout.Raw', 'Knockout.AMDHelpers', 'Knockout.CustomBindings'], function (ko) {
+define(['knockout.Raw', 'knockout.AMDHelpers', 'knockout.CustomBindings'], function (ko) {
     return ko;
 });

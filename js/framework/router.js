@@ -18,7 +18,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-define(['Page', 'Routes', 'Router', 'jQuery', 'Sugar'], function (Page, Routes, Router) {
+define(['Page', 'Routes', 'Router', 'jquery', 'sugar'], function (Page, Routes, Router) {
 
     function initPage(pageName, controller) {
         var lowerCasePageName = pageName.toLowerCase();

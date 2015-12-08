@@ -18,7 +18,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-define(['Class', 'Knockout', 'Sugar'], function (Class, ko) {
+define(['Class', 'knockout', 'sugar'], function (Class, ko) {
 
     var FormInput = Class({
         constructor: function (name, value, required, validations, submitOnChange, initFromQueryString) {

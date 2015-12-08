@@ -1,4 +1,4 @@
-define(['jQuery', 'Sugar'], function () {
+define(['jquery', 'sugar'], function () {
 
     var isIE = null;
     var isIE9AndBelow = null;

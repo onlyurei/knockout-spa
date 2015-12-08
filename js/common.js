@@ -1,6 +1,6 @@
 require.config({
     paths: {
-        /* TODO: register all AMD modules by providing CamelCase aliases, exceptions are RequireJS plugins, whose names are fixed */
+        /* TODO: register all AMD modules by providing CamelCase aliases, exceptions are RequireJS plugins and named AMD modules, whose names are fixed */
         /* follow files dictionary order */
 
         //app/error
@@ -33,18 +33,18 @@ require.config({
 
         //lib
         'Router': 'lib/director',
-        'jQuery': 'lib/jquery',
+        'jquery': 'lib/jquery',
         'Class': 'lib/jsface',
-        'Knockout.Raw': 'lib/knockout',
-        'Knockout.AMDHelpers': 'lib/knockout-amd-helpers',
+        'knockout.Raw': 'lib/knockout',
+        'knockout.AMDHelpers': 'lib/knockout-amd-helpers',
         'i18n': 'lib/require-i18n',
         'text': 'lib/require-text',
-        'Sugar': 'lib/sugar',
+        'sugar': 'lib/sugar',
 
         //lib-ext
-        'Knockout.CustomBindings': 'lib-ext/knockout-custom-bindings',
-        'Knockout.CustomBindings.Core': 'lib-ext/knockout-custom-bindings-core',
-        'Knockout': 'lib-ext/knockout-extended',
+        'knockout.CustomBindings': 'lib-ext/knockout-custom-bindings',
+        'knockout.CustomBindings.Core': 'lib-ext/knockout-custom-bindings-core',
+        'knockout': 'lib-ext/knockout-extended',
 
         //util
         'Cache': 'util/cache',

@@ -1,5 +1,5 @@
 // knockout-amd-helpers 0.7.4 | (c) 2015 Ryan Niemeyer |  http://www.opensource.org/licenses/mit-license
-define(["knockout"], function(ko) {
+define(["knockout.Raw"], function(ko) {
 
 //helper functions to support the binding and template engine (whole lib is wrapped in an IIFE)
 var require = window.requirejs || window.require || window.curl,
@@ -169,8 +169,9 @@ if (ko.virtualElements) {
     var engine = new ko.nativeTemplateEngine(),
         sources = {};
 
-    engine.defaultPath = "templates";
-    engine.defaultSuffix = ".tmpl.html";
+    /* TODO: change to your app's templete folder and template file suffix if needed */
+    engine.defaultPath = "/template";
+    engine.defaultSuffix = ".html";
     engine.defaultRequireTextPluginName = "text";
 
     //create a template source that loads its template using the require.js text plugin

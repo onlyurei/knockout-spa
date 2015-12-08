@@ -13,7 +13,6 @@
     <title>Title</title>
     <link rel="stylesheet" href="css/lib.css">
     <link rel="stylesheet" href="css/app.css">
-    <link rel="shortcut icon" href="favicon.ico">
 </head>
 <body data-bind="attr: { 'class': bodyClass }">
 <div class="wrapper" onclick="">
@@ -34,8 +33,9 @@
 <div data-bind="template: 'app/shared/footer'"></div>
 <script src="js/lib/require.js"></script>
 <script>
+    /* TODO: change to your own require config if needed */
     require.config({
-        baseUrl: 'js',
+        baseUrl: '/js',
         waitSeconds: 60
     });
 </script>

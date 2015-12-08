@@ -1,4 +1,4 @@
-define(['Storage', 'Router', 'Api', 'Knockout', 'Sugar'], function (Storage, Router, Api, ko) {
+define(['Storage', 'Router', 'Api', 'knockout', 'sugar'], function (Storage, Router, Api, ko) {
 
     var Config = ko.observable({});
 

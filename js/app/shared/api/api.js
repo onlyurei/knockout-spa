@@ -1,5 +1,5 @@
 define([
-    'Dom', 'jQuery', 'Sugar',
+    'Dom', 'jquery', 'sugar',
     'ApiExample'
     /* TODO: add all API packages here */
 ], function (Dom) {
