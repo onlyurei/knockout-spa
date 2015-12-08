@@ -35,15 +35,15 @@ require.config({
         'Router': 'lib/director',
         'jquery': 'lib/jquery',
         'Class': 'lib/jsface',
-        'knockout.Raw': 'lib/knockout',
-        'knockout.AMDHelpers': 'lib/knockout-amd-helpers',
+        'knockout.raw': 'lib/knockout',
+        'knockout.amd.helpers': 'lib/knockout-amd-helpers',
         'i18n': 'lib/require-i18n',
         'text': 'lib/require-text',
         'sugar': 'lib/sugar',
 
         //lib-ext
-        'knockout.CustomBindings': 'lib-ext/knockout-custom-bindings',
-        'knockout.CustomBindings.Core': 'lib-ext/knockout-custom-bindings-core',
+        'knockout.custom.bindings': 'lib-ext/knockout-custom-bindings',
+        'knockout.custom.bindings.core': 'lib-ext/knockout-custom-bindings-core',
         'knockout': 'lib-ext/knockout-extended',
 
         //util

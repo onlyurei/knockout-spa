@@ -1,4 +1,4 @@
-define(['knockout.Raw', 'jquery', 'sugar'], function (ko) {
+define(['knockout.raw', 'jquery', 'sugar'], function (ko) {
 
     ko.bindingHandlers.string = {
         init: function (element, valueAccessor, allBindingsAccessor) {

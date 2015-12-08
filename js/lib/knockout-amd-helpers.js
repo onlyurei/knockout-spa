@@ -1,5 +1,5 @@
 // knockout-amd-helpers 0.7.4 | (c) 2015 Ryan Niemeyer |  http://www.opensource.org/licenses/mit-license
-define(["knockout.Raw"], function(ko) {
+define(["knockout.raw"], function(ko) {
 
 //helper functions to support the binding and template engine (whole lib is wrapped in an IIFE)
 var require = window.requirejs || window.require || window.curl,
