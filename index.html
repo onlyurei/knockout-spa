@@ -11,8 +11,8 @@
     <meta data-bind="attr: { content: page().data.statusCode || 200 }" name="prerender-status-code">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Title</title>
-    <link rel="stylesheet" href="css/lib.css">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="/css/lib.css"><!-- TODO: change the path if needed -->
+    <link rel="stylesheet" href="/css/app.css"><!-- TODO: change the path if needed -->
 </head>
 <body data-bind="attr: { 'class': bodyClass }">
 <div class="wrapper" onclick="">
@@ -31,7 +31,7 @@
     <div class="footer-pusher"></div>
 </div>
 <div data-bind="template: 'app/shared/footer'"></div>
-<script src="js/lib/require.js"></script>
+<script src="/js/lib/require.js"></script><!-- TODO: change the path if needed -->
 <script>
     /* TODO: change to your own require config if needed */
     require.config({
@@ -39,6 +39,6 @@
         waitSeconds: 60
     });
 </script>
-<script src="js/app.js"></script>
+<script src="/js/app.js"></script><!-- TODO: change the path if needed -->
 </body>
 </html>
