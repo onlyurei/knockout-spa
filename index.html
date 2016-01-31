@@ -16,7 +16,7 @@
 </head>
 <body data-bind="attr: { 'class': bodyClass }">
 <div class="wrapper" onclick="">
-    <div data-bind="template: 'app/shared/header'"></div>
+    <!-- ko template: 'app/shared/header' --><!-- /ko -->
     <div class="container content-container">
         <noscript>
             <div class="error-container">
@@ -30,7 +30,7 @@
     </div>
     <div class="footer-pusher"></div>
 </div>
-<div data-bind="template: 'app/shared/footer'"></div>
+<!-- ko template: 'app/shared/footer' --><!-- /ko -->
 <script src="/js/lib/require.js"></script><!-- TODO: change the path if needed -->
 <script>
     /* TODO: change to your own require config if needed */
