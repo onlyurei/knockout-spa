@@ -58,7 +58,7 @@ define(['RootBindings', 'PageDisposer', 'knockout', 'sugar'], function (RootBind
                 controller(data);
             }
 
-            Page.bodyClass([name.dasherize(), ('ontouchstart' in document.documentElement) ? 'touch' : 'no-touch'].join(' '));
+            Page.pageClass([name.dasherize(), ('ontouchstart' in document.documentElement) ? 'touch' : 'no-touch'].join(' '));
             Page.page({
                 name: name,
                 data: data
@@ -84,7 +84,7 @@ define(['RootBindings', 'PageDisposer', 'knockout', 'sugar'], function (RootBind
                 dispose: function () {} // properly dispose the page to prevent memory leaks and UI leftovers (important for SPA since page doesn't refresh between page views) - remove DOM element event listeners, dispose knockout manual subscriptions, etc.
             }
         }),
-        bodyClass: ko.observable(''),
+        pageClass: ko.observable(''),
         loading: ko.observable(false),
         title: function () {
             return Page.page().name.titleize(); // override in RootBindings as needed

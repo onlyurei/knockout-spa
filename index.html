@@ -1,9 +1,6 @@
 <!--[if HTML5]><![endif]-->
 <!DOCTYPE html>
-<!--[if lte IE 9]>
-<html class="lte-ie9"><![endif]-->
-<!--[if gt IE 9]><!-->
-<html><!--<![endif]-->
+<html data-bind="attr: { 'class': pageClass }">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="UTF-8">
@@ -14,23 +11,21 @@
     <link rel="stylesheet" href="/css/lib.css"><!-- TODO: change the path if needed -->
     <link rel="stylesheet" href="/css/app.css"><!-- TODO: change the path if needed -->
 </head>
-<body data-bind="attr: { 'class': bodyClass }">
-<div class="wrapper" onclick="">
+<body>
+<div class="wrapper">
     <!-- ko template: 'app/shared/header' --><!-- /ko -->
-    <div class="container content-container">
-        <noscript>
-            <div class="error-container">
-                <h3 class="label label-danger">In order to use the site, please enable JavaScript in the browser.</h3>
-            </div>
-        </noscript>
-        <main data-bind="template: { name: ['app', page().name.split('_'), page().name.split('_').last()].flatten().join('/'), data: page().data }"></main>
-        <div data-bind="visible: loading" class="position-fixed offset-center">
-            <i class="icon icon-spinner icon-2x icon-spin"></i>
+    <noscript>
+        <div class="error-container">
+            <p class="label label-danger">In order to use the site, please enable JavaScript in the browser.</p>
         </div>
+    </noscript>
+    <main data-bind="template: { name: ['app', page().name.split('_'), page().name.split('_').last()].flatten().join('/'),
+                                 data: page().data }"></main>
+    <div data-bind="visible: loading" class="position-fixed offset-center">
+        <i class="icon icon-spinner icon-2x icon-spin"></i>
     </div>
-    <div class="footer-pusher"></div>
+    <!-- ko template: 'app/shared/footer' --><!-- /ko -->
 </div>
-<!-- ko template: 'app/shared/footer' --><!-- /ko -->
 <script src="/js/lib/require.js"></script><!-- TODO: change the path if needed -->
 <script>
     /* TODO: change to your own require config if needed */
