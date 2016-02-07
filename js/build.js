@@ -14,22 +14,22 @@
         {
             name: 'common',
             include: [
-                'Api',
-                'AppRouter',
-                'Page'
+                'app/shared/api/api',
+                'framework/router',
+                'framework/page'
                 /* TODO: add other common modules */
             ]
         },
         {
-            name: 'Error',
+            name: 'app/error/error',
             exclude: ['common']
         },
         {
-            name: 'Home',
+            name: 'app/home/home',
             exclude: ['common']
         },
         {
-            name: 'PathSubPath',
+            name: 'app/path/sub-path',
             exclude: ['common']
         }
         /* TODO: add other page modules */

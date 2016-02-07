@@ -1,74 +1,17 @@
 require.config({
     paths: {
-        /* TODO: register all AMD modules by providing CamelCase aliases, exceptions are RequireJS plugins and named AMD modules, whose names are fixed */
-        /* follow files dictionary order */
-
-        //app/error
-        'Error': 'app/error/error',
-
-        //app/home
-        'Home': 'app/home/home',
-
-        //app/path/sub-path
-        'PathSubPath': 'app/path/sub-path/sub-path',
-
-        //app/shared
-        'Config': 'app/shared/config',
-        'RootBindings': 'app/shared/root-bindings',
-        'Routes': 'app/shared/routes',
-        'UrlUtil': 'app/shared/url-util',
-
-        //app/shared/api
-        'Api': 'app/shared/api/api',
-        'ApiExample': 'app/shared/api/api-example',
-
-        //framework
-        'Page': 'framework/page',
-        'PageDisposer': 'framework/page-disposer',
-        'AppRouter': 'framework/router',
-
-        //i18n
-        'Strings': 'i18n/strings',
-        'Resources': 'i18n/resources',
-
         //lib
-        'Router': 'lib/director',
-        'jquery': 'lib/jquery',
-        'Class': 'lib/jsface',
-        'knockout.raw': 'lib/knockout',
-        'knockout.amd.helpers': 'lib/knockout-amd-helpers',
         'i18n': 'lib/require-i18n',
         'text': 'lib/require-text',
-        'sugar': 'lib/sugar',
 
         //lib-ext
-        'knockout.custom.bindings': 'lib-ext/knockout-custom-bindings',
-        'knockout.custom.bindings.core': 'lib-ext/knockout-custom-bindings-core',
-        'knockout': 'lib-ext/knockout-extended',
-
-        //util
-        'Cache': 'util/cache',
-        'Dom': 'util/dom',
-        'ErrorReporter': 'util/error-reporter',
-        'Geolocation': 'util/geolocation',
-        'GA': 'util/google-analytics',
-        'Json': 'util/json',
-        'KeyboardEventHandler': 'util/keyboard-event-handler',
-        'PersistedObservable': 'util/persisted-observable',
-        'Storage': 'util/storage',
-
-        //widget/form
-        'Form': 'widget/form/form',
-        'FormInput': 'widget/form/form-input',
-        'FormInputLocation': 'widget/form/form-input-location',
-        'FormInputSorter': 'widget/form/form-input-sorter'
+        'jquery': 'lib/jquery',
+        'knockout': 'lib-ext/knockout-extended'
+        /* TODO: register AMD modules only as needed (e.g. shorthand for extended lib),
+           or as required by third-party libs (e.g. lib expects dependencies to be called certain fixed module names) */
     },
     shim: {
-        /* TODO: provide all needed shims for non-AMD modules */
-        'Class': {
-            exports: 'Class'
-        },
-        'Router': {
+        'lib/director': {
             exports: 'Router'
         }
     }

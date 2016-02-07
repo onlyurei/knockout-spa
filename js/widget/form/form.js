@@ -18,7 +18,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-define(['Json', 'Class', 'knockout', 'sugar'], function (Json, Class, ko) {
+define(['util/json', 'lib/jsface', 'knockout', 'lib/sugar'], function (Json, Class, ko) {
 
     var Form = Class({
         constructor: function (inputs, submit, initFromQueryString) {

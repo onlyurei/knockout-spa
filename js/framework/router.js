@@ -18,19 +18,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-define(['Page', 'Routes', 'Router', 'jquery', 'sugar'], function (Page, Routes, Router) {
+define(['framework/page', 'app/shared/routes', 'lib/director', 'jquery', 'lib/sugar'], function (
+    Page, Routes, Router) {
 
-    function initPage(pageName, controller) {
-        var lowerCasePageName = pageName.toLowerCase();
-        require([lowerCasePageName.camelize()], function (page) {
-            Page.init(lowerCasePageName, page, controller);
+    function initPage(pageModulePath, controller) {
+        require([pageModulePath], function (page) {
+            var pathParts = pageModulePath.split('/');
+            var pageName = pathParts.slice(1, pathParts.length - 1).join('-');
+            Page.init(pageName, page, controller, pageModulePath);
         });
     }
 
     var routes = {};
     Object.each(Routes, function (key, value) {
         var values = value.split(' ');
-        var pageName = values[0];
+        var pageModulePath = values[0];
         var controllerName = values[1];
         routes[key] = function () {
             Page.loading(true);
@@ -38,7 +40,7 @@ define(['Page', 'Routes', 'Router', 'jquery', 'sugar'], function (Page, Routes, 
             var controller = controllerName ? function (page) {
                 page.controllers[controllerName].apply(null, args);
             } : null;
-            initPage(pageName, controller);
+            initPage(pageModulePath, controller);
         };
     });
 

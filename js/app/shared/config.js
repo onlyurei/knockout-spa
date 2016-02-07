@@ -1,4 +1,4 @@
-define(['Storage', 'Router', 'Api', 'knockout', 'sugar'], function (Storage, Router, Api, ko) {
+define(['util/storage', 'lib/director', 'app/shared/api/api', 'knockout', 'lib/sugar'], function (Storage, Router, Api, ko) {
 
     var Config = ko.observable({});
 

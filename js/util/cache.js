@@ -18,7 +18,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-define(['Class', 'Storage', 'sugar'], function (Class, Storage) {
+define(['lib/jsface', 'util/storage', 'lib/sugar'], function (Class, Storage) {
 
     var Cache = Class({
         constructor: function (size, storageKey, permanentStorage) {

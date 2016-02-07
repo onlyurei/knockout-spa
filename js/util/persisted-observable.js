@@ -18,7 +18,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-define(['Storage', 'knockout.raw'], function (Storage, ko) {
+define(['util/storage', 'lib/knockout'], function (Storage, ko) {
 
     function unwrapInitialValueFallback(initialValueFallback) {
         if (ko.isObservable(initialValueFallback) || (typeof initialValueFallback == 'function')) {

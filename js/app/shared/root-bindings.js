@@ -1,4 +1,7 @@
-define(['UrlUtil', 'Dom', 'Strings', 'Storage', /* TODO: add other root bindings the app needs */ 'jquery'], function (
+define([
+    'app/shared/url-util', 'util/dom', 'locale/strings', 'util/storage', 'jquery'
+    /* TODO: add other root bindings the app needs */
+], function (
     UrlUtil, Dom, Strings, Storage) {
 
     var redirectUrlKey = 'redirectUrl';

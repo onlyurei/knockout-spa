@@ -20,6 +20,10 @@ A mini (less than 200 LOC but full-fledged) SPA framework built on top of:
 * Start building your own SPA from the provided setup - be cautious of changing the files in `/js/framework`, `/js/util`, `/js/widget` folders, otherwise do whatever you want with the setup!
 * Only needed external thing is the RequireJS optimizer r.js, just run `npm install` in the repo
 
+### What's new in 2.0? ###
+No need to do the cumbersome AMD path configs for EVERY module anymore!
+Register AMD modules only as needed (e.g. shorthand for extended lib), or as required by third-party libs (e.g. lib expects dependencies to be called certain fixed module names)
+
 ### Features ###
 
 * Routing (based on Flatiron's Director): HTML5 history (pushState) or hash.

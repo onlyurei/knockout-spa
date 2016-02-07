@@ -1,3 +1,26 @@
-define(['knockout.raw', 'knockout.amd.helpers', 'knockout.custom.bindings'], function (ko) {
+define(['lib/knockout', 'lib/knockout-amd-helpers', 'lib-ext/knockout-custom-bindings'], function (ko) {
+
+    //this allows the usage of custom elements (http://knockoutjs.com/documentation/component-custom-elements.html)
+    //without having to explicitly register them beforehand
+    //the catch is that if unrecognized HTML tags are found, and they are not custom elements, error will be thrown
+    ko.components['getComponentNameForNode'] = function (node) {
+        var tagNameLower = node.tagName && node.tagName.toLowerCase(node);
+        // Try to determine that this node can be considered a *custom* element; see https://github.com/knockout/knockout/issues/1603
+        if (tagNameLower.indexOf('-') != -1 || ('' + node) == '[object HTMLUnknownElement]' ||
+            (ko.utils.ieVersion <= 8 && node.tagName === tagNameLower)) {
+            return tagNameLower;
+        }
+    };
+
+    //establish a component AMD path convention for the configuration of component/custom elements
+    //each component should be a file with the corresponding filename under /js/component/ folder
+    //http://knockoutjs.com/documentation/component-loaders.html#getconfigname-callback
+    //http://knockoutjs.com/documentation/component-registration.html#a-recommended-amd-module-pattern
+    ko.components.loaders.push({
+        getConfig: function(name, callback) {
+            callback({ require: 'component/' + name });
+        }
+    });
+
     return ko;
 });

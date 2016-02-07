@@ -1,9 +1,9 @@
-define(['knockout.raw', 'jquery', 'sugar'], function (ko) {
+define(['lib/knockout', 'jquery', 'lib/sugar'], function (ko) {
 
     ko.bindingHandlers.string = {
         init: function (element, valueAccessor, allBindingsAccessor) {
             var value = ko.utils.unwrapObservable(valueAccessor()), allBindings = allBindingsAccessor();
-            require(['Strings'], function (Strings) {
+            require(['locale/strings'], function (Strings) {
                 var _html = Strings(value, allBindings.tokens);
                 var filters = allBindings.filters || null;
                 if (filters) {

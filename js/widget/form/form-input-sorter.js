@@ -18,7 +18,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-define(['FormInput', 'Class', 'sugar'], function (FormInput, Class) {
+define(['widget/form/form-input', 'lib/jsface', 'lib/sugar'], function (FormInput, Class) {
 
     var FormInputSorter = Class(FormInput, {
         constructor: function (orderByKey, orderDirKey, options, initFromQueryString) {

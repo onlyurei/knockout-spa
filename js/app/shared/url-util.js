@@ -1,4 +1,4 @@
-define(['sugar'], function () {
+define(['lib/sugar'], function () {
 
     var stringRegEx = /(.*?)(?:--|$|\/)/i;
     var invalidStringRegExTest = /[^a-z0-9_\-\s\.]/i;

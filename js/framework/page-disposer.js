@@ -18,7 +18,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-define(['knockout', 'sugar'], function (ko) {
+define(['knockout', 'lib/sugar'], function (ko) {
 
     var initialValues = {};
 

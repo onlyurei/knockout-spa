@@ -1,4 +1,4 @@
-define(['jquery', 'sugar'], function () {
+define(['jquery', 'lib/sugar'], function () {
 
     var isIE = null;
     var isIE9AndBelow = null;
@@ -16,6 +16,7 @@ define(['jquery', 'sugar'], function () {
                 a.click();
             }).delay((delay > 0) ? delay : 0);
         },
+        fakeHttps: true, /* TODO: remove */
         ensureHttps: function () {
             if (Dom.fakeHttps) {
                 return true;

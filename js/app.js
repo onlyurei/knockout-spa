@@ -1,6 +1,6 @@
 require(['common'], function () {
 
-    /*require(['Config', 'ErrorReporter', 'GA', 'sugar'], function (Config, ErrorReporter, GA) {
+    /*require(['app/shared/config', 'util/error-reporter', 'util/google-analytics', 'lib/sugar'], function (Config, ErrorReporter, GA) {
         require.config({
             config: {
                 i18n: {
@@ -21,6 +21,6 @@ require(['common'], function () {
 
     /* TODO: do other bootstrapping needed for your app */
 
-    require(['AppRouter']);
+    require(['framework/router']);
 
 });

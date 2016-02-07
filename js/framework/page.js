@@ -18,12 +18,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-define(['RootBindings', 'PageDisposer', 'knockout', 'sugar'], function (RootBindings, PageDisposer, ko) {
+define(['app/shared/root-bindings', 'framework/page-disposer', 'knockout', 'lib/sugar'], function (RootBindings, PageDisposer, ko) {
 
     var initialRun = true;
 
     var Page = {
-        init: function (name, data, controller) {
+        init: function (name, data, controller, path) {
             Page.loading(false);
 
             name = name.toLowerCase();
@@ -58,10 +58,11 @@ define(['RootBindings', 'PageDisposer', 'knockout', 'sugar'], function (RootBind
                 controller(data);
             }
 
-            Page.pageClass([name.dasherize(), ('ontouchstart' in document.documentElement) ? 'touch' : 'no-touch'].join(' '));
+            Page.pageClass([name, ('ontouchstart' in document.documentElement) ? 'touch' : 'no-touch'].join(' '));
             Page.page({
                 name: name,
-                data: data
+                data: data,
+                path: path
             }); // to test if template finished rendering, use afterRender binding in the template binding
 
             document.title = Page.title();

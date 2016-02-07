@@ -1,6 +1,6 @@
 define([
-    'Dom', 'jquery', 'sugar',
-    'ApiExample'
+    'util/dom', 'jquery', 'lib/sugar',
+    'app/shared/api/api-example'
     /* TODO: add all API packages here */
 ], function (Dom) {
 
@@ -14,8 +14,8 @@ define([
                 return $.Deferred().reject('Api not found.');
             }
 
-            if (api.https && !Dom.ensureHttps()) {
-                return $.Deferred().reject('Must call this api with HTTPS.');
+            if ((Api.list[apiPackage].https || api.https) && !Dom.ensureHttps()) {
+                return $.Deferred().reject('Must call this api over HTTPS.');
             }
 
             var url = prefix + (('/' + apiPackage) + (api.url || '')).assign(urlParams);
