@@ -18,36 +18,36 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-define(['knockout', 'lib/sugar'], function (ko) {
+define(['ko', 'sugar'], function (ko) {
 
-    var initialValues = {};
+  var initialValues = {};
 
-    var PageDisposer = {
-        init: function (page) {
-            initialValues = {};
-            Object.each(page, function (key, value) {
-                if (ko.isObservable(value) && !ko.isComputed(value)) { /* non-computed observables */
-                    initialValues[key] = value();
-                } else if ((value === null) || (value === undefined) || Object.isString(value) || Object.isNumber(value) || Object.isBoolean(value)) { /* primitives */
-                    initialValues[key] = value;
-                }
-            });
-        },
-        dispose: function (page) {
-            Object.each(initialValues, function (key, value) {
-                if (page.hasOwnProperty(key)) {
-                    if (Object.isFunction(page[key])) {
-                        page[key](value);
-                    } else {
-                        page[key] = value;
-                    }
-                }
-            });
-            initialValues = {};
+  var PageDisposer = {
+    init: function (page) {
+      initialValues = {};
+      Object.each(page, function (key, value) {
+        if (ko.isObservable(value) && !ko.isComputed(value)) { /* non-computed observables */
+          initialValues[key] = value();
+        } else if ((value === null) || (value === undefined) || Object.isString(value) || Object.isNumber(value) || Object.isBoolean(value)) { /* primitives */
+          initialValues[key] = value;
         }
-    };
+      });
+    },
+    dispose: function (page) {
+      Object.each(initialValues, function (key, value) {
+        if (page.hasOwnProperty(key)) {
+          if (Object.isFunction(page[key])) {
+            page[key](value);
+          } else {
+            page[key] = value;
+          }
+        }
+      });
+      initialValues = {};
+    }
+  };
 
-    return PageDisposer;
+  return PageDisposer;
 
 });
 

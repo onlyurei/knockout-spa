@@ -7,3 +7,4 @@ nbproject
 .node_history
 *.imi
 build
+node_modules

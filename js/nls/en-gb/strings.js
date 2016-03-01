@@ -1,3 +1,3 @@
 define({
-    /* TODO: add app localized strings for this locale */
+  /* TODO: add app localized strings for this locale */
 });

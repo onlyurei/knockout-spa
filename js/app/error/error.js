@@ -1,21 +1,21 @@
-define(['locale/strings', 'knockout'], function (Strings, ko) {
+define(['locale/strings', 'ko'], function (Strings, ko) {
 
-    var Error = {
-        init: function (code) {
-            Error.statusCode(code);
-        },
-        dispose: function () {},
-        controllers: {
-            '/:code': function (code) {
-                Error.statusCode(code);
-            }
-        },
-        title: function () {
-            return Strings('error.' + Error.statusCode());
-        },
-        statusCode: ko.observable('')
-    };
+  var Error = {
+    init: function (code) {
+      Error.statusCode(code);
+    },
+    dispose: function () {},
+    controllers: {
+      '/:code': function (code) {
+        Error.statusCode(code);
+      }
+    },
+    title: function () {
+      return Strings('error.' + Error.statusCode());
+    },
+    statusCode: ko.observable('')
+  };
 
-    return Error;
+  return Error;
 
 });
