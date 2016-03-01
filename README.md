@@ -14,15 +14,13 @@ A mini (less than 200 LOC but full-fledged) SPA framework built on top of:
 * Sugar (FP/Low Level Utilities).
 
 ### How do I use it? ###
-
-* All required files are in the repo already
-* Take a look at the file structure and comments/TODOs in the bootstrapped setup - you'll figure out everything in 30 minutes
+* Install `node` and `npm` if you haven't.
+* Run `npm install` in the repo's folder from command line for the first time. 
+* If you need to install new lib dependencies, run `npm install dependency-package-name --save` to install the package and save dependency entry to `package.json`, then alias the lib file in `/js/common.js` (so that you don't have to type the long relative path everywhere when using the lib as dependency).
+* Run `npm start` in the repo's folder from command line, and visit http://localhost:3000 to see the app. Note: using history api fallback so index.html will be served for all 404s.
+* Take a look at the file structure and comments/TODOs in the bootstrapped setup - you'll figure out everything in 10 minutes or less (assuming you know Knockout and Require fairly well).
 * Start building your own SPA from the provided setup - be cautious of changing the files in `/js/framework`, `/js/util`, `/js/widget` folders, otherwise do whatever you want with the setup!
-* Only needed external thing is the RequireJS optimizer r.js, just run `npm install` in the repo
-
-### What's new in 2.0? ###
-No need to do the cumbersome AMD path configs for EVERY module anymore!
-Register AMD modules only as needed (e.g. shorthand for extended lib), or as required by third-party libs (e.g. lib expects dependencies to be called certain fixed module names)
+* Run `npm run build` in the repo's folder from command line to build assets for production, see http://requirejs.org/docs/optimization.html for complete optimization guide. Built assets will be under `/build` folder of the repo. The build is setup as 2 tiers: common dependency that will be required by most page modules, and page modules excluding common dependencies (all dependencies of the page excluding the common ones will be recursively minified and inlined into the page module). **As you create new pages, remember to add the page module to the build file.** The 2-tier build strategy allows lazy-loading of page modules as needed, so that the app can be scalable to very large number of pages without upfront load/parse hit for slower browsers. **You should serve the optimized assets for production to avoid numerous AMD require calls and serving unminified files.**
 
 ### Features ###
 
