@@ -46,7 +46,7 @@ define(['framework/page', 'app/shared/routes', 'director', 'jquery', 'sugar'], f
 
   var router = new Router(routes).configure({
     strict: false,
-    html5history: true,
+    html5history: true, //TODO change to false to use hash if it's not practical to use HTML5 history api (e.g. no catch-all route on the server side, need to support IE 9 and below, etc.)
     convert_hash_in_init: false,
     notfound: function () {
       routes['/error/:code'](404);
