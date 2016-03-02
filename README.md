@@ -15,7 +15,7 @@ A mini (less than 200 LOC but full-fledged) SPA framework built on top of:
 
 ### How do I use it? ###
 * Install `node` and `npm` if you haven't.
-* If you didn't get the framework using `npm install knockout-spa`, run `npm install` in the repo's folder from command line for the first time running the app. 
+* Run `npm install` in the repo's folder from command line for the first time running the app. 
 * If you need to install new lib dependencies, run `npm install dependency-package-name --save` to install the package and save dependency entry to `package.json`, then alias the lib file in `/js/common.js` (so that you don't have to type the long relative path everywhere when using the lib as dependency).
 * Run `npm start` in the repo's folder from command line, and visit http://localhost:3000 to see the app. Notes: 
   * Using history api fallback so `index.html` will be served for all 404s. 
