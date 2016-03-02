@@ -1,5 +1,6 @@
 define(['knockout', 'knockout-amd-helpers', 'lib-ext/knockout-custom-bindings'], function (ko) {
 
+  //TODO change to your template folder path and suffix if needed
   ko.amdTemplateEngine.defaultPath = '/template';
   ko.amdTemplateEngine.defaultSuffix = '.html';
 
