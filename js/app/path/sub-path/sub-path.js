@@ -1,4 +1,4 @@
-define([/* TODO: add dependencies of this page */], function () {
+define(['css!../../../../css/app/path/sub-path/sub-path.css'/* TODO: add dependencies of this page */], function () {
 
   var PathSubPath = {
     init: function () {

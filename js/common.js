@@ -13,6 +13,13 @@ require.config({
     //lib-ext
     'ko': 'lib-ext/knockout-extended'
   },
+  packages: [
+    {
+      name: 'css',
+      location: '../node_modules/require-css',
+      main: 'css.js'
+    }
+  ],
   shim: {
     'director': {
       exports: 'Router'

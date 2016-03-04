@@ -1,5 +1,7 @@
 define([
-  'app/shared/url-util', 'util/dom', 'locale/strings', 'util/storage', 'jquery'
+  'app/shared/url-util', 'util/dom', 'locale/strings', 'util/storage', 'jquery',
+  'css!../../../node_modules/materialize-css/dist/css/materialize.css',
+  'css!../../../css/app/shared/shared.css'
   /* TODO: add other root bindings the app needs */
 ], function (
   UrlUtil, Dom, Strings, Storage) {

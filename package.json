@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "./node_modules/.bin/r.js -o js/build.js"
+    "build": "./node_modules/.bin/r.js -o ./build.js"
   },
   "keywords": [
     "knockoutjs",
@@ -33,12 +33,14 @@
     "jsface": "^2.4.9",
     "knockout": "^3.4.0",
     "knockout-amd-helpers": "^0.7.4",
+    "require-css": "^0.1.8",
     "requirejs": "^2.1.22",
     "requirejs-text": "^2.0.12",
     "sugar": "^1.4.1"
   },
   "devDependencies": {
     "express": "^4.13.4",
-    "express-history-api-fallback": "^2.0.0"
+    "express-history-api-fallback": "^2.0.0",
+    "materialize-css": "^0.97.5"
   }
 }

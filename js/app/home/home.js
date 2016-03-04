@@ -1,4 +1,4 @@
-define([/* TODO: add dependencies of this page */], function () {
+define(['css!../../../css/app/home/home.css'/* TODO: add dependencies of this page */], function () {
 
   var Home = {
     init: function () {

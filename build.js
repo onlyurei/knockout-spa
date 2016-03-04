@@ -4,13 +4,16 @@
  serve the assets from /build folder in production
  */
 ({
-  appDir: '../',
+  appDir: '.',
   baseUrl: 'js',
-  dir: '../build',
+  dir: './build',
   skipDirOptimize: true,
-  mainConfigFile: 'common.js',
+  mainConfigFile: 'js/common.js',
   optimize: 'uglify2',
-  optimizeCss: 'standard',
+  optimizeCss: 'none',
+  pragmasOnSave: {
+    excludeRequireCss: true //TODO: if dynamic CSS loading will happen, change this to false
+  },
   modules: [
     {
       name: 'common',
