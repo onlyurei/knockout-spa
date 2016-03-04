@@ -15,7 +15,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 * SEO ready (prerender.io)
 * Fast and lightweight (85 KB of JS minified and gizpped)
 * Two-tier bundle build for JS for production: common module that will be used by most pages, and page-specific modules that will be lazy-loaded
-* CSS will be inlined and minified into lib.css and app.css for production, so don't be wary about the `@import` lines in those 2 CSS files - only importing during development
+* Use `require-css` (https://github.com/guybedford/require-css) and `require-text` (https://github.com/requirejs/text) AMD plugins to load CSS and HTML templates dynamically ondemand along with the JS modules requiring them; these CSS and HTML template files will be inlined and minified into the corresponding JS modules for production build
 * No any grunt/gulp/watcher tasks required during development - you debug directly the exact same JS/CSS/HTML file you edit in the IDE. Only build task required for production is the RequireJS r.js optimizer task that's already predefined in build.js. Just figure out a config-based way to serve the assets from /build for production
 * Organized folder structure to help you stay sane for organizing and reusing JS, CSS, HTML
 * Using Knockout 3.3.0+ so ready for Knockout's flavor of web component and custom tags (http://knockoutjs.com/documentation/component-overview.html)
@@ -42,5 +42,6 @@ RentEver - Social Rental Marketplace http://rentever.com
 * Run `npm run build` in the repo's folder from command line to build assets for production, see http://requirejs.org/docs/optimization.html for complete optimization guide. 
   * Built assets will be under `/build` folder of the repo. The build is setup as 2 tiers: 1 common module that contains modules that will be required by most page modules, and page modules (1 per page) excluding common dependencies. Each built module will have all the declared dependencies **recursively minified and inlined**. 
   * The 2-tier build strategy allows lazy-loading of page modules as needed, so that the app can be scaled to very large number of pages without upfront load/parse hit for slower browsers if everything is bundle together as 1 single module. When you do a hard refresh, only the common module and the page's module are loaded. When you go to another page using the UI, that new page's module is loaded on-demand, excluding any dependencies already loaded in the common module.
+  * CSS and HTML template files will be inlined and minified with the corresponding JS modules (assuming you use `css!` and/or `text!` prefixes to add them as the JS module's dependencies) for pure modularization/portability, and reduce HTTP requests to improve app performance
   * **As you create new pages, remember to add the page modules to the build file, and add their common dependencies to the `common` module.**
   * **You should serve the optimized assets for production to avoid numerous AMD require calls and serving unminified files.**
