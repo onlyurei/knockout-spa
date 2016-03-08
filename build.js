@@ -5,7 +5,7 @@
   skipDirOptimize: false,
   mainConfigFile: 'js/common.js',
   optimize: 'uglify2',
-  optimizeCss: 'none',
+  optimizeCss: 'standard',
   pragmasOnSave: {
     excludeRequireCss: false //TODO: if dynamic CSS loading in production will not happen (e.g. load from a CDN), change this to true
   },
