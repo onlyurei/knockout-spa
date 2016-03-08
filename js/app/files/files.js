@@ -3,10 +3,13 @@ define(['app/shared/api/api', 'ko', 'sugar'], function (Api, ko) {
   var Files = {
     init: function () {
       Api.call('file', 'list').done(function (files) {
-        var unwantedFilesRegex = /^\.|\/\.|(build\/|(node_modules\/))/i;
-        Files.files(files.map(function (file) { return file.remove(/^\.\//) }).remove(function (file) {
-          return unwantedFilesRegex.test(file);
-        }));
+        var allowedFilesRegex = /^\.\/((css)|(font)|(img)|(js)|(template))\//i;
+        Files.files(files.remove(function (file) {
+          var parts = file.split('/');
+          if (parts[parts.length - 1].startsWith('.')) return true;
+          if (parts.length === 2) return false;
+          return !allowedFilesRegex.test(file);
+        }).map(function (file) { return file.remove(/^\.\//) }));
       });
       //Api call with full params example:
       //         apiPackage, apiMethod, urlParams,     data,           error,        loading,          synchronousOrSocket
