@@ -2,12 +2,12 @@
   appDir: '.',
   baseUrl: 'js',
   dir: './build',
-  skipDirOptimize: true,
+  skipDirOptimize: false,
   mainConfigFile: 'js/common.js',
   optimize: 'uglify2',
   optimizeCss: 'none',
   pragmasOnSave: {
-    excludeRequireCss: true //TODO: if dynamic CSS loading will happen, change this to false
+    excludeRequireCss: false //TODO: if dynamic CSS loading in production will not happen (e.g. load from a CDN), change this to true
   },
   modules: [
     {
@@ -21,6 +21,10 @@
     },
     {
       name: 'app/error/error',
+      exclude: ['common']
+    },
+    {
+      name: 'app/files/files',
       exclude: ['common']
     },
     {
