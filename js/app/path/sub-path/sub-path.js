@@ -21,7 +21,11 @@ define(['css!../../../../css/app/path/sub-path/sub-path.css'/* TODO: add depende
     }
   };
 
-  // If you don't need any JS logic at all (e.g. simple static text page), just return an empty object {}
+  /*
+   If you don't need any JS logic at all (e.g. simple static text page), just return an empty object {} as the page module.
+   If you want to separate the page's data from the behavior handlers (init, afterRender, dispose, controllers),
+   feel free to make the data separate module(s) and merge them into the page module as needed.
+   */
 
   return PathSubPath;
 

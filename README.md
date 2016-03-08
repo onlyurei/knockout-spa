@@ -15,10 +15,10 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 * SEO ready (prerender.io).
 * Fast and lightweight (Under 100 KB of JS minified and gizpped for inital setup).
 * Two-tier bundle build for JS for production: common module that will be used by most pages, and page-specific modules that will be lazy-loaded.
-* Use `require-css` (https://github.com/guybedford/require-css) and `require-text` (https://github.com/requirejs/text) AMD plugins to load CSS and HTML templates dynamically ondemand along with the JS modules requiring them; these CSS and HTML template files will be inlined and minified into the corresponding JS modules for production build.
+* Use `require-css` https://github.com/guybedford/require-css and `require-text` https://github.com/requirejs/text AMD plugins to load CSS and HTML templates dynamically ondemand along with the JS modules requiring them; these CSS and HTML template files will be inlined and minified into the corresponding JS modules for production build.
 * No any grunt/gulp/watcher tasks required during development - you debug directly the exact same JS/CSS/HTML file you edit in the IDE. Only build task required for production is the RequireJS r.js optimizer task that's already predefined in build.js. Just figure out a config-based way to serve the assets from /build for production.
 * Organized folder structure to help you stay sane for organizing and reusing JS, CSS, HTML.
-* Using Knockout 3.3.0+ so ready for Knockout's flavor of web component and custom tags (http://knockoutjs.com/documentation/component-overview.html).
+* Using Knockout 3.3.0+ so ready for Knockout's flavor of web component and custom tags http://knockoutjs.com/documentation/component-overview.html .
 * All documentation are in the major dependencies' own homepages, so that you don't need to completely learn a new framework:
   * Knockout (MVVM) http://knockoutjs.com
   * Require (Module Organizer/Loader/Optimizer) http://requirejs.org

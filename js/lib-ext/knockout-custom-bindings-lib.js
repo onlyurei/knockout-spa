@@ -1,10 +1,10 @@
 define(['knockout', 'jquery'], function (ko) {
 
   ko.bindingHandlers.showdown = {
-    init: function (element, valueAccessor) {
-      var value = ko.utils.unwrapObservable(valueAccessor());
+    init: function (element, valueAccessor, allBindingsAccessor) {
+      var value = ko.utils.unwrapObservable(valueAccessor()), allBindings = allBindingsAccessor();
       require(['showdown'], function (showdown) { //load lib on-demand to improve performance
-        var converter = new showdown.Converter();
+        var converter = new showdown.Converter(allBindings.showdownOptions); //use <bindingName>Options as the options object for various third-party lib bindings
         $(element).html(converter.makeHtml(value));
       });
     }
