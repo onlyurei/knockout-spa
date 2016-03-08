@@ -1,10 +1,13 @@
 define(['css!../../../../css/app/path/sub-path/sub-path.css'/* TODO: add dependencies of this page */], function () {
 
   var PathSubPath = {
-    // TODO: preparation before the page's template is rendered (optional) */
+    /* TODO: preparation before the page's template is rendered, e.g. class instantiation, access control
+     e.g.: redirect to login page if not logged in, etc. (optional) */
     init: function () {},
     /* TODO: properly dispose this page to prevent memory leaks and UI leftovers (optional)
-     (data that will no longer be used, event listeners, knockout manual subscriptions, etc.) */
+     e.g.: release event listeners, dispose knockout manual subscriptions, etc.
+     NOTE: all primitives and ko observables defined on the page module object will have their values reset to initial
+     states when leaving the page, unless false is returned in dispose function */
     dispose: function () {},
     // TODO: do things after the page's template has finished rendering (e.g. DOM manipulations) (optional)
     afterRender: function () {

@@ -2,7 +2,8 @@
   appDir: '.',
   baseUrl: 'js',
   dir: './build',
-  skipDirOptimize: false,
+  skipDirOptimize: false, //TODO: change to false if you have a pretty comprehensive build modules defined in this file, and want to speed up the build - only files recuirsively referenced in build modules will be optimized
+  generateSourceMaps: false, //TODO: change to true if you need source maps generated for easier debugging in production
   mainConfigFile: 'js/common.js',
   optimize: 'uglify2',
   optimizeCss: 'standard',

@@ -8,7 +8,10 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf build && rm -rf node_modules && npm install && ./node_modules/.bin/r.js -o ./build.js"
+    "dev": "npm install && npm start",
+    "clean": "rm -rf build && rm -rf node_modules",
+    "build": "npm run clean && npm install && ./node_modules/.bin/r.js -o ./build.js",
+    "prod": "npm run build && cd build && npm start"
   },
   "keywords": [
     "knockoutjs",

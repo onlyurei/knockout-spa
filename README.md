@@ -27,10 +27,12 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
   * Sugar (FP/Low Level Utilities) http://sugarjs.com
 
 ### Demo ###
-* http://knockout-spa.mybluemix.net/
+* Dev mode: http://knockout-spa.mybluemix.net
+* Prod Mode: http://knockout-spa-prod.mybluemix.net
 * Run locally:
-  * Clone/downlowd the repo and follow the **How do I use it?** section below and go to `http://localhost:8080` to see the app in action. If you have Chrome devtools workspace mapped and enabled, you will get live edit and live load for free out of the box.
-  * You can also follow the build instruction below and go to the `/build` folder to run `npm start` to serve and see the optimized version.
+  * Clone/download the repo and `cd` into the repo's folder in your OS terminal.
+    * Dev mode: run `npm run dev` in the terminal. If you have Chrome devtools workspace enabled and mapped to the repo's folder, you will get live edit and live load for free out of the box.
+    * Prod mode: run `npm run prod` in the terminal.
 
 ### How do I use it? ###
 * Install `node` and `npm` if you haven't.
@@ -41,6 +43,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
   * You can also change `server.js` so that it can proxy your CORS requests to endpoints which don't have CORS header present.
   * This is the dev-only simple static asset server to allow easier bootstrapping/running/testing of the app. In real life use cases, you can either deploy the frontend to a CDN and enable CORS on your endpoint API server(s) to accept CORS requests from the CDN origin(s), or deploy the frontend along with endpoint API server.
 * Take a look at the file structure and comments/TODOs in the bootstrapped setup, and serve the app up and use your browser devtool of choice to poke around - you'll figure out everything in 10 minutes or less (assuming you know Knockout and Require fairly well).
+  * **The `Files` page is a great example that demonstrates almost the whole SPA development aspect: routing, url query handling, use `ko` component to encapsulate reusable logic and use the custom tag `file` in the page's template and pass observable params to initialize the component, use `ko` custom binding to display the highlighted file source, use the `api-file` api client to make api calls easier, etc.**
 * Start building your own SPA from the provided setup - be cautious of changing the files in `/js/framework`, `/js/util`, `/js/widget` folders, otherwise do whatever you want with the setup!
 * Run `npm run build` in the repo's folder from command line to build assets for production, see http://requirejs.org/docs/optimization.html for complete optimization guide. 
   * Built assets will be under `/build` folder of the repo. The build is setup as 2 tiers: 1 common module that contains modules that will be required by most page modules, and page modules (1 per page) excluding common dependencies. Each built module will have all the declared dependencies **recursively minified and inlined**. 
