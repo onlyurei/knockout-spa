@@ -10,12 +10,7 @@ define([
       this.affix = ko.computed(function () { return params.url().from(params.url().lastIndexOf('.')).remove('.') });
     },
     getContent: function (url) {
-      require(['text!' + url], function (file) {
-        this.content(file);
-        $('file pre#{id} code'.assign({ id: this.id })).each(function (i, block) {
-          highlight.highlightBlock(block);
-        });
-      }.bind(this));
+      require(['text!' + url], this.content);
     }
   });
 
