@@ -8,12 +8,144 @@ nav.top-nav a.page-title {
   font-size: 48px;
 }
 
-.bold {
-  font-weight: bold;
-}
-
 @media only screen and (max-width: 992px) {
   .side-nav.fixed {
     left: 0;
   }
+}
+
+/* ====================================[ Utils ]==================================== */
+
+.hide-soft {
+  display: none;
+}
+
+.block {
+  display: block !important;
+}
+
+.inline-block {
+  display: inline-block !important;
+  margin-right: -4px !important;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inline {
+  display: inline !important;
+}
+
+.overflow-auto {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.position-absolute {
+  position: absolute !important;
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+.position-static {
+  position: static !important;
+}
+
+.offset-center {
+  top: 49%;
+  left: 49%;
+}
+
+@media (min-width: 768px) {
+  .v-middle {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+  }
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+.vertical-align-middle > * {
+  vertical-align: middle;
+}
+
+.vertical-align-top {
+  vertical-align: top;
+}
+
+.vertical-align-top > * {
+  vertical-align: top;
+}
+
+.vertical-align-bottom {
+  vertical-align: bottom;
+}
+
+.vertical-align-bottom > * {
+  vertical-align: bottom;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.no-border-radius {
+  border-radius: 0 !important;
+}
+
+.transparent-border {
+  border-color: transparent !important;
+}
+
+.italic {
+  font-style: italic !important;
+}
+
+.bold {
+  font-weight: 700 !important;
+}
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.clickable {
+  cursor: pointer !important;
+}
+
+.link-disabled,
+.link-disabled > * {
+  color: #999 !important;
+  cursor: default !important;
+}
+
+.bottom-box-shadow {
+  box-shadow: 0 3px 1px rgba(0, 0, 0, 0.15);
+}
+
+.preserve-whitespace {
+  white-space: pre-wrap;
+}
+
+.small-text {
+  font-size: 11px !important;
 }
