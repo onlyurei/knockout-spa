@@ -1,7 +1,9 @@
 <div class="row">
   <ul data-bind="foreach: files" class="col l3 s12">
     <li>
-      <a data-bind="attr: { href: '?url=' + $data }, text: $data" class="hoverable"></a>
+      <a data-bind="attr: { href: '?url=' + $data },
+                    text: $data, css: { bold: $parent.url() && ($data === window.location.search.remove('?url=')) }"
+         class="hoverable"></a>
     </li>
   </ul>
   <!-- ko if: url().compact() -->

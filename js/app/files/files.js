@@ -12,6 +12,7 @@ define(['app/shared/api/api', 'ko', 'sugar'], function (Api, ko) {
     controllers: {
       '/': function () {
         Files.url('/' + Object.fromQueryString(window.location.search).url);
+        window.scrollTo(0, 0);
       }
     },
     files: ko.observableArray([]),

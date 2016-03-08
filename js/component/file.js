@@ -1,6 +1,8 @@
 define([
-  '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js', 'jsface', 'ko', 'text!../../template/component/file.html',
-  'css!../../node_modules/highlight.js/styles/default.css', 'css!../../css/component/file.css', 'jquery', 'sugar'
+  '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js', 'jsface', 'ko',
+  'text!../../template/component/file.html',
+  'css!//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css', 'css!../../css/component/file.css',
+  'jquery', 'sugar'
 ], function (highlight, Class, ko, template) {
 
   var File = Class({

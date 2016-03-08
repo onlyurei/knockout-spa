@@ -5,8 +5,8 @@
     </div>
   </nav>
   <ul class="side-nav fixed">
-    <li class="bold"><a data-bind="string: 'nav.home'" href="/" class="waves-effect waves-teal"></a></li>
-    <li class="bold"><a data-bind="string: 'nav.files'" href="/files" class="waves-effect waves-teal"></a></li>
-    <li class="bold"><a data-bind="string: 'nav.sub-path'" href="/path/sub-path" class="waves-effect waves-teal"></a></li>
+    <li data-bind="css: { bold: page().name == 'home' }"><a data-bind="string: 'nav.home'" href="/" class="waves-effect waves-teal"></a></li>
+    <li data-bind="css: { bold: page().name == 'files' }"><a data-bind="string: 'nav.files'" href="/files" class="waves-effect waves-teal"></a></li>
+    <li data-bind="css: { bold: page().name == 'path-sub-path' }"><a data-bind="string: 'nav.sub-path'" href="/path/sub-path" class="waves-effect waves-teal"></a></li>
   </ul>
 </header>
