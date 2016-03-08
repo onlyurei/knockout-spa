@@ -1,9 +1,10 @@
 var fallback = require('express-history-api-fallback');
 var express = require('express');
 var app = express();
+require('sugar');
 
 app.get('/api/file', function (req, res) {
-  res.send(_results);
+  res.send(_files);
 });
 
 var root = __dirname;
@@ -38,10 +39,14 @@ function walk(dir, done) {
   });
 }
 
-var _results = [];
-function walkCallback(err, results) {
+var _files = [];
+walk('.', function (err, files) {
   if (err) throw err;
-  _results = _results.concat(results);
-}
-
-walk('.', walkCallback);
+  var allowedFilesRegex = /^\.\/((css)|(font)|(img)|(js)|(template))\//i;
+  _files = (files.remove(function (file) {
+    var parts = file.split('/');
+    if (parts[parts.length - 1].startsWith('.')) return true;
+    if (parts.length === 2) return false;
+    return !allowedFilesRegex.test(file);
+  }).map(function (file) { return file.remove(/^\.\//) }));
+});
