@@ -27,8 +27,10 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
   * Sugar (FP/Low Level Utilities) http://sugarjs.com
 
 ### Demo ###
-* Follow the **How do I use it** section below and go to `http://localhost:8080` to see the app in action. If you have Chrome devtools workspace mapped and enabled, you get live-edit and live-load for free out of the box.
-* You can also follow the build instruction below and go to the `/build` folder to run `npm start` to serve and see the optimized version.
+* http://knockout-spa.mybluemix.net/
+* Run locally:
+  * Clone/downlowd the repo and follow the **How do I use it?** section below and go to `http://localhost:8080` to see the app in action. If you have Chrome devtools workspace mapped and enabled, you will get live edit and live load for free out of the box.
+  * You can also follow the build instruction below and go to the `/build` folder to run `npm start` to serve and see the optimized version.
 
 ### How do I use it? ###
 * Install `node` and `npm` if you haven't.
