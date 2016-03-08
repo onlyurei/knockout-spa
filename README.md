@@ -11,15 +11,15 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 ### Features ###
 
 * Routing (based on Flatiron's Director): HTML5 history (pushState) or hash.
-* Highly composable and reusable: pick modules/components for a page in the page-specific JS and they will be auto-wired for the page's HTML template
-* SEO ready (prerender.io)
-* Fast and lightweight (85 KB of JS minified and gizpped)
-* Two-tier bundle build for JS for production: common module that will be used by most pages, and page-specific modules that will be lazy-loaded
-* Use `require-css` (https://github.com/guybedford/require-css) and `require-text` (https://github.com/requirejs/text) AMD plugins to load CSS and HTML templates dynamically ondemand along with the JS modules requiring them; these CSS and HTML template files will be inlined and minified into the corresponding JS modules for production build
-* No any grunt/gulp/watcher tasks required during development - you debug directly the exact same JS/CSS/HTML file you edit in the IDE. Only build task required for production is the RequireJS r.js optimizer task that's already predefined in build.js. Just figure out a config-based way to serve the assets from /build for production
-* Organized folder structure to help you stay sane for organizing and reusing JS, CSS, HTML
-* Using Knockout 3.3.0+ so ready for Knockout's flavor of web component and custom tags (http://knockoutjs.com/documentation/component-overview.html)
-* All documentation are in the major dependencies' own homepages, so that you don't need to completely learn a new framework
+* Highly composable and reusable: pick modules/components for a page in the page-specific JS and they will be auto-wired for the page's HTML template.
+* SEO ready (prerender.io).
+* Fast and lightweight (Under 100 KB of JS minified and gizpped for inital setup).
+* Two-tier bundle build for JS for production: common module that will be used by most pages, and page-specific modules that will be lazy-loaded.
+* Use `require-css` (https://github.com/guybedford/require-css) and `require-text` (https://github.com/requirejs/text) AMD plugins to load CSS and HTML templates dynamically ondemand along with the JS modules requiring them; these CSS and HTML template files will be inlined and minified into the corresponding JS modules for production build.
+* No any grunt/gulp/watcher tasks required during development - you debug directly the exact same JS/CSS/HTML file you edit in the IDE. Only build task required for production is the RequireJS r.js optimizer task that's already predefined in build.js. Just figure out a config-based way to serve the assets from /build for production.
+* Organized folder structure to help you stay sane for organizing and reusing JS, CSS, HTML.
+* Using Knockout 3.3.0+ so ready for Knockout's flavor of web component and custom tags (http://knockoutjs.com/documentation/component-overview.html).
+* All documentation are in the major dependencies' own homepages, so that you don't need to completely learn a new framework:
   * Knockout (MVVM) http://knockoutjs.com
   * Require (Module Organizer/Loader/Optimizer) http://requirejs.org
   * Director (Router) https://github.com/flatiron/director
@@ -27,7 +27,8 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
   * Sugar (FP/Low Level Utilities) http://sugarjs.com
 
 ### Demo ###
-RentEver - Social Rental Marketplace http://rentever.com
+* Follow the **How do I use it** section below and go to `http://localhost:8080` to see the app in action. If you have Chrome devtools workspace mapped and enabled, you get live-edit and live-load for free out of the box.
+* You can also follow the build instruction below and go to the `/build` folder to run `npm start` to serve and see the optimized version.
 
 ### How do I use it? ###
 * Install `node` and `npm` if you haven't.
@@ -37,7 +38,7 @@ RentEver - Social Rental Marketplace http://rentever.com
   * Using history api fallback so `index.html` will be served for all 404s. 
   * You can also change `server.js` so that it can proxy your CORS requests to endpoints which don't have CORS header present.
   * This is the dev-only simple static asset server to allow easier bootstrapping/running/testing of the app. In real life use cases, you can either deploy the frontend to a CDN and enable CORS on your endpoint API server(s) to accept CORS requests from the CDN origin(s), or deploy the frontend along with endpoint API server.
-* Take a look at the file structure and comments/TODOs in the bootstrapped setup - you'll figure out everything in 10 minutes or less (assuming you know Knockout and Require fairly well).
+* Take a look at the file structure and comments/TODOs in the bootstrapped setup, and serve the app up and use your browser devtool of choice to poke around - you'll figure out everything in 10 minutes or less (assuming you know Knockout and Require fairly well).
 * Start building your own SPA from the provided setup - be cautious of changing the files in `/js/framework`, `/js/util`, `/js/widget` folders, otherwise do whatever you want with the setup!
 * Run `npm run build` in the repo's folder from command line to build assets for production, see http://requirejs.org/docs/optimization.html for complete optimization guide. 
   * Built assets will be under `/build` folder of the repo. The build is setup as 2 tiers: 1 common module that contains modules that will be required by most page modules, and page modules (1 per page) excluding common dependencies. Each built module will have all the declared dependencies **recursively minified and inlined**. 

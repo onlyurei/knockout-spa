@@ -1,3 +1,12 @@
-<header class="header">
-    <a href="/">Home</a>
+<header>
+  <nav class="top-nav">
+    <div class="container">
+      <div class="nav-wrapper"><a data-bind="text: page().name.titleize()" class="page-title"></a></div>
+    </div>
+  </nav>
+  <ul class="side-nav fixed">
+    <li class="bold"><a data-bind="string: 'nav.home'" href="/" class="waves-effect waves-teal"></a></li>
+    <li class="bold"><a data-bind="string: 'nav.files'" href="/files" class="waves-effect waves-teal"></a></li>
+    <li class="bold"><a data-bind="string: 'nav.sub-path'" href="/path/sub-path" class="waves-effect waves-teal"></a></li>
+  </ul>
 </header>

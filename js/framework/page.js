@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2015 Cheng Fan
+ * @license Copyright (c) 2015-2016 Cheng Fan
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -43,7 +43,7 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
         return data;
       }
 
-      var autoDispose = Page.page().data.dispose(Page); // if the requested page is not the same page, dispose current page first before swap to the new page
+      var autoDispose = (Page.page().data.dispose && Page.page().data.dispose(Page)) || true; // if the requested page is not the same page, dispose current page first before swap to the new page
       if (autoDispose !== false) {
         // auto-dispose page's exposed observables and primitive properties to initial values. if not desired, return
         // false in dispose function to suppress auto-disposal for all public properties of the page, or make the
@@ -52,7 +52,7 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
       }
 
       PageDisposer.init(data); //store initial observable and primitive properties values of the page
-      var initialized = data.init(Page); // init view model and call controller (optional) before template is swapped-in
+      var initialized = (data.init && data.init(Page)) || true; // init view model and call controller (optional) before template is swapped-in
       if (initialized === false) {
         return false; // stop initialization if page's init function return false (access control, etc.)
       }

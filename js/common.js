@@ -8,6 +8,7 @@ require.config({
     'knockout-amd-helpers': '../node_modules/knockout-amd-helpers/build/knockout-amd-helpers',
     'i18n': 'lib/require-i18n',
     'text': '../node_modules/requirejs-text/text',
+    'showdown': '../node_modules/showdown/dist/showdown',
     'sugar': '../node_modules/sugar/release/sugar-full.development',
 
     //lib-ext
@@ -23,6 +24,9 @@ require.config({
   shim: {
     'director': {
       exports: 'Router'
+    },
+    'jsface': {
+      exports: 'Class'
     }
   }
 });

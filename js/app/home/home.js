@@ -1,17 +1,27 @@
-define(['css!../../../css/app/home/home.css'/* TODO: add dependencies of this page */], function () {
+define(['ko', 'css!../../../css/app/home/home.css'/* TODO: add dependencies of this page */], function (ko) {
 
   var Home = {
+    /* TODO: preparation before the page's template is rendered (optional) */
     init: function () {
-      /* TODO: preparation before the page's template is rendered */
+      require(['text!/README.md'], function (readme) {
+        Home.readme(readme);
+      });
     },
-    dispose: function () {
-      /* TODO: properly dispose this page to prevent memory leaks and UI leftovers
-       (data that will no longer be used, event listeners, knockout manual subscriptions, etc.) */
-    },
-    controllers: {
-      '/': function () {}
-    }
+    /*
+     // TODO: do things after the page's template has finished rendering (e.g. DOM manipulations) (optional)
+     afterRender: function () {
+     }
+     /!* TODO: properly dispose this page to prevent memory leaks and UI leftovers (optional)
+     (data that will no longer be used, event listeners, knockout manual subscriptions, etc.) *!/
+     dispose: function () {
+     },
+     // TODO: controllers to handle url params/query strings (optional)
+     controllers: {}
+     */
+    readme: ko.observable('')
   };
+
+  // If you don't need any JS logic at all (e.g. simple static text page), just return an empty object {}
 
   return Home;
 

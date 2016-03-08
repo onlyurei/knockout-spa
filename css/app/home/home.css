@@ -1,4 +1,7 @@
-/* page will automatically have the path-sub-path as the root css class */
-.home {
+.home main ul {
+  margin-left: 20px;
+}
 
+.home main ul li {
+  list-style-type: disc;
 }

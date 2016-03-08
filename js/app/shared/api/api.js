@@ -1,10 +1,10 @@
 define([
   'util/dom', 'jquery', 'sugar',
-  'app/shared/api/api-example'
+  'app/shared/api/api-file'
   /* TODO: add all API packages here */
 ], function (Dom) {
 
-  var prefix = '/api';
+  var prefix = '/api'; //TODO: change to your backend API prefix
 
   var Api = {
     call: function (apiPackage, apiMethod, urlParams, data, error, loading, synchronousOrSocket) {
@@ -123,7 +123,7 @@ define([
   var args = Array.prototype.slice.call(arguments, 0);
   args.each(function (arg) {
     if (Object.isObject(arg) && arg._name) {
-      Api.list[arg._name] = Object.merge({
+      Api.list[arg._name] = Object.merge(arg._crud ? { //TODO: change to your endpoint's default CRUD apis if applicable
         create: {
           type: 'POST'
         },
@@ -148,7 +148,7 @@ define([
         populate: {
           url: '/{id}/{field}'
         }
-      }, arg);
+      } : {}, arg);
     }
   });
 

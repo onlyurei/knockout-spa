@@ -1,22 +1,27 @@
 define(['css!../../../../css/app/path/sub-path/sub-path.css'/* TODO: add dependencies of this page */], function () {
 
   var PathSubPath = {
-    init: function () {
-      /* TODO: preparation before the page's template is rendered */
+    // TODO: preparation before the page's template is rendered (optional) */
+    init: function () {},
+    /* TODO: properly dispose this page to prevent memory leaks and UI leftovers (optional)
+     (data that will no longer be used, event listeners, knockout manual subscriptions, etc.) */
+    dispose: function () {},
+    // TODO: do things after the page's template has finished rendering (e.g. DOM manipulations) (optional)
+    afterRender: function () {
+      console.log('path/sub-path template finished rendering.')
     },
-    dispose: function () {
-      /* TODO: properly dispose this page to prevent memory leaks and UI leftovers
-       (data that will no longer be used, event listeners, knockout manual subscriptions, etc.) */
-    },
+    //TODO: controllers to handle url params/query strings (optional)
     controllers: {
       '/:token1': function (token1) {
-        //TODO: use token1
+        console.log(token1);
       },
-      '/:token1:/:token2': function (token1, token2) {
-        //TODO: use token1 and/or token2
+      '/:token1/:token2': function (token1, token2) {
+        console.log(token1, token2);
       }
     }
   };
+
+  // If you don't need any JS logic at all (e.g. simple static text page), just return an empty object {}
 
   return PathSubPath;
 

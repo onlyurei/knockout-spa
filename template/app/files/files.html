@@ -1,0 +1,10 @@
+<div class="row">
+  <ul data-bind="foreach: files" class="col l3 s12">
+    <li>
+      <a data-bind="attr: { href: '?url=' + $data }, text: $data" class="hoverable"></a>
+    </li>
+  </ul>
+  <!-- ko if: url().compact() -->
+  <file params="url: url" class="col l9 s12"></file>
+  <!-- /ko -->
+</div>

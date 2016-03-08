@@ -32,7 +32,7 @@ define(['knockout', 'jquery', 'sugar'], function (ko) {
   };
   ko.bindingHandlers.string.update = ko.bindingHandlers.string.init;
 
-  /* TODO: add other ko custom bindings */
+  /* TODO: add other app core ko custom bindings */
 
   return ko;
 

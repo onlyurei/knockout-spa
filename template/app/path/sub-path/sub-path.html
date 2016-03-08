@@ -1,2 +1,5 @@
 <!-- no need to have one single node as root node, also no need to add the path-sub-path as the css root class, the framework will take care of both -->
-path/sub-path
+<div class="container">
+  <span data-bind="text: window.location.pathname"></span>
+  <p data-bind="string: 'sub-path.info'"></p>
+</div>

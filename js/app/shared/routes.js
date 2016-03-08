@@ -15,10 +15,13 @@ define({
    *         2. controller name should be the same as the dynamic part of the url and starting with root (/);
    *            in the rare cases where page module definition has different value than the 1 url path component then controller name should match the whole url
    * */
-  '/': 'app/home/home /',
+  '/': 'app/home/home',
 
   //error
   '/error/:code': 'app/error/error /:code',
+
+  //demo
+  '/files': 'app/files/files /',
 
   //path
   '/path/sub-path': 'app/path/sub-path/sub-path',

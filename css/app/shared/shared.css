@@ -1,0 +1,15 @@
+header,
+main,
+footer {
+  padding-left: 240px;
+}
+
+nav.top-nav a.page-title {
+  font-size: 48px;
+}
+
+@media only screen and (max-width: 992px) {
+  .side-nav.fixed {
+    left: 0;
+  }
+}
