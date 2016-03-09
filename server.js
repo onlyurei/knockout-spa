@@ -43,9 +43,10 @@ var _files = [];
 walk('.', function (err, files) {
   if (err) throw err;
   var allowedFilesRegex = /^\.\/((css)|(font)|(img)|(js)|(template))\//i;
+  var notAllowedFilesRegex = /^(\.|_)/;
   _files = (files.remove(function (file) {
     var parts = file.split('/');
-    if (parts[parts.length - 1].startsWith('.')) return true;
+    if (notAllowedFilesRegex.test(parts[parts.length - 1])) return true;
     if (parts.length === 2) return false;
     return !allowedFilesRegex.test(file);
   }).map(function (file) { return file.remove(/^\.\//) }));
