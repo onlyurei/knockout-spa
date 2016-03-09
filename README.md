@@ -28,7 +28,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 
 ### Demo ###
 * Dev mode: http://knockout-spa.mybluemix.net
-* Prod Mode: http://knockout-spa-prod.mybluemix.net
+* Prod mode: http://knockout-spa-prod.mybluemix.net
 * Run locally:
   * Clone/download the repo and `cd` into the repo's folder in your OS terminal.
     * Dev mode: run `npm run dev` in the terminal. If you have Chrome devtools workspace enabled and mapped to the repo's folder, you will get live edit and live load for free out of the box.
