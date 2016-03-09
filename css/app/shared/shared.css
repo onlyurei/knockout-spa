@@ -24,6 +24,11 @@ nav.top-nav a.page-title {
   display: block !important;
 }
 
+.padding-left-right {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .inline-block {
   display: inline-block !important;
   margin-right: -4px !important;
@@ -62,38 +67,6 @@ nav.top-nav a.page-title {
 .offset-center {
   top: 49%;
   left: 49%;
-}
-
-@media (min-width: 768px) {
-  .v-middle {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
-  }
-}
-
-.vertical-align-middle {
-  vertical-align: middle;
-}
-
-.vertical-align-middle > * {
-  vertical-align: middle;
-}
-
-.vertical-align-top {
-  vertical-align: top;
-}
-
-.vertical-align-top > * {
-  vertical-align: top;
-}
-
-.vertical-align-bottom {
-  vertical-align: bottom;
-}
-
-.vertical-align-bottom > * {
-  vertical-align: bottom;
 }
 
 .no-margin {

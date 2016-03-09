@@ -20,11 +20,8 @@ define({
   //error
   '/error/:code': 'app/error/error /:code',
 
-  //demo
+  //files
   '/files': 'app/files/files /',
-
-  //path
-  '/path/sub-path': 'app/path/sub-path/sub-path',
-  '/path/sub-path/:token1': 'app/path/sub-path/sub-path /:token1',
-  '/path/sub-path/:token1/:token2': 'app/path/sub-path/sub-path /:token1/:token2'
+  '/files/dependencies': 'app/files/dependencies/dependencies /',
+  '/files/dependencies/:file': 'app/files/dependencies/dependencies /:file'
 });

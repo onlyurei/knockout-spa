@@ -1,12 +1,12 @@
 <div class="row">
   <ul data-bind="foreach: files" class="col l3 s12">
     <li>
-      <a data-bind="attr: { href: '?url=' + $data },
-                    text: $data, css: { bold: $parent.url() && ($data === window.location.search.remove('?url=')) }"
+      <a data-bind="attr: { href: '?file=' + $data },
+                    text: $data, css: { bold: $parent.file() && ($data === window.location.search.remove('?file=')) }"
          class="hoverable"></a>
     </li>
   </ul>
-  <!-- ko if: url().compact() -->
-  <file params="url: url" class="col l9 s12"></file>
+  <!-- ko if: file().compact() -->
+  <file params="url: file" class="col l9 s12"></file>
   <!-- /ko -->
 </div>

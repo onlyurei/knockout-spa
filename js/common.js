@@ -1,6 +1,7 @@
 require.config({
   paths: {
     //lib
+    'cytoscape': '../node_modules/cytoscape/dist/cytoscape',
     'director': '../node_modules/director/build/director',
     'jquery': '../node_modules/jquery/dist/jquery',
     'jsface': '../node_modules/jsface/dist/jsface',

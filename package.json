@@ -31,6 +31,7 @@
   ],
   "author": "Cheng Fan",
   "dependencies": {
+    "cytoscape": "^2.6.6",
     "director": "^1.2.8",
     "express": "^4.13.4",
     "express-history-api-fallback": "^2.0.0",
@@ -38,6 +39,7 @@
     "jsface": "^2.4.9",
     "knockout": "^3.4.0",
     "knockout-amd-helpers": "^0.7.4",
+    "madge": "^0.5.3",
     "materialize-css": "^0.97.5",
     "require-css": "^0.1.8",
     "requirejs": "^2.1.22",

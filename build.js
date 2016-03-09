@@ -29,11 +29,11 @@
       exclude: ['common']
     },
     {
-      name: 'app/home/home',
+      name: 'app/files/dependencies/dependencies',
       exclude: ['common']
     },
     {
-      name: 'app/path/sub-path/sub-path',
+      name: 'app/home/home',
       exclude: ['common']
     }
     /* TODO: add other page modules */

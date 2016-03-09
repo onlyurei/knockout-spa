@@ -1,4 +1,4 @@
-define(['knockout', 'jquery'], function (ko) {
+define(['knockout', 'jquery', 'sugar'], function (ko) {
 
   ko.bindingHandlers.showdown = {
     init: function (element, valueAccessor, allBindingsAccessor) {
@@ -27,6 +27,61 @@ define(['knockout', 'jquery'], function (ko) {
     }
   };
   ko.bindingHandlers.highlight.update = ko.bindingHandlers.highlight.init;
+
+  ko.bindingHandlers.cytoscape = {
+    init: function (element, valueAccessor, allBindingsAccessor) {
+      var value = ko.utils.unwrapObservable(valueAccessor()), allBindings = allBindingsAccessor();
+      if (!Object.isEmpty(value)) {
+        require(['cytoscape'], function (cytoscape) {
+          var cy = cytoscape(Object.merge({
+            container: element,
+            zoomingEnabled: true,
+            userZoomingEnabled: true,
+            elements: {
+              nodes: value.nodes,
+              edges: value.edges
+            },
+            style: cytoscape.stylesheet()
+              .selector('node')
+              .css({
+                'content': 'data(id)',
+                'font-size': 12
+              })
+              .selector('edge')
+              .css({
+                'target-arrow-shape': 'triangle',
+                'width': 1
+              })
+              .selector('.faded')
+              .css({
+                'opacity': 0.25,
+                'text-opacity': 0
+              }),
+            layout: {
+              name: 'cose',
+              directed: true,
+              padding: 10
+            }
+          }, allBindings.cytoscapeOptions));
+
+          cy.on('tap', 'node', function(e){
+            var node = e.cyTarget;
+            var neighborhood = node.neighborhood().add(node);
+
+            cy.elements().addClass('faded');
+            neighborhood.removeClass('faded');
+          });
+
+          cy.on('tap', function(e){
+            if( e.cyTarget === cy ){
+              cy.elements().removeClass('faded');
+            }
+          });
+        });
+      }
+    }
+  };
+  ko.bindingHandlers.cytoscape.update = ko.bindingHandlers.cytoscape.init;
 
   /* TODO: add other third-party lib ko custom bindings
    * Tip: when to use a ko custom binding, and when to use a ko component?

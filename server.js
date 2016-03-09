@@ -1,10 +1,30 @@
 var fallback = require('express-history-api-fallback');
 var express = require('express');
 var app = express();
+var madge = require('madge');
 require('sugar');
 
 app.get('/api/file', function (req, res) {
-  res.send(_files);
+  walk('.', function (err, files) {
+    if (err) throw err;
+    var allowedFilesRegex = /^\.\/((css)|(font)|(img)|(js)|(template))\//i;
+    var notAllowedFilesRegex = /^(\.|_)/;
+    res.send((files.remove(function (file) {
+      var parts = file.split('/');
+      if (notAllowedFilesRegex.test(parts[parts.length - 1])) return true;
+      if (parts.length === 2) return false;
+      return !allowedFilesRegex.test(file);
+    }).map(function (file) { return file.remove(/^\.\//) })));
+  });
+});
+
+app.get('/api/file/dependencies', function (req, res) {
+  res.send(madge('./js/', {
+    exclude: 'node_modules\/|^build',
+    format: 'amd',
+    requireConfig: './js/common.js',
+    findNestedDependencies: true
+  }).tree);
 });
 
 var root = __dirname;
@@ -38,16 +58,3 @@ function walk(dir, done) {
     })();
   });
 }
-
-var _files = [];
-walk('.', function (err, files) {
-  if (err) throw err;
-  var allowedFilesRegex = /^\.\/((css)|(font)|(img)|(js)|(template))\//i;
-  var notAllowedFilesRegex = /^(\.|_)/;
-  _files = (files.remove(function (file) {
-    var parts = file.split('/');
-    if (notAllowedFilesRegex.test(parts[parts.length - 1])) return true;
-    if (parts.length === 2) return false;
-    return !allowedFilesRegex.test(file);
-  }).map(function (file) { return file.remove(/^\.\//) }));
-});
