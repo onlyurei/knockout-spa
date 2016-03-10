@@ -62,7 +62,7 @@ define(['knockout', 'jquery', 'sugar'], function (ko) {
               directed: true,
               padding: 10
             }
-          }, allBindings.cytoscapeOptions));
+          }, allBindings.cytoscapeOptions, true));
 
           cy.on('tap', 'node', function(e){
             var node = e.cyTarget;

@@ -7,13 +7,15 @@ define([
 
   var Dependencies = {
     init: function () {
-      Api.call('file', 'dependencies').done(allDependencies);
+      Api.call('file', 'dependencies', null, null, Dependencies.error, Dependencies.loading).done(allDependencies);
     },
     controllers: {
       '/': function () {
         file(Object.fromQueryString(window.location.search).file || '');
       }
-    }
+    },
+    loading: ko.observable(false),
+    error: ko.observable('')
   };
 
   Dependencies.graph = ko.computed(function () {

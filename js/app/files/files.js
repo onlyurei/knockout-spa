@@ -2,7 +2,7 @@ define(['app/shared/api/api', 'ko', 'sugar'], function (Api, ko) {
 
   var Files = {
     init: function () {
-      Api.call('file', 'list').done(Files.files);
+      Api.call('file', 'list', null, null, Files.error, Files.loading).done(Files.files);
       //Api call with full params example:
       //         apiPackage, apiMethod, urlParams,     data,           error,        loading,          synchronousOrSocket
       //Api.call('file',     'example', { id: '123' }, { data: data }, errorHandler, loadingIndicator, true).then(function (data) {
@@ -16,7 +16,9 @@ define(['app/shared/api/api', 'ko', 'sugar'], function (Api, ko) {
       }
     },
     files: ko.observableArray([]),
-    file: ko.observable('')
+    file: ko.observable(''),
+    loading: ko.observable(false),
+    error: ko.observable('')
   };
 
   return Files;
