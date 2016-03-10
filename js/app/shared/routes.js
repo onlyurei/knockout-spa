@@ -22,5 +22,8 @@ define({
 
   //files
   '/files': 'app/files/files /',
-  '/files/dependencies': 'app/files/dependencies/dependencies'
+  '/files/dependencies': 'app/files/dependencies/dependencies',
+
+  //resources
+  '/resources': 'app/resources/resources'
 });

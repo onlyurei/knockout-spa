@@ -1,4 +1,4 @@
-define(['app/shared/api/api', 'ko', 'sugar'], function (Api, ko) {
+define(['app/shared/api/api', 'ko', 'sugar', 'css!../../../css/app/files/files.css'], function (Api, ko) {
 
   var Files = {
     init: function () {

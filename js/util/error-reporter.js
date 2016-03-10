@@ -1,4 +1,4 @@
-/** @license The MIT License (MIT) Copyright (c) 2015-2016 Cheng Fan (https://raw.githubusercontent.com/onlyurei/knockout-spa/master/LICENSE) */
+/*! knockout-spa (https://github.com/onlyurei/knockout-spa) * Copyright 2015-2016 Cheng Fan * MIT Licensed (https://raw.githubusercontent.com/onlyurei/knockout-spa/master/LICENSE) */
 define(['util/google-analytics', 'jquery', 'sugar'], function (GA) {
 
   var apiUrl = '';

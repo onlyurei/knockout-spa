@@ -1,12 +1,19 @@
 <header>
   <nav class="top-nav">
-    <div class="container">
-      <div class="nav-wrapper"><a data-bind="text: page().name.titleize()" class="page-title"></a></div>
-    </div>
+    <div class="nav-wrapper padding-left-right"><a data-bind="text: page().name.titleize()" class="page-title"></a></div>
   </nav>
   <ul class="side-nav fixed">
-    <li data-bind="css: { bold: page().name == 'home' }"><a data-bind="string: 'nav.home'" href="/" class="waves-effect waves-teal"></a></li>
-    <li data-bind="css: { bold: page().name == 'files' }"><a data-bind="string: 'nav.files'" href="/files" class="waves-effect waves-teal"></a></li>
-    <li data-bind="css: { bold: page().name == 'files-dependencies' }"><a data-bind="string: 'nav.files-dependencies'" href="/files/dependencies" class="waves-effect waves-teal"></a></li>
+    <li data-bind="css: { bold: page().name == 'home' }">
+      <a data-bind="string: 'nav.home'" href="/" class="waves-effect waves-teal"></a>
+    </li>
+    <li data-bind="css: { bold: page().name == 'files' }">
+      <a data-bind="string: 'nav.files'" href="/files" class="waves-effect waves-teal"></a>
+    </li>
+    <li data-bind="css: { bold: page().name == 'files-dependencies' }">
+      <a data-bind="string: 'nav.files-dependencies'" href="/files/dependencies" class="waves-effect waves-teal"></a>
+    </li>
+    <li data-bind="css: { bold: page().name == 'resources' }">
+      <a data-bind="string: 'nav.resources'" href="/resources" class="waves-effect waves-teal"></a>
+    </li>
   </ul>
 </header>

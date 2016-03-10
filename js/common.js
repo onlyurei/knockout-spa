@@ -7,9 +7,9 @@ require.config({
     'jsface': '../node_modules/jsface/dist/jsface',
     'knockout': '../node_modules/knockout/build/output/knockout-latest',
     'knockout-amd-helpers': '../node_modules/knockout-amd-helpers/build/knockout-amd-helpers',
+    'marked': '../node_modules/marked/lib/marked',
     'i18n': 'lib/require-i18n',
     'text': '../node_modules/requirejs-text/text',
-    'showdown': '../node_modules/showdown/dist/showdown',
     'sugar': '../node_modules/sugar/release/sugar-full.development',
 
     //lib-ext

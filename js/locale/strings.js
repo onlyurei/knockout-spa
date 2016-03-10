@@ -4,7 +4,7 @@ define(['i18n!nls/strings', 'sugar'], function (strings) {
     if (!key || !strings) {
       return '';
     }
-    var node = strings[key] || '';
+    var node = strings[key] || ('MISSING STRING: ' + key);
     return tokens ? (Object.isArray(tokens) ? String.prototype.assign.apply(node, tokens) : node.assign(tokens)) : node;
   };
 

@@ -1,15 +1,21 @@
 define(['knockout', 'jquery', 'sugar'], function (ko) {
 
-  ko.bindingHandlers.showdown = {
+  ko.bindingHandlers.marked = {
     init: function (element, valueAccessor, allBindingsAccessor) {
       var value = ko.utils.unwrapObservable(valueAccessor()), allBindings = allBindingsAccessor();
-      require(['showdown'], function (showdown) { //load lib on-demand to improve performance
-        var converter = new showdown.Converter(allBindings.showdownOptions); //use <bindingName>Options as the options object for various third-party lib bindings
-        $(element).html(converter.makeHtml(value));
+      require(['marked'], function (marked) { //load lib on-demand to improve performance
+        marked.setOptions(allBindings.markedOptions); //use <bindingName>Options as the options object for various third-party lib bindings
+        if (value.url) {
+          $.get(value.url).done(function (markdown) {
+            $(element).html(marked(markdown));
+          });
+        } else {
+          $(element).html(marked(value));
+        }
       });
     }
   };
-  ko.bindingHandlers.showdown.update = ko.bindingHandlers.showdown.init;
+  ko.bindingHandlers.marked.update = ko.bindingHandlers.marked.init;
 
   ko.bindingHandlers.highlight = {
     init: function (element, valueAccessor) {
@@ -66,7 +72,7 @@ define(['knockout', 'jquery', 'sugar'], function (ko) {
             }
           }, allBindings.cytoscapeOptions, true));
 
-          cy.on('tap', 'node', function(e){
+          cy.on('tap', 'node', function (e) {
             var node = e.cyTarget;
             var neighborhood = node.neighborhood().add(node);
 
@@ -74,8 +80,8 @@ define(['knockout', 'jquery', 'sugar'], function (ko) {
             neighborhood.removeClass('faded');
           });
 
-          cy.on('tap', function(e){
-            if(e.cyTarget === cy){
+          cy.on('tap', function (e) {
+            if (e.cyTarget === cy) {
               cy.elements().removeClass('faded');
             }
           });

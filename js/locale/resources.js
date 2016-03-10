@@ -4,7 +4,7 @@ define(['i18n!nls/resources'], function (resources) {
     if (!key || !resources) {
       return null;
     }
-    return resources[key] || null;
+    return resources[key] || ('MISSING RESOURCE: ' + key);
   };
 
   return resource;
