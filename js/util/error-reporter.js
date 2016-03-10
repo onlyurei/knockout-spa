@@ -23,21 +23,21 @@ define(['util/google-analytics', 'jquery', 'sugar'], function (GA) {
   }
 
   window.onerror = function (message, file, line, column, error) {
-    if (apiUrl.compact()) {
-      try {
-        var errorJson = makeErrorJson(message, file, line, column, error);
+    try {
+      var errorJson = makeErrorJson(message, file, line, column, error);
 
+      GA.trackEvent({
+        category: 'error',
+        action: 'javascript',
+        label: errorJson
+      });
+
+      if (apiUrl.compact()) {
         $.post(apiUrl, errorJson);
-
-        GA.trackEvent({
-          category: 'error',
-          action: 'javascript',
-          label: errorJson
-        });
-      } catch (e) {
-        if (window.console) {
-          window.console.error(e.message);
-        }
+      }
+    } catch (e) {
+      if (window.console) {
+        window.console.error(e.message);
       }
     }
   };

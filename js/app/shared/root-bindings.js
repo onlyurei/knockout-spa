@@ -1,25 +1,17 @@
 define([
-  'app/shared/url-util', 'util/dom', 'locale/strings', 'util/storage', 'jquery',
+  'util/dom', 'util/google-analytics', 'jquery',
   'css!../../../node_modules/materialize-css/dist/css/materialize.css',
   'css!../../../css/app/shared/shared.css'
-  /* TODO: add other root bindings the app needs */
-], function (
-  UrlUtil, Dom, Strings, Storage) {
-
-  var redirectUrlKey = 'redirectUrl';
-
-  var redirectUrl = Storage.get(redirectUrlKey, false);
-  if (redirectUrl) {
-    Storage.remove(redirectUrlKey, false);
-    window.location = redirectUrl;
-  }
+  /* TODO: add other common dependencies and root bindings most pages need (this module is implicitly required by all pages).
+     E.g.: swap Materialize UI to other CSS framework such as Bootstrap, Foundation, etc.
+     Access root bindings in various templates using $root.<propertyNameOnRootObject>) */
+], function (Dom, GA) {
 
   var RootBindings = {
     dom: Dom,
-    strings: Strings,
-    urlUtil: UrlUtil,
-    setRedirectUrl: function (url) {
-      Storage.set(redirectUrlKey, url || (window.location.pathname + window.location.search), false);
+    initExtra: function () {
+      GA.trackPageView();
+      /* TODO: modify to cater your app's needs (called on every page after the page's init handler) */
     }
   };
 

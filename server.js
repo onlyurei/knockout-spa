@@ -4,6 +4,18 @@ var app = express();
 var madge = require('madge');
 require('sugar');
 
+app.get('/api/config', function (req, res) {
+  var result = {
+    credentials: {
+      google: {
+        analytics: 'UA-74965434-1'
+      }
+    },
+    locale: 'en'
+  };
+  res.send(result);
+});
+
 app.get('/api/file', function (req, res) {
   walk('.', function (err, files) {
     if (err) throw err;

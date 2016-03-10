@@ -1,6 +1,6 @@
 <div class="row">
   <!-- ko template: 'app/shared/error' --><!-- /ko -->
-  <ul data-bind="foreach: files" class="col l3 s12">
+  <ul data-bind="foreach: files" class="col m3">
     <li>
       <a data-bind="attr: { href: '?file=' + $data },
                     text: $data, css: { bold: $parent.file() && ($data === window.location.search.remove('?file=')) }"
@@ -8,6 +8,6 @@
     </li>
   </ul>
   <!-- ko if: file().compact() -->
-  <file params="url: file" class="col l9 s12"></file>
+  <file params="url: file" class="col m9"></file>
   <!-- /ko -->
 </div>

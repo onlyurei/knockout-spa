@@ -1,5 +1,5 @@
-define(['util/storage', 'director', 'app/shared/api/api', 'ko', 'sugar'], function (
-  Storage, Router, Api, ko) {
+define(['util/storage', /*'director', */'app/shared/api/api', 'ko', 'sugar'], function (
+  Storage, /*Router, */Api, ko) {
 
   var Config = ko.observable({});
 
@@ -14,7 +14,9 @@ define(['util/storage', 'director', 'app/shared/api/api', 'ko', 'sugar'], functi
 
   Config.refresh();
 
-  Storage.addEventListener(function (event) {
+  /* TODO: because the user may have multiple tabs open in the same browser, modify the following to handle app global state changes
+           to make sure all tabs are in sync (e.g. logout). Using the localStorage on change event to notify app instances  across tabs */
+  /*Storage.addEventListener(function (event) {
     if (event.key == Config.storageKeys.configChanged) {
       if (window.location.pathname.toLowerCase().startsWith('/logout')) {
         window.location = '/';
@@ -30,7 +32,7 @@ define(['util/storage', 'director', 'app/shared/api/api', 'ko', 'sugar'], functi
       return true;
     }
     return false;
-  };
+  };*/
 
   Config.storageKeys = {
     configChanged: 'configChanged',

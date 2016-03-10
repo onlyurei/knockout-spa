@@ -50,6 +50,8 @@ define(['knockout', 'jquery', 'sugar'], function (ko) {
               .selector('edge')
               .css({
                 'target-arrow-shape': 'triangle',
+                'target-arrow-color': '#aaa',
+                'line-color': '#bbb',
                 'width': 1
               })
               .selector('.faded')
@@ -73,7 +75,7 @@ define(['knockout', 'jquery', 'sugar'], function (ko) {
           });
 
           cy.on('tap', function(e){
-            if( e.cyTarget === cy ){
+            if(e.cyTarget === cy){
               cy.elements().removeClass('faded');
             }
           });

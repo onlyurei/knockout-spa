@@ -1,5 +1,6 @@
 define([
   'util/dom', 'jquery', 'sugar',
+  'app/shared/api/api-config',
   'app/shared/api/api-file'
   /* TODO: add all API packages here */
 ], function (Dom) {
