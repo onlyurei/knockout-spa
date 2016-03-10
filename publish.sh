@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-git push origin --follow-tags
+git push origin master --follow-tags
 npm publish --registry=https://registry.npmjs.org/
