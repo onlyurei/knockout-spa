@@ -41,7 +41,7 @@
     "knockout-amd-helpers": "^0.7.4",
     "madge": "^0.5.3",
     "marked": "^0.3.5",
-    "materialize-css": "^0.97.5",
+    "materialize-css": "max1011/materialize-AMD",
     "require-css": "^0.1.8",
     "requirejs": "^2.1.22",
     "requirejs-text": "^2.0.12",

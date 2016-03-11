@@ -1,5 +1,5 @@
 define([
-  'locale/strings', 'util/google-analytics', 'jquery',
+  'locale/strings', 'util/google-analytics', 'jquery', 'materialize',
   'css!../../../node_modules/materialize-css/dist/css/materialize.css',
   'css!../../../css/app/shared/shared.css'
   /* TODO: add other common dependencies and root bindings most pages need (this module is implicitly required by all pages).

@@ -9,6 +9,7 @@ define({
     "nav.resources": "Resources",
     "files.dependencies.instruction": "This is the files (modules) dependencies graph. Outward arrow from a node indicates that node is a dependency, inward arrow to a node indicates that node is a dependant. <strong>Click on a node to see its immediate dependencies and dependants. Click on empty space to deselect nodes. You can pan the graph and drag the nodes around.</strong>",
     "files.dependencies.select.module": "Select a module to see its sub graph ({count} modules)..",
+    "resources.instruction": "Here are some useful resources for the major dependencies of the framework.",
     "join.discussion": "Join the Discussion",
     "join.discussion.text": "Come in to the knockout-spa Gitter room and discuss new features, future goals, general problems or questions, or anything else you can think of.",
     "chat": "Chat",

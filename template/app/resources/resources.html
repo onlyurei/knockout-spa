@@ -1,24 +1,76 @@
 <section class="padding-left-right">
-  <hr>
-  <a href="https://www.npmjs.com/search?q=knockout">
-    <h2>NPM Packages</h2>
-    <div>https://www.npmjs.com/search?q=knockout</div>
-  </a>
-  <hr>
-  <h2><a href="https://github.com/dnbard/awesome-knockout">Awesome Knockout</a></h2>
-  <hr>
-  <div data-bind="marked: { url: 'https://raw.githubusercontent.com/dnbard/awesome-knockout/master/readme.md' }"></div>
-  <hr>
-  <h2><a href="https://github.com/knockout/knockout/wiki/Plugins">Plugins</a></h2>
-  <hr>
-  <div data-bind="marked: { url: 'https://raw.githubusercontent.com/wiki/knockout/knockout/Plugins.md' }"></div>
-  <hr>
-  <h2><a href="https://github.com/knockout/knockout/wiki/Bindings">Bindings</a></h2>
-  <hr>
-  <div data-bind="marked: { url: 'https://raw.githubusercontent.com/wiki/knockout/knockout/Bindings.md' }"></div>
-  <hr>
-  <h2><a href="https://github.com/knockout/knockout/wiki/Recipes">Recipes</a></h2>
-  <hr>
-  <div data-bind="marked: { url: 'https://raw.githubusercontent.com/wiki/knockout/knockout/Recipes.md' }"></div>
-  <hr>
+  <p data-bind="string: 'resources.instruction'"></p>
+  <ul data-bind="jquery: { method: 'collapsible' }" class="collapsible" data-collapsible="expandable">
+    <li>
+      <div class="collapsible-header vertical-align-middle">
+        <img src="http://knockoutjs.com/img/ko-logo.png"><span>Knockout</span>
+      </div>
+      <div class="collapsible-body padding-left-right">
+        <a href="https://www.npmjs.com/search?q=knockout">
+          <h2>NPM Packages</h2>
+          <div>https://www.npmjs.com/search?q=knockout</div>
+        </a>
+        <hr>
+        <h2><a href="https://github.com/dnbard/awesome-knockout">Awesome Knockout</a></h2>
+        <hr>
+        <div data-bind="marked: { url: 'https://raw.githubusercontent.com/dnbard/awesome-knockout/master/readme.md' }">
+        </div>
+        <hr>
+        <h2><a href="https://github.com/knockout/knockout/wiki/Plugins">Plugins</a></h2>
+        <hr>
+        <div data-bind="marked: { url: 'https://raw.githubusercontent.com/wiki/knockout/knockout/Plugins.md' }"></div>
+        <hr>
+        <h2><a href="https://github.com/knockout/knockout/wiki/Bindings">Bindings</a></h2>
+        <hr>
+        <div data-bind="marked: { url: 'https://raw.githubusercontent.com/wiki/knockout/knockout/Bindings.md' }"></div>
+        <hr>
+        <h2><a href="https://github.com/knockout/knockout/wiki/Recipes">Recipes</a></h2>
+        <hr>
+        <div data-bind="marked: { url: 'https://raw.githubusercontent.com/wiki/knockout/knockout/Recipes.md' }"></div>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header vertical-align-middle">
+        <img src="http://requirejs.org/i/logo.png"><span>Require</span>
+      </div>
+      <div class="collapsible-body padding-left-right">
+        <h2><a href="https://github.com/requirejs/requirejs/wiki/Plugins">Plugins</a></h2>
+        <hr>
+        <div data-bind="marked: { url: 'https://raw.githubusercontent.com/wiki/requirejs/requirejs/Plugins.md' }"></div>
+        <hr>
+        <h2><a href="https://github.com/requirejs/requirejs/wiki/Test-frameworks">Test frameworks</a></h2>
+        <hr>
+        <div data-bind="marked: { url: 'https://raw.githubusercontent.com/wiki/requirejs/requirejs/Test-frameworks.md' }"></div>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header vertical-align-middle">
+        <img src="https://raw.githubusercontent.com/flatiron/director/master/img/director.png">
+        <span>Director</span>
+      </div>
+      <div class="collapsible-body padding-left-right">
+        <h2><a href="https://github.com/flatiron/director/blob/master/README.md">API</a></h2>
+        <hr>
+        <div data-bind="marked: { url: 'https://raw.githubusercontent.com/flatiron/director/master/README.md' }"></div>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header vertical-align-middle">
+        <img src="http://jquery.com/jquery-wp-content/themes/jquery/images/logo-jquery@2x.png">
+        <span>jQuery</span>
+      </div>
+      <div class="collapsible-body padding-left-right">
+        <iframe src="http://api.jquery.com/"></iframe>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header vertical-align-middle">
+        <img src="http://sugarjs.com/images/header.png">
+        <span>Sugar</span>
+      </div>
+      <div class="collapsible-body padding-left-right">
+        <iframe src="http://sugarjs.com/api"></iframe>
+      </div>
+    </li>
+  </ul>
 </section>

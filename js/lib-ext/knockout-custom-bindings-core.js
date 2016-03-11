@@ -32,6 +32,14 @@ define(['knockout', 'jquery', 'sugar'], function (ko) {
   };
   ko.bindingHandlers.string.update = ko.bindingHandlers.string.init;
 
+  ko.bindingHandlers.jquery = {
+    init: function (element, valueAccessor) {
+      var value = ko.utils.unwrapObservable(valueAccessor());
+      $(element)[value.method](value.options);
+    }
+  };
+  ko.bindingHandlers.update = ko.bindingHandlers.init;
+
   /* TODO: add other app core ko custom bindings */
 
   return ko;
