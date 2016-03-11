@@ -1,6 +1,6 @@
 # knockout-spa #
 
-[![Download the latest release](https://img.shields.io/badge/download-latest release-brightgreen.svg)](https://github.com/onlyurei/knockout-spa/archive/latest.zip) [![npm](https://img.shields.io/npm/v/knockout-spa.svg)](https://www.npmjs.com/package/knockout-spa) [![npm](https://img.shields.io/npm/dt/knockout-spa.svg)](https://www.npmjs.com/package/knockout-spa) [![npm](https://img.shields.io/npm/dm/knockout-spa.svg)](https://www.npmjs.com/package/knockout-spa) [![Join the chat at https://gitter.im/onlyurei/knockout-spa](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/onlyurei/knockout-spa?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Download the latest release](https://img.shields.io/badge/download-latest release-brightgreen.svg)](https://github.com/onlyurei/knockout-spa/archive/latest.zip) [![NPM downloads today](https://img.shields.io/npm/v/knockout-spa.svg)](https://www.npmjs.com/package/knockout-spa) [![NPM monthly downloads](https://img.shields.io/npm/dt/knockout-spa.svg)](https://www.npmjs.com/package/knockout-spa) [![npm](https://img.shields.io/npm/dm/knockout-spa.svg)](https://www.npmjs.com/package/knockout-spa) [![Join the chat at https://gitter.im/onlyurei/knockout-spa](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/onlyurei/knockout-spa?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Take a SPA with Knockout. 
 http://knockout-spa.mybluemix.net
