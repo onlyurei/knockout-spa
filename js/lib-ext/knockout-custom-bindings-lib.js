@@ -42,7 +42,7 @@ define(['knockout', 'jquery', 'sugar'], function (ko) {
           var cy = cytoscape(Object.merge({
             container: element,
             zoomingEnabled: true,
-            userZoomingEnabled: true,
+            userZoomingEnabled: false,
             elements: {
               nodes: value.nodes,
               edges: value.edges
