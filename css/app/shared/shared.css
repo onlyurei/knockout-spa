@@ -4,6 +4,12 @@ footer {
   padding-left: 240px;
 }
 
+select {
+  display: inherit;
+  height: auto;
+  margin-bottom: 5px;
+}
+
 nav.top-nav a.page-title {
   font-size: 48px;
 }

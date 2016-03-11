@@ -1,5 +1,13 @@
 <section class="row padding-left-right">
   <p data-bind="string: 'files.dependencies.instruction'"></p>
   <!-- ko template: 'app/shared/error' --><!-- /ko -->
+  <select data-bind="options: graph().nodes.map(function (node) { return node.data.id; }).sort(),
+                     optionsCaption: $root.strings('files.dependencies.select.module'),
+                     value: selectedNode"></select>
+  <!-- ko ifnot: selectedNode -->
   <div data-bind="cytoscape: graph, cytoscapeOptions: { zoom: 0.8, layout: { fit: false } }" class="graph"></div>
+  <!-- /ko -->
+  <!-- ko if: selectedNode -->
+  <div data-bind="cytoscape: nodeGraph" class="graph"></div>
+  <!-- /ko -->
 </section>

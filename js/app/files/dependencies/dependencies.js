@@ -9,7 +9,8 @@ define([
       Api.call('file', 'dependencies', null, null, Dependencies.error, Dependencies.loading).done(allDependencies);
     },
     loading: ko.observable(false),
-    error: ko.observable('')
+    error: ko.observable(''),
+    selectedNode: ko.observable('')
   };
 
   Dependencies.graph = ko.computed(function () {
@@ -26,6 +27,19 @@ define([
       }),
       edges: edges
     }
+  });
+
+  Dependencies.nodeGraph = ko.computed(function () {
+    var edges = Dependencies.graph().edges.findAll(function (edge) {
+      return (edge.data.source === Dependencies.selectedNode()) || (edge.data.target == Dependencies.selectedNode());
+    });
+    var nodes = edges.map(function (edge) { return [edge.data.source, edge.data.target];}).flatten().unique().map(
+      function (node) { return { data: { id: node } }; }
+    );
+    return {
+      nodes: (nodes.length && nodes) || [{ data: { id: Dependencies.selectedNode() } }],
+      edges: edges
+    };
   });
 
   return Dependencies;
