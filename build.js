@@ -35,7 +35,15 @@
     {
       name: 'app/home/home',
       exclude: ['common']
+    },
+    {
+      name: 'app/resources/resources',
+      exclude: ['common']
     }
     /* TODO: add other page modules */
-  ]
+  ],
+  paths: {
+    materialize: 'empty:'
+    /* TODO: add any modules you don't want r.js to optimize here */
+  }
 })
