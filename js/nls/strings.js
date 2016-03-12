@@ -1,5 +1,6 @@
 define({
   "root": {
+    "error.generic": "Error",
     "error.403": "Forbidden",
     "error.404": "Not Found",
     "error.500": "Internal Server Error",
