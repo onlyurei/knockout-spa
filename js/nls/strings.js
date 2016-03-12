@@ -11,8 +11,7 @@ define({
     "files.dependencies.select.module": "Select a module to see its sub graph ({count} modules)..",
     "resources.instruction": "Here are some useful resources for the major dependencies of the framework.",
     "join.discussion": "Join the Discussion",
-    "join.discussion.text": "Come in to the knockout-spa Gitter room and discuss new features, future goals, general problems or questions, or anything else you can think of.",
-    "chat": "Chat",
+    "chat": "Gitter Room Chat",
     "connect": "Connect",
     "sub-path.info": "Type dynamic path after /path/sub-path/ in the browser address bar, then open browser console to see params: /path/sub-path/:param1/:param2"
     /* TODO: add app localized strings */

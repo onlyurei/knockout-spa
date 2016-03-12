@@ -10,14 +10,30 @@ select {
   margin-bottom: 5px;
 }
 
-iframe {
-  border: none;
-  width: 100%;
-  height: 88vh;
+h1 {
+  font-size: 2.1rem;
+  line-height: 2.31rem;
+  margin: 1.05rem 0 0.84rem 0;
+}
+
+h2 {
+  font-size: 1.78rem;
+  line-height: 1.958rem;
+  margin: .89rem 0 .712rem 0;
+}
+
+h3 {
+  font-size: 1.46rem;
+  line-height: 1.606rem;
+  margin: .73rem 0 .584rem 0;
 }
 
 nav.top-nav a.page-title {
   font-size: 48px;
+}
+
+.collapsible-body p {
+  padding: .5rem;
 }
 
 @media only screen and (max-width: 992px) {

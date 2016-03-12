@@ -5,3 +5,9 @@
 .resources .collapsible .collapsible-header img {
   height: 42px;
 }
+
+.resources main .collapsible iframe {
+  border: none;
+  width: 100%;
+  height: 88vh;
+}
