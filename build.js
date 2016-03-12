@@ -44,6 +44,7 @@
   ],
   paths: {
     materialize: 'empty:'
-    /* TODO: add any modules you don't want r.js to optimize here */
+    /* TODO: add any modules you don't want r.js to optimize here with path set to 'empty:',
+             mainly for third party modules that would fail r.js optimization */
   }
 })
