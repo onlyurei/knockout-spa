@@ -51,3 +51,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
   * CSS and HTML template files will be inlined and minified with the corresponding JS modules (assuming you use `css!` and/or `text!` prefixes to add them as the JS module's dependencies) for pure modularization/portability, and reduce HTTP requests to improve app performance
   * **As you create new pages, remember to add the page modules to the build file, and add their common dependencies to the `common` module.**
   * **You should serve the optimized assets for production to avoid numerous AMD require calls and serving unminified files.**
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/onlyurei/knockout-spa/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
