@@ -28,23 +28,20 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
   * Sugar (FP/Low Level Utilities) http://sugarjs.com
 
 ### Demo ###
-* Dev mode: http://knockout-spa.mybluemix.net
-* Prod mode: http://knockout-spa-prod.mybluemix.net
-* Run locally:
-  * Clone/download the repo and `cd` into the repo's folder in your OS terminal.
-    * Dev mode: run `npm run dev` in the terminal.
-    * Prod mode: run `npm run prod` in the terminal.
+* DEV mode: http://knockout-spa.mybluemix.net
+* PROD mode: http://knockout-spa-prod.mybluemix.net
 
 ### How do I use it? ###
 * Install `node` and `npm` if you haven't.
-* Run `npm run dev` in the repo's folder from command line, and visit http://localhost:8080 (or the port you specify) to see the app in dev mode.
-  Notes: 
+* [Clone](https://github.com/onlyurei/knockout-spa.git)/[Download](https://github.com/onlyurei/knockout-spa/archive/latest.zip) the repo. You can also run `npm install knockout-spa` to install from NPM, then manually move `knockout-spa` folder out of the `node_modules` folder to where your projects are normally located.
+* `cd` into the repo's folder in your OS terminal. Run `npm run dev` to run the app in DEV mode, or run `npm run prod` to run the app in PROD mode.
+* visit http://localhost:8080 (or the port you specify) to see the app. Notes: 
   * Using history api fallback so `index.html` will be served for all 404s. 
   * You can also change `server.js` so that it can proxy your CORS requests to endpoints which don't have CORS header present.
   * This is the dev-only simple static asset server to allow easier bootstrapping/running/testing of the app. In real life use cases, you can either deploy the frontend to a CDN and enable CORS on your endpoint API server(s) to accept CORS requests from the CDN origin(s), or deploy the frontend along with endpoint API server.
 * Take a look at the file structure and comments/TODOs in the bootstrapped setup, and serve the app up and use your browser devtool of choice to poke around - you'll figure out everything in 10 minutes or less (assuming you know Knockout and Require fairly well).
   * **The `Files` page is a great example that demonstrates almost all of the SPA development aspects: routing and url query handling; using `ko` component to encapsulate reusable logic, and using custom tag `file` in the page's template and pass observable params to initialize the component; using `ko` custom binding `highlight` to display the highlighted file source; using the `api-file` api client to make api calls easier, etc.**
-  * The `Files Dependencies` page shows the modules dependencies graph of the repo. You can observe how the graph differs in Dev mode http://knockout-spa.mybluemix.net/files/dependencies vs. Prod mode http://knockout-spa-prod.mybluemix.net/files/dependencies
+  * The `Files Dependencies` page shows the modules dependencies graph of the repo. You can observe how the graph differs in DEV mode http://knockout-spa.mybluemix.net/files/dependencies vs. PROD mode http://knockout-spa-prod.mybluemix.net/files/dependencies
 * Start building your own SPA from the provided boilerplate. Be cautious of changing the files in `/js/framework`, `/js/util`, `/js/widget` folders, otherwise do whatever you want with the boilerplate! Edit the code in your IDE of choice and refresh the page to see the changes. No watcher task is required. If you have Chrome devtools workspace enabled and mapped to the repo's folder, you get live edit/load for free out of the box. https://developer.chrome.com/devtools/docs/workspaces
   * If you are new to Knockout, visit http://learn.knockoutjs.com to get the interactive quick start guide. 
 * If you need to install new lib dependencies, run `npm install dependency-package-name --save` to install the package and save dependency entry to `package.json`, then alias the lib file in `/js/common.js` (so that you don't have to type the long relative path everywhere when using the lib).
