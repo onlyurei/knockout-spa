@@ -1,39 +1,5 @@
 define(['knockout', 'jquery', 'sugar'], function (ko) {
 
-  ko.bindingHandlers.marked = {
-    init: function (element, valueAccessor, allBindingsAccessor) {
-      var value = ko.utils.unwrapObservable(valueAccessor()), allBindings = allBindingsAccessor();
-      require(['marked'], function (marked) { //load lib on-demand to improve performance
-        marked.setOptions(allBindings.markedOptions); //use <bindingName>Options as the options object for various third-party lib bindings
-        if (value.url) {
-          $.get(value.url).done(function (markdown) {
-            $(element).html(marked(markdown));
-          });
-        } else {
-          $(element).html(marked(value));
-        }
-      });
-    }
-  };
-  ko.bindingHandlers.marked.update = ko.bindingHandlers.marked.init;
-
-  ko.bindingHandlers.highlight = {
-    init: function (element, valueAccessor) {
-      var value = ko.utils.unwrapObservable(valueAccessor());
-      if (value) {
-        require([
-          '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js',
-          'css!//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css'
-        ], function (highlight) { //load lib on-demand to improve performance
-          $(element).find('code').each(function (i, block) {
-            highlight.highlightBlock(block);
-          });
-        });
-      }
-    }
-  };
-  ko.bindingHandlers.highlight.update = ko.bindingHandlers.highlight.init;
-
   ko.bindingHandlers.cytoscape = {
     init: function (element, valueAccessor, allBindingsAccessor) {
       var value = ko.utils.unwrapObservable(valueAccessor()), allBindings = allBindingsAccessor();
@@ -91,7 +57,38 @@ define(['knockout', 'jquery', 'sugar'], function (ko) {
   };
   ko.bindingHandlers.cytoscape.update = ko.bindingHandlers.cytoscape.init;
 
-  /* TODO: add other third-party lib ko custom bindings
+  ko.bindingHandlers.highlight = {
+    init: function (element, valueAccessor) {
+      var value = ko.utils.unwrapObservable(valueAccessor());
+      if (value) {
+        require(['highlightjs', 'css!highlightjs-css'], function (highlight) { //load lib on-demand to improve performance
+          $(element).find('code').each(function (i, block) {
+            highlight.highlightBlock(block);
+          });
+        });
+      }
+    }
+  };
+  ko.bindingHandlers.highlight.update = ko.bindingHandlers.highlight.init;
+
+  ko.bindingHandlers.marked = {
+    init: function (element, valueAccessor, allBindingsAccessor) {
+      var value = ko.utils.unwrapObservable(valueAccessor()), allBindings = allBindingsAccessor();
+      require(['marked'], function (marked) { //load lib on-demand to improve performance
+        marked.setOptions(allBindings.markedOptions); //use <bindingName>Options as the options object for various third-party lib bindings
+        if (value.url) {
+          $.get(value.url).done(function (markdown) {
+            $(element).html(marked(markdown));
+          });
+        } else {
+          $(element).html(marked(value));
+        }
+      });
+    }
+  };
+  ko.bindingHandlers.marked.update = ko.bindingHandlers.marked.init;
+
+  /* TODO: add other third-party lib ko custom bindings (optionally follow lib name alphabetical order)
    * Tip: when to use a ko custom binding, and when to use a ko component?
    *
    * - If the actions are mostly DOM manipulations without the need of a formal data model, such as integrating with

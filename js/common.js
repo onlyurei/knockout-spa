@@ -3,6 +3,8 @@ require.config({
     //lib
     'cytoscape': '../node_modules/cytoscape/dist/cytoscape',
     'director': '../node_modules/director/build/director',
+    'highlightjs': '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min',
+    'highlightjs-css': '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min',
     'jquery': '../node_modules/jquery/dist/jquery',
     'jsface': '../node_modules/jsface/dist/jsface',
     'knockout': '../node_modules/knockout/build/output/knockout-latest',
