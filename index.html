@@ -29,7 +29,12 @@
 <script>
   require.config({
     baseUrl: '/js',
-    waitSeconds: 60
+    waitSeconds: 60,
+    config: {
+      i18n: {
+        locale: (JSON.parse(localStorage.getItem('locale')) || 'en').toLowerCase() /* TODO: change to your app's way of getting the locale */
+      }
+    }
   });
 </script>
 <script src="/js/app.js"></script>

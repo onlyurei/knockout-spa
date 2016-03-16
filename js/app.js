@@ -2,13 +2,6 @@ require(['common'], function () {
 
   require(['app/shared/config', 'util/error-reporter', 'util/google-analytics', 'sugar'], function (
     Config, ErrorReporter, GA) {
-    require.config({
-      config: {
-        i18n: {
-          locale: Config().locale.toLowerCase() /* TODO: change to your app's way of getting the locale */
-        }
-      }
-    });
 
     GA.init(
       Config().credentials.google.analytics/* TODO: change to your app's way of getting the GA account */,
