@@ -9,11 +9,11 @@ http://knockout-spa.mybluemix.net
 
 ### 这是什么? ###
 
-迷你但五脏俱全的单页程序(SPA)框架和脚手架, 用于快速创建SPA并且保证能够优雅地扩展成巨型应用.
+迷你但五脏俱全的单页程序 (SPA) 框架和脚手架, 用于快速创建SPA并且保证能够优雅地扩展成巨型应用.
 
 ### 功能特色 ###
 
-* 路由 (基于Flatiron的Director): HTML5历史API(pushState)或者hash.
+* 路由 (基于Flatiron的Director): HTML5历史API (pushState) 或者hash.
 * 高度可组合及可重用: 挑选在一个页面会用到的模块/组件并把他们加到该页面对应的JS里, 它们会自动被连接到该页面的模板上.
 * 搜索引擎优化 (SEO) 就绪: prerender.io.
 * 快速及轻量 (优化和gzip后少于100 KB下载量).
@@ -22,7 +22,7 @@ http://knockout-spa.mybluemix.net
 * 在开发时无需任何grunt/gulp/监视/构建任务 - 你可以直接在浏览器里debug你在IDE里编辑的对应文件. 唯一需要的构建任务是用RequireJS r.js来优化构建生产环境资源. 该任务已经在 `build.js` 定义好. 你只需确保把保存在 `/build` 文件夹里的构建好的生产环境资源用于生产环境.
 * 整齐的目录结构帮助你清楚地归类和重用JS, CSS, HTML.
 * 采用 Knockout 3.3.0+, 所以可以用[Knockout风味的组件和自建标签](http://knockoutjs.com/documentation/component-overview.html).
-* 所有帮助文档都在主要依赖库自己的主页里, 所以你无需完全从头学习一个新框架(学习及练习通用及可重用的前端开发技术, 而不是特定的巨型框架和工具技术):
+* 所有帮助文档都在主要依赖库自己的主页里, 所以你无需完全从头学习一个新框架 (学习及练习通用及可重用的前端开发技术, 而不是特定的巨型框架和工具技术):
   * Knockout (MVVM库) http://knockoutjs.com
   * Require (模块组织器/加载器/优化器) http://requirejs.org
   * Director (路由器) https://github.com/flatiron/director
@@ -35,13 +35,13 @@ http://knockout-spa.mybluemix.net
 
 ### 怎么用? ###
 * 安装 `node` 和 `npm`, 如果还没有的话.
-* [克隆](https://github.com/onlyurei/knockout-spa.git)/[下载](https://github.com/onlyurei/knockout-spa/archive/latest.zip) 本项目. 你也可以运行 `npm install knockout-spa` 来从 [NPM](https://www.npmjs.com/package/knockout-spa) 安装, 然后手动把 `knockout-spa` 文件夹移出 `node_modules` 文件夹, 到你通常放项目文件夹的地方.
+* [克隆](https://github.com/onlyurei/knockout-spa.git)/[下载](https://github.com/onlyurei/knockout-spa/archive/latest.zip) 本项目. 你也可以运行 `npm install knockout-spa` 来从 [NPM](https://www.npmjs.com/package/knockout-spa) 安装, 然后手动把 `knockout-spa` 文件夹移出 `node_modules` 文件夹, 放到你通常放项目文件夹的地方.
 * 在你操作系统的终端上 `cd` 到你保存本项目的文件夹. 运行 `npm run dev` 来运行开发模式, 或者运行 `npm run prod` 来运行生产模式.
 * 访问 http://localhost:8080 (或者你制定的端口) 来看运行的app. 注意: 
   * 采用历史API适配所以 `index.html` 会被用于所有404请求. 
   * 你也可以修改 `server.js` 用来做跨域资源请求 (CORS) 代理.
-  * This is the dev-only simple static asset server to allow easier bootstrapping/running/testing of the app. In real life use cases, you can either deploy the frontend to a CDN and enable CORS on your endpoint API server(s) to accept CORS requests from the CDN origin(s), or deploy the frontend along with endpoint API server.
-* Take a look at the file structure and comments/TODOs in the bootstrapped setup, and use your browser devtool of choice to poke around - you'll figure out everything in 10 minutes or less (assuming you know Knockout and Require fairly well). 这只是个仅用于开发环境的简单资源服务器. 用于帮助更容易地运行和测试所开发的app. 在现实生活中, 你可以把前端完全部署到CDN上, 然后开启后台API服务器的CORS设定以接受来自该CDN域名的跨域资源请求. 或者你可以把前端和后端API部署到同一个域.
+  * 这只是个仅用于开发环境的简单资源服务器. 用于帮助更容易地运行和测试所开发的app. 在现实生活中, 你可以把前端完全部署到CDN上, 然后开启后台API服务器的CORS设定以接受来自该CDN域名的跨域资源请求. 或者你可以把前端和后端API部署到同一个域.
+* 看一下初始的文件结构和注释以及 `TODO`, 然后用你的浏览器开发工具来把玩一下 - 你应该能在10分钟内搞明白项目的大致原理 (假定你对 Knockout 及 AMD/Require 有较好了解). 
   * **`文件` 页面是一个演示几乎所有SPA开发所应考虑到问题的好例子: 路由以及URL搜索字符串处理; 用 `ko` 组件来封装可重用逻辑, 及在页面的HTML模板里用自定义标签 `file` 来传递可观察参数并且初始化组件实例; 用 `ko` 自定义绑定来显示格式化后的源文件内容; 用 `api-file` api 客户端来简化 api 请求等.**
   * `文件依赖关系` 页面显示项目文件模块的依赖图. **你可以观察2层的构建结构如何从 [开发模式](http://knockout-spa.mybluemix.net/files/dependencies) 模式到 [生产模式](http://knockout-spa-prod.mybluemix.net/files/dependencies) 模式改变此图的.**
 * 用提供的脚手架开始搭建你自己的SPA. 改变在 `/js/framework`, `/js/util`, `/js/widget` 文件夹里的文件时需格外小心, 除此之外你可以任意改动提供的任何文件! **用你喜欢的IDE修改文件, 刷新浏览器即可看到所做的改变, 无需任何监视任务.** 如果你启用了Chrome开发者工具里的工作空间 (workspace) 并且映射到项目本地文件夹, 你可以免费得到实时编辑/重渲染. https://developer.chrome.com/devtools/docs/workspaces
