@@ -1,7 +1,6 @@
 /**
- * @license RequireJS i18n 2.0.6 Copyright (c) 2010-2012, The Dojo Foundation All Rights Reserved.
- * Available via the MIT or new BSD license.
- * see: http://github.com/requirejs/i18n for details
+ * @license i18n 2.0.6 Copyright jQuery Foundation and other contributors.
+ * Released under MIT license, http://github.com/requirejs/i18n/LICENSE
  */
 /*jslint regexp: true */
 /*global require: false, navigator: false, define: false */
@@ -101,14 +100,14 @@
                 }
 
                 var masterName,
-                    match = nlsRegExp.exec(name),
-                    prefix = match[1],
-                    locale = match[4],
-                    suffix = match[5],
-                    parts = locale.split('-'),
-                    toLoad = [],
-                    value = {},
-                    i, part, current = '';
+                  match = nlsRegExp.exec(name),
+                  prefix = match[1],
+                  locale = match[4],
+                  suffix = match[5],
+                  parts = locale.split('-'),
+                  toLoad = [],
+                  value = {},
+                  i, part, current = '';
 
                 //If match[5] is blank, it means this is the top bundle definition,
                 //so it does not have to be handled. Locale-specific requests
@@ -124,10 +123,10 @@
                     locale = masterConfig.locale;
                     if (!locale) {
                         locale = masterConfig.locale =
-                            typeof navigator === 'undefined' ? 'root' :
-                            ((navigator.languages && navigator.languages[0]) ||
-                             navigator.language ||
-                             navigator.userLanguage || 'root').toLowerCase();
+                          typeof navigator === 'undefined' ? 'root' :
+                          ((navigator.languages && navigator.languages[0]) ||
+                           navigator.language ||
+                           navigator.userLanguage || 'root').toLowerCase();
                     }
                     parts = locale.split('-');
                 }
@@ -151,7 +150,7 @@
                     req([masterName], function (master) {
                         //Figure out the best fit
                         var needed = [],
-                            part;
+                          part;
 
                         //Always allow for root, then do the rest of the locale parts.
                         addPart('root', master, needed, toLoad, prefix, suffix);
