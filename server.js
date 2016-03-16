@@ -10,8 +10,7 @@ app.get('/api/config', function (req, res) {
       google: {
         analytics: 'UA-74965434-1'
       }
-    },
-    locale: 'en'
+    }
   };
   res.send(result);
 });

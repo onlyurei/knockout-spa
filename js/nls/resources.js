@@ -1,6 +1,7 @@
 define({
   "root": {
+    "readme": "/README.md"
     /* TODO: add app localized resources */
   },
-  "en-gb": true
+  "zh": true
 });

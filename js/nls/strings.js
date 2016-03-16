@@ -1,5 +1,7 @@
 define({
   "root": {
+    "locale.en": "English",
+    "locale.zh-CN": "中文 - Chinese",
     "error.generic": "Error",
     "error.403": "Forbidden",
     "error.404": "Not Found",
@@ -8,15 +10,14 @@ define({
     "nav.files": "Files",
     "nav.files-dependencies": "Files Dependencies",
     "nav.resources": "Resources",
-    "files.dependencies.instruction": "This is the files (modules) dependencies graph. Outward arrow from a node indicates that node is a dependency, inward arrow to a node indicates that node is a dependant. <strong>Click on a node to see its immediate dependencies and dependants. Click on empty space to deselect nodes. You can pan the graph and drag the nodes around.</strong>",
-    "files.dependencies.select.module": "Select a module to see its sub graph ({count} modules)..",
+    "files.dependencies.instruction": "This is the files (modules) dependencies graph. Outward arrow from a node indicates that node is a dependency, inward arrow to a node indicates that node is a dependant. <br><strong>Click on a node to see its immediate dependencies and dependants. Click on empty space to deselect nodes. You can pan the graph and drag the nodes around.</strong>",
+    "files.dependencies.select.module": "Select a module to see its sub graph ({count} modules)...",
     "resources.instruction": "Here are some useful resources for the major dependencies of the framework.",
     "join.discussion": "Join the Discussion",
     "chat": "Gitter Room Chat",
-    "connect": "Connect",
-    "sub-path.info": "Type dynamic path after /path/sub-path/ in the browser address bar, then open browser console to see params: /path/sub-path/:param1/:param2"
+    "connect": "Connect"
     /* TODO: add app localized strings */
   },
-  "en-gb": true
+  "zh": true
   /* TODO: add other supported locales */
 });

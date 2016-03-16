@@ -1,13 +1,15 @@
 define([
-  'locale/strings', 'util/google-analytics', 'jquery', 'materialize',
+  'app/shared/config', 'locale/resources', 'locale/strings', 'util/google-analytics', 'jquery', 'materialize',
   'css!../../../node_modules/materialize-css/dist/css/materialize.css',
   'css!../../../css/app/shared/shared.css'
   /* TODO: add other common dependencies and root bindings most pages need (this module is implicitly required by all pages).
-     E.g.: swap Materialize UI to other CSS framework such as Bootstrap, Foundation, etc.
-     Access root bindings in various templates using $root.<propertyNameOnRootObject>) */
-], function (Strings, GA) {
+   E.g.: swap Materialize UI to other CSS framework such as Bootstrap, Foundation, etc.
+   Access root bindings in various templates using $root.<propertyNameOnRootObject>) */
+], function (Config, Resources, Strings, GA) {
 
   var RootBindings = {
+    config: Config,
+    resources: Resources,
     strings: Strings,
     initExtra: function () {
       GA.trackPageView();

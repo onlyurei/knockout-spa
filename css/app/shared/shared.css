@@ -29,7 +29,7 @@ h3 {
 }
 
 nav.top-nav a.page-title {
-  font-size: 48px;
+  font-size: 30px;
 }
 
 .collapsible-body p {
@@ -49,7 +49,7 @@ nav.top-nav a.page-title {
 }
 
 .block {
-  display: block !important;
+  display: block;
 }
 
 .padding-left-right {
@@ -58,8 +58,8 @@ nav.top-nav a.page-title {
 }
 
 .inline-block {
-  display: inline-block !important;
-  margin-right: -4px !important;
+  display: inline-block;
+  margin-right: -4px;
 }
 
 .center {
@@ -68,7 +68,7 @@ nav.top-nav a.page-title {
 }
 
 .inline {
-  display: inline !important;
+  display: inline;
 }
 
 .overflow-auto {
@@ -81,15 +81,15 @@ nav.top-nav a.page-title {
 }
 
 .position-absolute {
-  position: absolute !important;
+  position: absolute;
 }
 
 .position-relative {
-  position: relative !important;
+  position: relative;
 }
 
 .position-static {
-  position: static !important;
+  position: static;
 }
 
 .offset-center {
@@ -122,45 +122,49 @@ nav.top-nav a.page-title {
 }
 
 .no-margin {
-  margin: 0 !important;
+  margin: 0;
 }
 
 .no-padding {
-  padding: 0 !important;
+  padding: 0;
 }
 
 .no-border {
-  border: none !important;
+  border: none;
 }
 
 .no-border-radius {
-  border-radius: 0 !important;
+  border-radius: 0;
 }
 
 .transparent-border {
-  border-color: transparent !important;
+  border-color: transparent;
 }
 
 .italic {
-  font-style: italic !important;
+  font-style: italic;
 }
 
 .bold {
-  font-weight: 700 !important;
+  font-weight: 700;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .uppercase {
-  text-transform: uppercase !important;
+  text-transform: uppercase;
 }
 
 .clickable {
-  cursor: pointer !important;
+  cursor: pointer;
 }
 
 .link-disabled,
 .link-disabled > * {
-  color: #999 !important;
-  cursor: default !important;
+  color: #999;
+  cursor: default;
 }
 
 .bottom-box-shadow {
@@ -172,7 +176,7 @@ nav.top-nav a.page-title {
 }
 
 .small-text {
-  font-size: 11px !important;
+  font-size: 11px;
 }
 
 .hoverable {

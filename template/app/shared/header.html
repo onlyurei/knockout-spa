@@ -1,6 +1,14 @@
 <header>
   <nav class="top-nav">
-    <div class="nav-wrapper padding-left-right"><a data-bind="text: page().name.titleize()" class="page-title"></a></div>
+    <div class="nav-wrapper padding-left-right">
+      <a data-bind="text: page().name.titleize()" class="page-title"></a>
+      <ul data-bind="foreach: config.locales" class="right">
+        <li>
+          <a data-bind="string: 'locale.' + $data, click: function () { $root.config.setLocale($data); },
+                        css: { underline: $data === $root.config().locale, clickable: $data !== $root.config().locale }"></a>
+        </li>
+      </ul>
+    </div>
   </nav>
   <ul class="side-nav fixed">
     <li data-bind="css: { bold: page().name == 'home' }">
