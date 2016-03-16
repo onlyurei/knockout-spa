@@ -21,7 +21,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 * Use [`require-css`](https://github.com/guybedford/require-css) and [`require-text`](https://github.com/requirejs/text) AMD plugins to load CSS and HTML templates dynamically ondemand along with the JS modules requiring them; these CSS and HTML template files will be inlined and minified into the corresponding JS modules for production build.
 * No any grunt/gulp/watcher/build tasks required during development - you debug directly the exact same JS/CSS/HTML file you edit in the IDE. Only build task required for production is the RequireJS r.js optimizer task that's already predefined in `build.js`. Just figure out a config-based way to serve the assets from `/build` folder for production.
 * Organized folder structure to help you stay sane for organizing and reusing JS, CSS, HTML.
-* Use [require-i18n](https://github.com/requirejs/i18n) for scalable internationalization/localization.
+* Use [`require-i18n`](https://github.com/requirejs/i18n) for scalable internationalization/localization.
 * Using Knockout 3.3.0+ so ready for [Knockout's flavor of web component and custom tags](http://knockoutjs.com/documentation/component-overview.html).
 * All documentation are in the major dependencies' own homepages, so that you don't need to completely learn a new framework (learn and practice general and reusable frontend development skills, not specific giant framework and tooling skills):
   * Knockout (MVVM) http://knockoutjs.com
