@@ -23,13 +23,13 @@ http://knockout-spa.mybluemix.net
 * 整齐的目录结构帮助你清楚地归类和重用JS，CSS，HTML。
 * 用 [`require-i18n`](https://github.com/requirejs/i18n) 来做可扩展的国际化/本地化。
 * 采用 Knockout 3.3.0+，所以可以用[Knockout风味的组件和自建标签](http://knockoutjs.com/documentation/component-overview.html)。
-* 所有帮助文档都在主要依赖库自己的主页里，所以你无需完全从头学习一个新框架 (学习及练习通用及可重用的前端开发技术，而不是特定的巨型框架和工具技术):
+* 所有帮助文档都在主要依赖库自己的主页里，所以你无需完全从头学习一个新框架 (**学习及练习通用及可重用的前端开发技术，而不是特定的巨型框架和工具技术**):
   * [Knockout](http://knockoutjs.com) (MVVM库)
   * [Require](http://requirejs.org) (模块组织器/加载器/优化器)
   * [Director](https://github.com/flatiron/director) (路由器)
   * [jQuery](http://jquery.com) (DOM工具集)
   * [Sugar](http://sugarjs.com) (原生对象工具集)
-* **本框架的一个优势：如果你不喜欢这些主要依赖库，你可以把它们换掉而不用完全重写整个项目。例如: 用[Vue](https://vuejs.org/)来换掉Knockout，用[Webpack](http://webpack.github.io/)来换掉Require，用[Crossroads](https://millermedeiros.github.io/crossroads.js/)来换掉Director，用[Prototype](http://prototypejs.org/)来换掉jQuery，用[Lodash](https://lodash.com/)或者[Underscore](http://underscorejs.org/)来换掉Sugar，等等。**
+* **本迷你框架的重要优势：如果你不喜欢这些主要依赖库，你可以把它们换掉而不用完全重写整个项目。例如: 用[Vue](https://vuejs.org/)来换掉Knockout，用[Webpack](http://webpack.github.io/)来换掉Require，用[Crossroads](https://millermedeiros.github.io/crossroads.js/)来换掉Director，用[Prototype](http://prototypejs.org/)来换掉jQuery，用[Lodash](https://lodash.com/)或者[Underscore](http://underscorejs.org/)来换掉Sugar，等等。另外，如果你不喜欢此框架的一些内容，你可以容易地改变它们，因为此框架只是架在这些SPA依赖库上面的一个薄层。**
 
 ### 演示 ###
 * 开发模式：http://knockout-spa.mybluemix.net
