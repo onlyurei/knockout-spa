@@ -17,7 +17,7 @@ http://knockout-spa.mybluemix.net
 * 高度可组合及可重用：挑选在一个页面会用到的模块/组件并把他们加到该页面对应的JS里，它们会自动被连接到该页面的模板上。
 * 搜索引擎优化 (SEO) 就绪：prerender.io。
 * 快速及轻量 (优化和gzip后初始核心依赖项总共少于100 KB下载量)。
-* 两层的构建方式打包创建生产环境资源：大部分页面都依赖的公用模块，及按需加载的各页面自有的模块。
+* 用[2层的构建策略](https://github.com/requirejs/example-multipage)打包创建生产环境资源：大部分页面都依赖的公用模块，及按需加载的各页面自有的模块。
 * 用 [`require-css`](https://github.com/guybedford/require-css) 及 [`require-text`](https://github.com/requirejs/text) AMD插件来动态按需加载各JS模块所依赖的CSS和HTML模板。这些CSS和HTML模板在生产环境资源创建时会被自动优化及打包进依赖它们的JS模块里.
 * 在开发时无需任何grunt/gulp/监视/构建任务 - 你可以直接在浏览器里debug你在IDE里编辑的对应文件。唯一需要的构建任务是用RequireJS r.js来优化构建生产环境资源。该任务已经在 `build.js` 定义好。你只需确保把保存在 `/build` 文件夹里的构建好的生产环境资源用于生产环境。
 * 整齐的目录结构帮助你清楚地归类和重用JS，CSS，HTML。
@@ -48,9 +48,9 @@ http://knockout-spa.mybluemix.net
 * 用提供的脚手架开始搭建你自己的SPA。改变在 `/js/framework`，`/js/util`，`/js/widget` 文件夹里的文件时需格外小心，除此之外你可以任意改动提供的任何文件! **用你喜欢的IDE修改文件，刷新浏览器即可看到所做的改变，无需任何监视任务.** 如果你启用了Chrome开发者工具里的工作空间 (workspace) 并且映射到项目本地文件夹，你可以免费得到实时编辑/重渲染。https://developer.chrome.com/devtools/docs/workspaces
   * 如果你是第一次用Knockout，你可以访问 http://learn.knockoutjs.com 来进行快速交互式学习。
 * 如果你需要安装新的库，运行 `npm install 库名字 --save` 来安装库的包并且将库的条目保存到 `package.json`，然后在 `/js/common.js` 里设置库名和文件包路径 (这样你就不用在使用该库时在各文件里用很长的相对路径)。
-* 在项目文件夹运行 `npm run build` 来为生产环境构建优化的资源，详细完整的优化配置请参考 http://requirejs.org/docs/optimization.html。或者运行 `npm run prod` 来构建及以生产环境方式运行 app。
+* 在项目文件夹运行 `npm run build` 来为生产环境构建优化的资源，或者运行 `npm run prod` 来构建及以生产环境方式运行 app。详细完整的优化配置请参考 http://requirejs.org/docs/optimization.html 。
   * 构建好的资源会被放在项目的 `/build` 文件夹里。构建被配置成2层：一个包含大部分页面所依赖的模块的共用模块，以及各页面自己的模块 (一个页面对应一个模块)。每个构建好的模块将包含该模块所声明的全部依赖模块 (以及它们递归依赖的所有模块)。
-  * 这种2层的构建策略让我们能按需加载各页面模块，这样的话 app 能扩展成很大规模但不会在访问时一下子就下载全部页面的全部模块。当你做页面强制刷新的时候，只有共用模块和该页面模块会被下载和解析。当你放问另一个页面时，只会额外加载那个页面的模块。
+  * 这种[2层的构建策略](https://github.com/requirejs/example-multipage)让我们能按需加载各页面模块，这样的话 app 能扩展成很大规模但不会在访问时一下子就下载全部页面的全部模块。当你做页面强制刷新的时候，只有共用模块和该页面模块会被下载和解析。当你放问另一个页面时，只会额外加载那个页面的模块。另外，此策略无需在部署生产模式时改变引用模块的任何代码。
   * CSS和HTML模板会被优化及合并到依赖它们的对应的JS模块里 (如果你用 `css!` 和 `text!` AMD前缀来声明它们作为该JS模块的依赖项) 从而保证纯正的模块性和可移植性，并且减少HTTP请求提高性能。
   * **当你创建新页面时，记得把该页面模块加到 `build.js` 构建配置文件里，并且把页面的共用依赖模块加到 `common` 模块里。**
   * **在生产环境，你应当使用优化构建好的资源，避免大量的 AMD 请求以及使用未优化的文件。**
