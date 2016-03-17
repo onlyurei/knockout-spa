@@ -2,6 +2,6 @@
   word-break: break-all;
 }
 
-.files .file-path {
-  margin-bottom: -28px;
+.files .file-path a:last-of-type {
+  margin-left: 5px;
 }

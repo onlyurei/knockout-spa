@@ -11,7 +11,8 @@ define(['app/shared/api/api', 'ko', 'sugar', 'css!./files.css'], function (Api, 
     },
     controllers: {
       '/': function () {
-        Files.file('/' + Object.fromQueryString(window.location.search).file);
+        var query = Object.fromQueryString(window.location.search).file;
+        Files.file(query || 'index.html');
         window.scrollTo(0, 0);
       }
     },
@@ -20,6 +21,16 @@ define(['app/shared/api/api', 'ko', 'sugar', 'css!./files.css'], function (Api, 
     loading: ko.observable(false),
     error: ko.observable('')
   };
+
+  Files.prev = ko.computed(function () {
+    var index = Files.files().indexOf(Files.file());
+    return (index > 0) ? Files.files()[index - 1] : null;
+  });
+
+  Files.next = ko.computed(function () {
+    var index = Files.files().indexOf(Files.file());
+    return (index < (Files.files().length - 1)) ? Files.files()[index + 1] : null;
+  });
 
   return Files;
 

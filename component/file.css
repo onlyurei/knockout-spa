@@ -1,4 +1,9 @@
+file pre,
 file code {
   width: 100%;
+  margin-top: -10px;
+}
+
+file code {
   white-space: pre-wrap;
 }
