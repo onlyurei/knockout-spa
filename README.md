@@ -13,9 +13,9 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 
 ### Features ###
 
-* Routing (based on Flatiron's Director): HTML5 history (pushState) or hash.
+* Routing (based on [Flatiron](https://github.com/flatiron)'s [Director](https://github.com/flatiron/director): HTML5 history (pushState) or hash.
 * Highly composable and reusable: pick modules/components for a page in the page-specific JS and they will be auto-wired for the page's HTML template.
-* SEO ready (prerender.io).
+* SEO ready ([prerender.io](https://prerender.io/)).
 * Fast and lightweight (Under 100 KB of JS minified and gzipped for initial core setup).
 * Use [2-tier bundle build strategy](https://github.com/requirejs/example-multipage) for production: common module that will be used by most pages, and page-specific modules that will be lazy-loaded.
 * Use [`require-css`](https://github.com/guybedford/require-css) and [`require-text`](https://github.com/requirejs/text) AMD plugins to load CSS and HTML templates dynamically ondemand along with the JS modules requiring them; these CSS and HTML template files will be inlined and minified into the corresponding JS modules for production build.
@@ -24,11 +24,12 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 * Use [`require-i18n`](https://github.com/requirejs/i18n) for scalable internationalization/localization.
 * Using Knockout 3.3.0+ so ready for [Knockout's flavor of web component and custom tags](http://knockoutjs.com/documentation/component-overview.html).
 * All documentation are in the major dependencies' own homepages, so that you don't need to completely learn a new framework (learn and practice general and reusable frontend development skills, not specific giant framework and tooling skills):
-  * Knockout (MVVM) http://knockoutjs.com
-  * Require (Module Organizer/Loader/Optimizer) http://requirejs.org
-  * Director (Router) https://github.com/flatiron/director
-  * jQuery (DOM Utilities) http://jquery.com
-  * Sugar (Native Objects Utilities) http://sugarjs.com
+  * [Knockout](http://knockoutjs.com) (MVVM)
+  * [Require](http://requirejs.org) (Module Organizer/Loader/Optimizer)
+  * [Director](https://github.com/flatiron/director) (Router)
+  * [jQuery](http://jquery.com) (DOM Utilities)
+  * [Sugar](http://sugarjs.com) (Native Objects Utilities)
+* **One advantage of this mini framework: if you don't like some of the major dependencies, you can swap them out without having to completely rewrite your entire app. Example: use [Vue](https://vuejs.org/) to replace Knockout, use [Webpack](http://webpack.github.io/) to replace Require, use [Crossroads](https://millermedeiros.github.io/crossroads.js/) to replace Director, use [Prototype](http://prototypejs.org/) to replace jQuery, use [Lodash](https://lodash.com/) or [Underscore](http://underscorejs.org/) to replace Sugar, etc.**
 
 ### Demo ###
 * DEV mode: http://knockout-spa.mybluemix.net
