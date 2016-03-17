@@ -15,7 +15,7 @@ define([
         return $.Deferred().reject('Api not found.');
       }
 
-      if ((Api.list[apiPackage].https || api.https) && !Dom.ensureHttps()) {
+      if ((Api.list[apiPackage]._https || api.https) && !Dom.ensureHttps()) {
         return $.Deferred().reject('Must call this api over HTTPS.');
       }
 
