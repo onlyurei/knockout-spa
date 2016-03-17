@@ -21,14 +21,14 @@
   <main data-bind="template: { name: page().path, data: page().data, afterRender: page().data.afterRender }"></main>
   <div data-bind="visible: loading() || (page().data.loading && page().data.loading())"
        class="position-fixed offset-center">
-    <img src="/img/app/shared/icon-spinner.gif" width="30" height="30">
+    <img src="/app/shared/icon-spinner.gif" width="30" height="30">
   </div>
   <!-- ko template: 'app/shared/footer' --><!-- /ko -->
 </div>
-<script data-main="js/app" src="/node_modules/requirejs/require.js"></script>
+<script data-main="app" src="/node_modules/requirejs/require.js"></script>
 <script>
   require.config({
-    baseUrl: '/js',
+    baseUrl: '/',
     waitSeconds: 60,
     config: {
       i18n: {

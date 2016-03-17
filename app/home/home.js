@@ -1,4 +1,4 @@
-define(['css!../../../css/app/home/home.css'/* TODO: add dependencies of this page */], function () {
+define(['css!./home.css'/* TODO: add dependencies of this page */], function () {
 
   var Home = {
     /* TODO: preparation before the page's template is rendered, e.g. class instantiation, access control

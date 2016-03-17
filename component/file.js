@@ -1,5 +1,5 @@
 define([
-  'jsface', 'ko', 'text!../../template/component/file.html', 'css!../../css/component/file.css', 'jquery', 'sugar'
+  'jsface', 'ko', 'text!./file.html', 'css!./file.css', 'jquery', 'sugar'
 ], function (Class, ko, template) {
 
   var File = Class({

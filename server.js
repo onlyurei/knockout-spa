@@ -18,7 +18,8 @@ app.get('/api/config', function (req, res) {
 app.get('/api/file', function (req, res) {
   walk('.', function (err, files) {
     if (err) throw err;
-    var allowedFilesRegex = /^\.\/((css)|(font)|(img)|(js)|(template))\//i;
+    // TODO: modify this list of top-level folders to scan files for when needed
+    var allowedFilesRegex = /^\.\/((app)|(component)|(framework)|(lib)|(lib-ext)|(locale)|(nls)|(util)|(widget))\//i;
     var notAllowedFilesRegex = /^(\.|_)/;
     res.send((files.remove(function (file) {
       var parts = file.split('/');
@@ -30,10 +31,10 @@ app.get('/api/file', function (req, res) {
 });
 
 app.get('/api/file/dependencies', function (req, res) {
-  res.send(madge('./js/', {
+  res.send(madge('.', {
     exclude: 'node_modules\/|^build',
     format: 'amd',
-    requireConfig: './js/common.js',
+    requireConfig: './common.js',
     findNestedDependencies: true
   }).tree);
 });

@@ -1,6 +1,4 @@
-define([
-  'app/shared/api/api', 'ko', 'sugar', 'css!../../../../css/app/files/dependencies/dependencies.css'
-], function (Api, ko) {
+define(['app/shared/api/api', 'ko', 'sugar', 'css!./dependencies.css'], function (Api, ko) {
 
   var allDependencies = ko.observable({});
 
