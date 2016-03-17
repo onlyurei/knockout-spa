@@ -20,9 +20,12 @@ define(['app/shared/api/api', 'ko', 'sugar', 'css!./dependencies.css'], function
     });
 
     return {
-      nodes: Object.keys(allDependencies()).union(Object.values(allDependencies())).flatten().unique().map(function (node) {
-        return { data: { id: node } };
-      }),
+      nodes: Object.keys(allDependencies()).union(Object.values(allDependencies())).flatten().unique()
+        .remove(function (node) {
+          return node.startsWith('.');
+        }).map(function (node) {
+          return { data: { id: node } };
+        }),
       edges: edges
     }
   });

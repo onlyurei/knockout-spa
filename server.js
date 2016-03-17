@@ -32,7 +32,7 @@ app.get('/api/file', function (req, res) {
 
 app.get('/api/file/dependencies', function (req, res) {
   res.send(madge('.', {
-    exclude: 'node_modules\/|^build|^\.\/.',
+    exclude: 'node_modules\/|^build',
     format: 'amd',
     requireConfig: './common.js',
     findNestedDependencies: true
