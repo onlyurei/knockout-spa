@@ -19,7 +19,7 @@ http://knockout-spa.mybluemix.net
 * 快速及轻量 (优化和gzip后初始核心依赖项总共少于100 KB下载量)。
 * 用[2层的构建策略](https://github.com/requirejs/example-multipage)打包创建生产环境资源：大部分页面都依赖的公用模块，及按需加载的各页面自有的模块。
 * 用 [`require-css`](https://github.com/guybedford/require-css) 及 [`require-text`](https://github.com/requirejs/text) AMD插件来动态按需加载各JS模块所依赖的CSS和HTML模板。这些CSS和HTML模板在生产环境资源创建时会被自动优化及打包进依赖它们的JS模块里.
-* 在开发时无需任何grunt/gulp/监视/构建任务 - 你可以直接在浏览器里debug你在IDE里编辑的对应文件。唯一需要的构建任务是用RequireJS r.js来优化构建生产环境资源。该任务已经在 `build.js` 定义好。你只需确保把保存在 `/build` 文件夹里的构建好的生产环境资源用于生产环境。
+* **在开发时无需任何grunt/gulp/监视/构建任务 - 你可以直接在浏览器里debug你在IDE里编辑的对应文件，文件更改保存后刷新浏览器就能看到改变。**唯一需要的构建任务是用RequireJS r.js来优化构建生产环境资源。该任务已经在 `build.js` 定义好。你只需确保把保存在 `/build` 文件夹里的构建好的生产环境资源用于生产环境。
 * 整齐的目录结构帮助你清楚地归类和重用JS，CSS，HTML。
 * 用 [`require-i18n`](https://github.com/requirejs/i18n) 来做可扩展的国际化/本地化。
 * 采用 Knockout 3.3.0+，所以可以用[Knockout风味的组件和自建标签](http://knockoutjs.com/documentation/component-overview.html)。
