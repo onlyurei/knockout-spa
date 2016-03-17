@@ -1,6 +1,4 @@
 define({
-  "locale.en": "English - 英文",
-  "locale.zh-CN": "中文",
   "error.generic": "错误",
   "error.403": "禁止访问",
   "error.404": "找不到页面",

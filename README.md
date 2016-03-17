@@ -16,7 +16,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 * Routing (based on Flatiron's Director): HTML5 history (pushState) or hash.
 * Highly composable and reusable: pick modules/components for a page in the page-specific JS and they will be auto-wired for the page's HTML template.
 * SEO ready (prerender.io).
-* Fast and lightweight (Under 100 KB of JS minified and gzipped for initial setup).
+* Fast and lightweight (Under 100 KB of JS minified and gzipped for initial core setup).
 * Two-tier bundle build for production: common module that will be used by most pages, and page-specific modules that will be lazy-loaded.
 * Use [`require-css`](https://github.com/guybedford/require-css) and [`require-text`](https://github.com/requirejs/text) AMD plugins to load CSS and HTML templates dynamically ondemand along with the JS modules requiring them; these CSS and HTML template files will be inlined and minified into the corresponding JS modules for production build.
 * No any grunt/gulp/watcher/build tasks required during development - you debug directly the exact same JS/CSS/HTML file you edit in the IDE. Only build task required for production is the RequireJS r.js optimizer task that's already predefined in `build.js`. Just figure out a config-based way to serve the assets from `/build` folder for production.

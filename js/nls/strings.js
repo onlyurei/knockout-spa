@@ -1,7 +1,7 @@
 define({
   "root": {
     "locale.en": "English",
-    "locale.zh-CN": "中文 - Chinese",
+    "locale.zh-CN": "中文",
     "error.generic": "Error",
     "error.403": "Forbidden",
     "error.404": "Not Found",

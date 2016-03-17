@@ -16,7 +16,7 @@ http://knockout-spa.mybluemix.net
 * 路由 (基于Flatiron的Director)：HTML5历史API (pushState) 或者hash。
 * 高度可组合及可重用：挑选在一个页面会用到的模块/组件并把他们加到该页面对应的JS里，它们会自动被连接到该页面的模板上。
 * 搜索引擎优化 (SEO) 就绪：prerender.io。
-* 快速及轻量 (优化和gzip后少于100 KB下载量)。
+* 快速及轻量 (优化和gzip后初始核心依赖项总共少于100 KB下载量)。
 * 两层的构建方式打包创建生产环境资源：大部分页面都依赖的公用模块，及按需加载的各页面自有的模块。
 * 用 [`require-css`](https://github.com/guybedford/require-css) 及 [`require-text`](https://github.com/requirejs/text) AMD插件来动态按需加载各JS模块所依赖的CSS和HTML模板。这些CSS和HTML模板在生产环境资源创建时会被自动优化及打包进依赖它们的JS模块里.
 * 在开发时无需任何grunt/gulp/监视/构建任务 - 你可以直接在浏览器里debug你在IDE里编辑的对应文件。唯一需要的构建任务是用RequireJS r.js来优化构建生产环境资源。该任务已经在 `build.js` 定义好。你只需确保把保存在 `/build` 文件夹里的构建好的生产环境资源用于生产环境。
