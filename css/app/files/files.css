@@ -1,3 +1,7 @@
 .files ul.col {
   word-break: break-all;
 }
+
+.files .file-path {
+  margin-bottom: -28px;
+}

@@ -7,7 +7,10 @@
          class="hoverable"></a>
     </li>
   </ul>
-  <!-- ko if: file().compact() -->
-  <file params="url: file" class="col m9"></file>
-  <!-- /ko -->
+  <div class="col m9">
+    <h6 data-bind="text: file().from(1)" class="file-path"></h6>
+    <!-- ko if: file().compact() -->
+    <file params="url: file"></file>
+    <!-- /ko -->
+  </div>
 </section>
