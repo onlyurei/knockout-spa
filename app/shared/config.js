@@ -10,16 +10,22 @@ define(['util/storage', 'app/shared/api/api', 'ko', 'sugar'], function (
 
   Config.locales = ['en', 'zh-CN'];
 
+  function notifyConfigChange() {
+    Storage.set(Config.storageKeys.configChanged, Math.random());
+  }
+
   Config.refresh = function () {
-    var config = Object.merge({
-      locale: Storage.get(Config.storageKeys.locale) || Config.locales[0]
-    }, JSON.parse(Api.call('config', 'get', null, null, null, null, true)));
+    // TODO: change to your app's way of getting the locale
+    var config = Object.merge(
+      { locale: Storage.get(Config.storageKeys.locale) || window.navigator.language || window.navigator.userLanguage },
+      JSON.parse(Api.call('config', 'get', null, null, null, null, true)),
+      true
+    );
     /* IMPORTANT: use synchronous AJAX as the config is required to boot UI */
     var _config = Config();
     Config(config);
     if (!Object.equal(_config, {}) && !Object.equal(_config, config)) {
-      Storage.set(Config.storageKeys.configChanged, Math.random());
-      window.location.reload();
+      notifyConfigChange();
     }
   };
 
@@ -28,7 +34,8 @@ define(['util/storage', 'app/shared/api/api', 'ko', 'sugar'], function (
   Config.setLocale = function (locale) {
     if (Config.locales.indexOf(locale) > -1) {
       Storage.set(Config.storageKeys.locale, locale);
-      Config.refresh();
+      notifyConfigChange();
+      window.location.reload();
     } else {
       throw new Error('Unsupported locale: ' + locale);
     }

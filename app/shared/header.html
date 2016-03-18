@@ -4,7 +4,8 @@
       <a data-bind="text: page().name.titleize()" class="page-title"></a>
       <ul data-bind="foreach: config.locales" class="right">
         <li>
-          <a data-bind="string: 'locale.' + $data, click: function () { $root.config.setLocale($data); },
+          <a data-bind="string: 'locale.' + $data,
+                        click: function () { ($data !== $root.config().locale) && $root.config.setLocale($data); },
                         css: { underline: $data === $root.config().locale, clickable: $data !== $root.config().locale }"></a>
         </li>
       </ul>
