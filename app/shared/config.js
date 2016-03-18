@@ -30,7 +30,7 @@ define(['util/storage', 'app/shared/api/api', 'ko', 'sugar'], function (
       Storage.set(Config.storageKeys.locale, locale);
       Config.refresh();
     } else {
-      throw new Error('Unsupported locale:', locale);
+      throw new Error('Unsupported locale: ' + locale);
     }
   };
 
