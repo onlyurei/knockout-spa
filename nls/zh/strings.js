@@ -1,3 +1,5 @@
+/* see http://requirejs.org/docs/api.html#i18n for i18n bundle details
+ * this file should only contain human-readable locale-specific text to be edited by copy editors and/or translators */
 define({
   "error.generic": "错误",
   "error.403": "禁止访问",
