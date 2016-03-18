@@ -1,6 +1,9 @@
 define(['knockout', 'knockout-amd-helpers', 'lib-ext/knockout-custom-bindings'], function (ko) {
 
-  //TODO change to your template folder path and suffix if needed
+  //TODO: turn off if it breaks your existing code, see http://knockoutjs.com/documentation/deferred-updates.html
+  ko.options.deferUpdates = true;
+
+  //TODO: change to your template folder path and suffix if needed
   ko.amdTemplateEngine.defaultPath = '/';
   ko.amdTemplateEngine.defaultSuffix = '.html';
 
