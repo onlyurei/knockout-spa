@@ -29,7 +29,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
   * [Director](https://github.com/flatiron/director) (Router)
   * [jQuery](http://jquery.com) (DOM Utilities)
   * [Sugar](http://sugarjs.com) (Native Objects Utilities)
-* **One advantage of this mini framework: if you don't like some of the major dependencies, you can swap them out without having to completely rewrite your entire app. Example: use [Vue](https://vuejs.org/) to replace Knockout, use [Webpack](http://webpack.github.io/) to replace Require, use [Crossroads](https://millermedeiros.github.io/crossroads.js/) to replace Director, use [Prototype](http://prototypejs.org/) to replace jQuery, use [Lodash](https://lodash.com/) or [Underscore](http://underscorejs.org/) to replace Sugar, etc. Also, if you don't like certain things of this mini framework, you can easily change them to cater to your own needs/taste, since this framework is just a thin layer on top of the major SPA dependencies.**
+* **One important advantage of this mini framework: if you don't like some of the major dependencies, you can swap them out without having to completely rewrite your entire app. Example: use [Vue](https://vuejs.org/) to replace Knockout, use [Webpack](http://webpack.github.io/) to replace Require, use [Crossroads](https://millermedeiros.github.io/crossroads.js/) to replace Director, use [Prototype](http://prototypejs.org/) to replace jQuery, use [Lodash](https://lodash.com/) or [Underscore](http://underscorejs.org/) to replace Sugar, etc. Also, if you don't like certain things of this mini framework, you can easily change them to cater to your own needs/taste.**
 
 ### Demo ###
 * DEV mode: http://knockout-spa.mybluemix.net

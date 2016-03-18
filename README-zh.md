@@ -29,7 +29,7 @@ http://knockout-spa.mybluemix.net
   * [Director](https://github.com/flatiron/director) (路由器)
   * [jQuery](http://jquery.com) (DOM工具集)
   * [Sugar](http://sugarjs.com) (原生对象工具集)
-* **本迷你框架的重要优势：如果你不喜欢这些主要依赖库，你可以把它们换掉而不用完全重写整个项目。例如: 用[Vue](https://vuejs.org/)来换掉Knockout，用[Webpack](http://webpack.github.io/)来换掉Require，用[Crossroads](https://millermedeiros.github.io/crossroads.js/)来换掉Director，用[Prototype](http://prototypejs.org/)来换掉jQuery，用[Lodash](https://lodash.com/)或者[Underscore](http://underscorejs.org/)来换掉Sugar，等等。另外，如果你不喜欢此框架的一些内容，你可以容易地改变它们，因为此框架只是架在这些SPA依赖库上面的一个薄层。**
+* **本迷你框架的重要优势：如果你不喜欢这些主要依赖库，你可以把它们换掉而不用完全重写整个项目。例如: 用[Vue](https://vuejs.org/)来换掉Knockout，用[Webpack](http://webpack.github.io/)来换掉Require，用[Crossroads](https://millermedeiros.github.io/crossroads.js/)来换掉Director，用[Prototype](http://prototypejs.org/)来换掉jQuery，用[Lodash](https://lodash.com/)或者[Underscore](http://underscorejs.org/)来换掉Sugar，等等。另外，如果你不喜欢此框架的一些内容，你可以容易地改变它们。**
 
 ### 演示 ###
 * 开发模式：http://knockout-spa.mybluemix.net
