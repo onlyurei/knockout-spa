@@ -15,21 +15,21 @@ define(['util/storage', 'app/shared/api/api', 'ko', 'sugar'], function (
   }
 
   Config.refresh = function () {
-    // TODO: change to your app's way of getting the locale
-    var config = Object.merge(
-      { locale: Storage.get(Config.storageKeys.locale) || window.navigator.language || window.navigator.userLanguage },
-      JSON.parse(Api.call('config', 'get', null, null, null, null, true)),
-      true
-    );
-    /* IMPORTANT: use synchronous AJAX as the config is required to boot UI */
-    var _config = Config();
-    Config(config);
-    if (!Object.equal(_config, {}) && !Object.equal(_config, config)) {
-      notifyConfigChange();
-    }
+    return Api.call('config', 'get').then(function (config) {
+      // TODO: change to your app's way of getting the locale
+      config = Object.merge(
+        { locale: Storage.get(Config.storageKeys.locale) || window.navigator.language || window.navigator.userLanguage },
+        config,
+        true
+      );
+      var _config = Config();
+      Config(config);
+      if (!Object.equal(_config, {}) && !Object.equal(_config, config)) {
+        notifyConfigChange();
+      }
+      return config;
+    });
   };
-
-  Config.refresh();
 
   Config.setLocale = function (locale) {
     if (Config.locales.indexOf(locale) > -1) {
