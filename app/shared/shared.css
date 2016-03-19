@@ -32,13 +32,19 @@ nav.top-nav a.page-title {
   font-size: 30px;
 }
 
+nav.top-nav .button-collapse {
+  margin-right: 10px;
+}
+
 .collapsible-body p {
   padding: .5rem;
 }
 
 @media only screen and (max-width: 992px) {
-  .side-nav.fixed {
-    left: 0;
+  header,
+  main,
+  footer {
+    padding-left: 0;
   }
 }
 
@@ -177,14 +183,4 @@ nav.top-nav a.page-title {
 
 .small-text {
   font-size: 11px;
-}
-
-.hoverable {
-  transition: box-shadow .25s;
-  box-shadow: 0;
-}
-
-.hoverable:hover {
-  transition: box-shadow .25s;
-  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

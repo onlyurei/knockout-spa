@@ -1,6 +1,10 @@
 <header>
   <nav class="top-nav blue">
     <div class="nav-wrapper padding-left-right">
+      <a data-bind="jquery: { method: 'sideNav' }"
+         data-activates="side-nav" class="clickable button-collapse hide-on-large-only">
+        <i class="mdi-navigation-menu"></i>
+      </a>
       <a data-bind="text: page().name.titleize()" class="page-title"></a>
       <ul data-bind="foreach: config.locales" class="right">
         <li>
@@ -11,7 +15,7 @@
       </ul>
     </div>
   </nav>
-  <ul class="side-nav fixed">
+  <ul id="side-nav" class="side-nav fixed">
     <li data-bind="css: { bold: page().name == 'home' }">
       <a data-bind="string: 'nav.home'" href="/" class="waves-effect"></a>
     </li>

@@ -10,7 +10,7 @@ require.config({
     'knockout': 'node_modules/knockout/build/output/knockout-latest',
     'knockout-amd-helpers': 'node_modules/knockout-amd-helpers/build/knockout-amd-helpers',
     'marked': 'node_modules/marked/lib/marked',
-    'materialize': 'node_modules/materialize-css/dist/js/materialize.amd',
+    'materialize': 'node_modules/materialize-css/dist/js/materialize',
     'i18n': 'lib/require-i18n',
     'text': 'node_modules/requirejs-text/text',
     'sugar': 'node_modules/sugar/release/sugar-full.development',
