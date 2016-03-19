@@ -4,7 +4,11 @@ define(['app/shared/api/api', 'ko', 'sugar', 'css!./dependencies.css'], function
 
   var Dependencies = {
     init: function () {
-      Api.call('file', 'dependencies', null, null, Dependencies.error, Dependencies.loading).done(allDependencies);
+      Object.isEmpty(allDependencies()) && Api.call('file', 'dependencies', null, null, Dependencies.error,
+        Dependencies.loading).done(allDependencies);
+    },
+    dispose: function () {
+      return false; // return false to prevent public primitive/observable params to be reset when leaving the page
     },
     loading: ko.observable(false),
     error: ko.observable(''),

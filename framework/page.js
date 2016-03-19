@@ -24,8 +24,8 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
         return data;
       }
 
-      var autoDispose = (Page.page().data.dispose && Page.page().data.dispose(Page)) || true; // if the requested page is not the same page, dispose current page first before swap to the new page
-      if (autoDispose !== false) {
+      var autoDispose = Page.page().data.dispose && Page.page().data.dispose(Page);
+      if (!initialRun && (autoDispose !== false)) { // if not initial run and the requested page is not the same page, dispose current page first before swap to the new page
         // auto-dispose page's exposed observables and primitive properties to initial values. if not desired, return
         // false in dispose function to suppress auto-disposal for all public properties of the page, or make the
         // particular properties private
@@ -63,10 +63,7 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
     },
     page: ko.observable({
       name: '', // name of the page - auto-set by the framework, no need to worry
-      data: {
-        init: function () {}, // preparation before the page's template is rendered, such as checking access control, init/instantiate modules used by the page, etc.
-        dispose: function () {} // properly dispose the page to prevent memory leaks and UI leftovers (important for SPA since page doesn't refresh between page views) - remove DOM element event listeners, dispose knockout manual subscriptions, etc.
-      }
+      data: {} // init, afterRender, controllers, dispose
     }),
     pageClass: ko.observable(''),
     loading: ko.observable(false),
