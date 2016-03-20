@@ -14,7 +14,7 @@
     {
       name: 'common',
       include: [
-        'app/shared/api/api',
+        'app/shared/root-bindings',
         'framework/router',
         'framework/page'
         /* TODO: add other common modules */
