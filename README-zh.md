@@ -2,10 +2,11 @@
 
 [![下载最新版](https://img.shields.io/badge/下载-zip-brightgreen.svg)](https://github.com/onlyurei/knockout-spa/archive/latest.zip) [![NPM包版本](https://img.shields.io/npm/v/knockout-spa.svg)](https://www.npmjs.com/package/knockout-spa) [![NPM总共下载数](https://img.shields.io/npm/dt/knockout-spa.svg)](https://www.npmjs.com/package/knockout-spa) [![在Gitter上参与讨论 https://gitter.im/onlyurei/knockout-spa](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/onlyurei/knockout-spa?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[English](README.md) | [中文](README-zh.md)
+[English](https://github.com/onlyurei/knockout-spa/blob/master/README.md) | [中文](https://github.com/onlyurei/knockout-spa/blob/master/README-zh.md)
 
 用Knockout做个SPA吧。
-http://knockout-spa.mybluemix.net
+
+http://knockout-spa.mybluemix.net (用本框架做的演示/文档站)
 
 ### 这是什么? ###
 
