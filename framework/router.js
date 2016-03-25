@@ -1,6 +1,6 @@
 /*! knockout-spa (https://github.com/onlyurei/knockout-spa) * Copyright 2015-2016 Cheng Fan * MIT Licensed (https://raw.githubusercontent.com/onlyurei/knockout-spa/master/LICENSE) */
-define(['framework/page', 'app/shared/routes', 'director', 'jquery', 'sugar'], function (
-  Page, Routes, Router) {
+define(['framework/page', 'app/shared/routes', 'util/dom', 'director', 'jquery', 'sugar'], function (
+  Page, Routes, Dom, Router) {
 
   function initPage(pageModulePath, controller) {
     require([pageModulePath], function (page) {
@@ -48,8 +48,10 @@ define(['framework/page', 'app/shared/routes', 'director', 'jquery', 'sugar'], f
   }
 
   $('body').on('click', 'a[href]', function (event) {
-    var href = $(this).attr('href').compact();
-    if (href && !href.startsWith('http') && !href.startsWith('//') && !href.startsWith('#') &&
+    var anchor = $(this)[0];
+    var href = anchor.href.compact();
+    var origin = Dom.getOriginFromLocation(anchor);
+    if (href && !href.startsWith('#') && (origin === window.location.origin) &&
         ($(this).attr('target') != '_blank') && !$(this).data('go') && !event.ctrlKey && !event.metaKey) {
       event.preventDefault();
       Page.loading(true);

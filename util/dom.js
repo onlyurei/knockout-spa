@@ -3,11 +3,16 @@ define(['jquery', 'sugar'], function () {
   var isIE = null;
   var isIE9AndBelow = null;
 
+  function getOriginFromLocation(location) {
+    return location.protocol + '//' + location.hostname + (location.port ? (':' + location.port) : '');
+  }
+
   if (!window.location.origin) {
-    window.location.origin = window.location.protocol + '//' + window.location.hostname + (window.location.port ? (':' + window.location.port) : '');
+    window.location.origin = getOriginFromLocation(window.location);
   }
 
   var Dom = {
+    getOriginFromLocation: getOriginFromLocation,
     clickLink: function (url, delay) {
       (function () {
         var a = document.createElement('a');
