@@ -51,7 +51,7 @@ define(['framework/page', 'app/shared/routes', 'util/dom', 'director', 'jquery',
     var anchor = $(this)[0];
     var href = anchor.href.compact();
     var origin = Dom.getOriginFromLocation(anchor);
-    if (href && !href.startsWith('#') && (origin === window.location.origin) &&
+    if (href && !href.startsWith('#') && ((origin === window.location.origin) || (origin === '://')) &&
         ($(this).attr('target') != '_blank') && !$(this).data('go') && !event.ctrlKey && !event.metaKey) {
       event.preventDefault();
       Page.loading(true);

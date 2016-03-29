@@ -4,7 +4,7 @@ define(['jquery', 'sugar'], function () {
   var isIE9AndBelow = null;
 
   function getOriginFromLocation(location) {
-    return location.protocol + '//' + location.hostname + (location.port ? (':' + location.port) : '');
+    return location.protocol + '//' + location.hostname + ((location.port && (location.port != '80')) ? (':' + location.port) : '');
   }
 
   if (!window.location.origin) {
