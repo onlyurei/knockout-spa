@@ -1,9 +1,9 @@
-file pre,
-file code {
+file-display pre,
+file-display code {
   width: 100%;
   margin-top: -10px;
 }
 
-file code {
+file-display code {
   white-space: pre-wrap;
 }
