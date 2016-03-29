@@ -48,9 +48,8 @@ define(['framework/page', 'app/shared/routes', 'util/dom', 'director', 'jquery',
   }
 
   $('body').on('click', 'a[href]', function (event) {
-    var anchor = $(this)[0];
-    var href = anchor.href.compact();
-    var origin = Dom.getOriginFromLocation(anchor);
+    var href = $(this).attr('href').compact();
+    var origin = Dom.getOriginFromLocation($(this)[0]);
     if (href && !href.startsWith('#') && ((origin === window.location.origin) || (origin === '://')) &&
         ($(this).attr('target') != '_blank') && !$(this).data('go') && !event.ctrlKey && !event.metaKey) {
       event.preventDefault();
