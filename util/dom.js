@@ -4,7 +4,12 @@ define(['jquery', 'sugar'], function () {
   var isIE9AndBelow = null;
 
   function getOriginFromLocation(location) {
-    return location.protocol + '//' + location.hostname + ((location.port && (location.port != '80')) ? (':' + location.port) : '');
+    //IE Fix
+    var port = location.port;
+    if (((location.protocol == 'http:') && (port == '80')) || ((location.protocol == 'https:') && (port == '443'))) {
+      port = '';
+    }
+    return (location.protocol ? (location.protocol + '//') : '') + (location.hostname || '') + (port ? (':' + port) : '');
   }
 
   if (!window.location.origin) {
