@@ -18,7 +18,8 @@
       <h3 class="label label-danger">In order to use the site, please enable JavaScript in the browser.</h3>
     </div>
   </noscript>
-  <main data-bind="template: { name: page().path, data: page().data, afterRender: page().data.afterRender }"></main>
+  <main data-bind="template: { name: page().path, data: page().data, afterRender: page().data.afterRender }"
+        role="main"></main>
   <div data-bind="visible: loading() || (page().data.loading && page().data.loading())"
        class="position-fixed offset-center">
     <img src="/app/shared/icon-spinner.gif" width="30" height="30">

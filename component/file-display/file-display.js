@@ -1,8 +1,8 @@
 define([
-  'jsface', 'ko', 'text!./file.html', 'css!./file.css', 'jquery', 'sugar'
+  'jsface', 'ko', 'text!./file-display.html', 'css!./file-display.css', 'jquery', 'sugar'
 ], function (Class, ko, template) {
 
-  var File = Class({
+  var FileDisplay = Class({
     constructor: function (params) {
       this.content = ko.observable('');
       this.getContent(params.url());
@@ -15,7 +15,7 @@ define([
   });
 
   return {
-    viewModel: File,
+    viewModel: FileDisplay,
     template: template
   };
 
