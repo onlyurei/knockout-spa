@@ -9,7 +9,7 @@ page-source-display .showing .toggle {
 
 page-source-display .source {
   border: 2px dashed #bbb;
-  padding: 10px;
+  padding: 10px 10px 0;
 }
 
 page-source-display .language-marker {
