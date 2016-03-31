@@ -1,1 +1,5 @@
-<section data-bind="marked: { url: $root.resources('readme') }" class="padding-left-right"></section>
+<section class="padding-left-right">
+  <page-source-display params="js: 'app/home/home.js', html: 'app/home/home.html', css: 'app/home/home.css'">
+  </page-source-display>
+  <div data-bind="marked: { url: $root.resources('readme') }"></div>
+</section>

@@ -16,6 +16,8 @@ define({
   "resources.instruction": "这些是本框架主要依赖库的一些有用资源。",
   "join.discussion": "参与讨论",
   "chat": "Gitter聊天室",
-  "connect": "保持联系"
+  "connect": "保持联系",
+  "show.page.source": "显示本页源码",
+  "hide.page.source": "隐藏本页源码"
   /* TODO: add app localized strings for this locale */
 });

@@ -1,0 +1,16 @@
+<section data-bind="css: { showing: show }">
+  <h5 data-bind="click: function () { show(!show()); }, css: { right: !show() }"
+      class="toggle clickable right-align">
+    <i data-bind="css: { 'mdi-action-visibility': !show(), 'mdi-action-visibility-off': show }"></i>
+    <span data-bind="string: show() ? 'hide.page.source' : 'show.page.source'"></span>
+  </h5>
+  <!-- ko if: show -->
+  <div class="source">
+    <ol data-bind="foreach: files">
+      <span data-bind="attr: { 'class': 'language-marker ' + type }, text: type.toUpperCase()"></span>
+      <span data-bind="text: path" class="file-path"></span>
+      <file-display params="url: path"></file-display>
+    </ol>
+  </div>
+  <!-- /ko -->
+</section>

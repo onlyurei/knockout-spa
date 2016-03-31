@@ -5,9 +5,14 @@ define([
   var ViewModel = Class({
     constructor: function (params) {
       this.content = ko.observable('');
-      this.getContent(params.url());
-      params.url.subscribe(this.getContent.bind(this));
-      this.affix = ko.computed(function () { return params.url().from(params.url().lastIndexOf('.')).remove('.') });
+      this.getContent(ko.utils.unwrapObservable(params.url));
+      if (ko.isObservable(params.url)) {
+        params.url.subscribe(this.getContent.bind(this));
+      }
+      this.affix = ko.computed(function () {
+        var url = ko.utils.unwrapObservable(params.url);
+        return url.from(url.lastIndexOf('.')).remove('.')
+      });
     },
     getContent: function (url) {
       require(['text!' + url], this.content);

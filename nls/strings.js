@@ -19,7 +19,9 @@ define({
     "resources.instruction": "Here are some useful resources for the major dependencies of the framework.",
     "join.discussion": "Join the Discussion",
     "chat": "Gitter Room Chat",
-    "connect": "Connect"
+    "connect": "Connect",
+    "show.page.source": "Show Page Source",
+    "hide.page.source": "Hide Page Source"
     /* TODO: add app localized strings */
   },
   "zh": true

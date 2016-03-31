@@ -1,5 +1,7 @@
 <section class="row">
   <!-- ko template: 'app/shared/error' --><!-- /ko -->
+  <page-source-display params="js: 'app/files/files.js', html: 'app/files/files.html', css: 'app/files/files.css'">
+  </page-source-display>
   <ul data-bind="foreach: files" class="col m3">
     <li>
       <a data-bind="attr: { href: '?file=' + $data },
@@ -9,7 +11,7 @@
   </ul>
   <div class="col m9">
     <h6 class="file-path">
-      <span data-bind="text:file"></span>
+      <span data-bind="text: file"></span>
       <span class="right">
       <!-- ko if: prev -->
       <a data-bind="string: 'nav.prev', attr: { href: '?file=' + prev() }"></a>

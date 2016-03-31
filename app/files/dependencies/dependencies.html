@@ -1,4 +1,8 @@
 <section class="row padding-left-right">
+  <page-source-display params="js: 'app/files/dependencies/dependencies.js',
+                               html: 'app/files/dependencies/dependencies.html',
+                               css: 'app/files/dependencies/dependencies.css'">
+  </page-source-display>
   <p data-bind="string: 'files.dependencies.instruction'"></p>
   <!-- ko template: 'app/shared/error' --><!-- /ko -->
   <select data-bind="options: graph().nodes.map(function (node) { return node.data.id; }).sort(),

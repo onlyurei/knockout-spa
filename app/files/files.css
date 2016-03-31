@@ -5,3 +5,13 @@
 .files .file-path a:last-of-type {
   margin-left: 5px;
 }
+
+.files page-source-display {
+  display: block;
+  margin: 10px;
+}
+
+.files page-source-display .toggle,
+.files page-source-display .toggle.showing {
+  margin-top: 0;
+}

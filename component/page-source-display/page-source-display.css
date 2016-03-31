@@ -1,0 +1,39 @@
+page-source-display .toggle {
+  margin-top: 0;
+  font-size: 1.28rem;
+}
+
+page-source-display .showing .toggle {
+  margin-top: 1.05rem;
+}
+
+page-source-display .source {
+  border: 2px dashed #bbb;
+  padding: 10px;
+}
+
+page-source-display .language-marker {
+  color: #fff;
+  padding: 1px 3px;
+}
+
+page-source-display .language-marker.js {
+  background-color: #76b3dd;
+}
+
+page-source-display .language-marker.html {
+  background-color: #fd5d4f;
+}
+
+page-source-display .language-marker.css {
+  background-color: #e8b553;
+}
+
+page-source-display .file-path {
+  font-weight: 600;
+}
+
+page-source-display ol {
+  margin: 0;
+  padding: 0;
+}
