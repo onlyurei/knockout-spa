@@ -1,6 +1,6 @@
 define(['css!./home.css'/* TODO: add dependencies of this page */], function () {
 
-  var Home = {
+  var Page = {
     /* TODO: preparation before the page's template is rendered, e.g. class instantiation, access control
      e.g.: redirect to login page if not logged in, etc. (optional)
      init: function () {},
@@ -25,6 +25,6 @@ define(['css!./home.css'/* TODO: add dependencies of this page */], function () 
    feel free to make the data separate module(s) and merge them into the page module as needed.
    */
 
-  return Home;
+  return Page;
 
 });

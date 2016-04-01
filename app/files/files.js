@@ -1,8 +1,8 @@
 define(['app/shared/api/api', 'ko', 'sugar', 'css!./files.css'], function (Api, ko) {
 
-  var Files = {
+  var Page = {
     init: function () {
-      !Files.files().length && Api.call('file', 'list', null, null, Files.error, Files.loading).done(Files.files);
+      !Page.files().length && Api.call('file', 'list', null, null, Page.error, Page.loading).done(Page.files);
       //Api call with full params example:
       //         apiPackage, apiMethod, urlParams,     data,           error,        loading,          synchronousOrSocket
       //Api.call('file',     'example', { id: '123' }, { data: data }, errorHandler, loadingIndicator, true).then(function (data) {
@@ -15,7 +15,7 @@ define(['app/shared/api/api', 'ko', 'sugar', 'css!./files.css'], function (Api, 
     controllers: {
       '/': function () {
         var query = Object.fromQueryString(window.location.search).file;
-        Files.file(query || 'index.html');
+        Page.file(query || 'index.html');
         window.scrollTo(0, 0);
       }
     },
@@ -25,16 +25,16 @@ define(['app/shared/api/api', 'ko', 'sugar', 'css!./files.css'], function (Api, 
     error: ko.observable('')
   };
 
-  Files.prev = ko.computed(function () {
-    var index = Files.files().indexOf(Files.file());
-    return (index > 0) ? Files.files()[index - 1] : null;
+  Page.prev = ko.computed(function () {
+    var index = Page.files().indexOf(Page.file());
+    return (index > 0) ? Page.files()[index - 1] : null;
   });
 
-  Files.next = ko.computed(function () {
-    var index = Files.files().indexOf(Files.file());
-    return (index < (Files.files().length - 1)) ? Files.files()[index + 1] : null;
+  Page.next = ko.computed(function () {
+    var index = Page.files().indexOf(Page.file());
+    return (index < (Page.files().length - 1)) ? Page.files()[index + 1] : null;
   });
 
-  return Files;
+  return Page;
 
 });

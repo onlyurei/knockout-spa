@@ -1,21 +1,21 @@
 define(['locale/strings', 'ko'], function (Strings, ko) {
 
-  var Error = {
+  var Page = {
     init: function (code) {
-      Error.statusCode(code);
+      Page.statusCode(code);
     },
     dispose: function () {},
     controllers: {
       '/:code': function (code) {
-        Error.statusCode(code);
+        Page.statusCode(code);
       }
     },
     title: function () {
-      return Strings('error.' + Error.statusCode());
+      return Strings('error.' + Page.statusCode());
     },
     statusCode: ko.observable('')
   };
 
-  return Error;
+  return Page;
 
 });
