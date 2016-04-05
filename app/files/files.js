@@ -1,8 +1,8 @@
 define(['app/shared/api/api', 'ko', 'sugar', 'css!./files.css'], function (Api, ko) {
 
-  var Page = {
+  var Page = ko.observe({
     init: function () {
-      !Page.files().length && Api.call('file', 'list', null, null, Page.error, Page.loading).done(Page.files);
+      !this.files.length && Api.call('file', 'list', null, null, this._error, this._loading).done(this._files);
       //Api call with full params example:
       //         apiPackage, apiMethod, urlParams,     data,           error,        loading,          synchronousOrSocket
       //Api.call('file',     'example', { id: '123' }, { data: data }, errorHandler, loadingIndicator, true).then(function (data) {
@@ -15,24 +15,24 @@ define(['app/shared/api/api', 'ko', 'sugar', 'css!./files.css'], function (Api, 
     controllers: {
       '/': function () {
         var query = Object.fromQueryString(window.location.search).file;
-        Page.file(query || 'index.html');
+        this.file = query || 'index.html';
         window.scrollTo(0, 0);
       }
     },
-    files: ko.observableArray([]),
-    file: ko.observable(''),
-    loading: ko.observable(false),
-    error: ko.observable('')
-  };
-
-  Page.prev = ko.computed(function () {
-    var index = Page.files().indexOf(Page.file());
-    return (index > 0) ? Page.files()[index - 1] : null;
+    files: [],
+    file: '',
+    loading: false,
+    error: ''
   });
 
-  Page.next = ko.computed(function () {
-    var index = Page.files().indexOf(Page.file());
-    return (index < (Page.files().length - 1)) ? Page.files()[index + 1] : null;
+  ko.defineComputedProperty(Page, 'prev', function () {
+    var index = this.files.indexOf(this.file);
+    return (index > 0) ? this.files[index - 1] : null;
+  });
+
+  ko.defineComputedProperty(Page, 'next', function () {
+    var index = this.files.indexOf(this.file);
+    return (index < (this.files.length - 1)) ? this.files[index + 1] : null;
   });
 
   return Page;

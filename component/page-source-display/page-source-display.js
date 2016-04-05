@@ -12,7 +12,8 @@ define(['jsface', 'knockout', 'text!./page-source-display.html', 'css!./page-sou
           path: params[type]
         }
       }).remove(function(file) { return !file.path; });
-      this.show = ko.observable(false);
+      this.show = false;
+      ko.observe(this);
     }
   });
 

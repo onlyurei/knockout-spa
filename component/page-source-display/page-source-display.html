@@ -1,8 +1,8 @@
 <section data-bind="css: { showing: show }">
-  <h5 data-bind="click: function () { show(!show()); }, css: { right: !show() }"
+  <h5 data-bind="click: function () { show = !show; }, css: { right: !show }"
       class="toggle clickable right-align">
-    <i data-bind="css: { 'mdi-action-visibility': !show(), 'mdi-action-visibility-off': show }"></i>
-    <span data-bind="string: show() ? 'hide.page.source' : 'show.page.source'"></span>
+    <i data-bind="css: { 'mdi-action-visibility': !show, 'mdi-action-visibility-off': show }"></i>
+    <span data-bind="string: show ? 'hide.page.source' : 'show.page.source'"></span>
   </h5>
   <!-- ko if: show -->
   <div class="source">

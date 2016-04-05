@@ -1,21 +1,15 @@
-define(['locale/strings', 'ko'], function (Strings, ko) {
+define(['locale/strings'], function (Strings) {
 
-  var Page = {
-    init: function (code) {
-      Page.statusCode(code);
-    },
-    dispose: function () {},
+  return {
     controllers: {
       '/:code': function (code) {
-        Page.statusCode(code);
+        this.statusCode = code;
       }
     },
     title: function () {
-      return Strings('error.' + Page.statusCode());
+      return Strings('error.' + this.statusCode);
     },
-    statusCode: ko.observable('')
+    statusCode: ''
   };
-
-  return Page;
 
 });

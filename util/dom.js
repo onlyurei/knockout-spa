@@ -51,58 +51,6 @@ define(['jquery', 'sugar'], function () {
         selection.addRange(range);
       }
     },
-    handleSwipe: function (element, callback) {
-      if (Dom.isTouchDevice) {
-        var swipeDirection,
-          distance,
-          distanceX,
-          distanceY,
-          startX,
-          startY,
-          distanceThreshold = 101, //required min distance traveled to be considered swipe
-          restraint = 100, // maximum distance allowed at the same time in perpendicular direction
-          allowedTime = 500, // maximum time allowed to travel that distance
-          elapsedTime,
-          startTime,
-          handleSwipe = callback || function () {};
-
-        element.addEventListener('touchstart', function (event) {
-          var touchObject = event.changedTouches[0];
-          swipeDirection = 'none';
-          distance = 0;
-          startX = touchObject.pageX;
-          startY = touchObject.pageY;
-          startTime = new Date().getTime(); // record time when finger first makes contact with surface
-          event.preventDefault();
-
-        }, false);
-
-        element.addEventListener('touchmove', function (event) {
-          event.preventDefault(); // prevent scrolling when inside DIV
-        }, false);
-
-        element.addEventListener('touchend', function (event) {
-          var touchObject = event.changedTouches[0];
-          distanceX = touchObject.pageX - startX; // get horizontal distance traveled by finger while in contact with
-                                                  // surface
-          distanceY = touchObject.pageY - startY; // get vertical distance traveled by finger while in contact with
-                                                  // surface
-          elapsedTime = new Date().getTime() - startTime; // get time elapsed
-          if (elapsedTime <= allowedTime) { // first condition for awipe met
-            if (Math.abs(distanceX) >= distanceThreshold && Math.abs(distanceY) <= restraint) { // 2nd condition for horizontal swipe met
-              swipeDirection = (distanceX < 0) ? 'left' : 'right'; // if distance traveled is negative, it indicates
-                                                                   // left swipe
-            }
-            else if (Math.abs(distanceY) >= distanceThreshold && Math.abs(distanceX) <= restraint) { // 2nd condition for vertical swipe met
-              swipeDirection = (distanceY < 0) ? 'up' : 'down'; // if distance traveled is negative, it indicates up
-                                                                // swipe
-            }
-          }
-          handleSwipe(swipeDirection);
-          event.preventDefault();
-        }, false);
-      }
-    },
     isTouchDevice: 'ontouchstart' in document.documentElement,
     isIE: function () {
       if (isIE === null) {

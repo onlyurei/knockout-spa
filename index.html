@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta charset="UTF-8">
   <meta name="fragment" content="!">
-  <meta data-bind="attr: { content: page().data.statusCode || 200 }" name="prerender-status-code">
+  <meta data-bind="attr: { content: page.data.statusCode || 200 }" name="prerender-status-code">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>knockout-spa</title>
 </head>
@@ -18,9 +18,9 @@
       <h3 class="label label-danger">In order to use the site, please enable JavaScript in the browser.</h3>
     </div>
   </noscript>
-  <main data-bind="template: { name: page().path, data: page().data, afterRender: page().data.afterRender }"
+  <main data-bind="template: { name: page.path, data: page.data, afterRender: page.data.afterRender }"
         role="main"></main>
-  <div data-bind="visible: loading() || (page().data.loading && page().data.loading())"
+  <div data-bind="visible: loading || page.data.loading"
        class="position-fixed offset-center">
     <img src="/app/shared/icon-spinner.gif" width="30" height="30">
   </div>

@@ -16,10 +16,10 @@ define(['framework/page', 'app/shared/routes', 'util/dom', 'director', 'jquery',
     var pageModulePath = values[0];
     var controllerName = values[1];
     routes[key] = function () {
-      Page.loading(true);
+      Page.loading = true;
       var args = Array.prototype.slice.call(arguments, 0);
       var controller = controllerName ? function (page) {
-        page.controllers[controllerName].apply(null, args);
+        page.controllers[controllerName].apply(page, args);
       } : null;
       initPage(pageModulePath, controller);
     };
@@ -53,7 +53,7 @@ define(['framework/page', 'app/shared/routes', 'util/dom', 'director', 'jquery',
     if (href && !href.startsWith('#') && ((origin === window.location.origin) || !origin) &&
         ($(this).attr('target') != '_blank') && !$(this).data('go') && !event.ctrlKey && !event.metaKey) {
       event.preventDefault();
-      Page.loading(true);
+      Page.loading = true;
       router.setRoute(href);
     }
   });

@@ -5,7 +5,7 @@
   <ul data-bind="foreach: files" class="col m3">
     <li>
       <a data-bind="attr: { href: '?file=' + $data },
-                    text: $data, css: { bold: $parent.file() === $data }"
+                    text: $data, css: { bold: $parent.file === $data }"
          class="hoverable"></a>
     </li>
   </ul>
@@ -14,13 +14,13 @@
       <span data-bind="text: file"></span>
       <span class="right">
       <!-- ko if: prev -->
-      <a data-bind="string: 'nav.prev', attr: { href: '?file=' + prev() }"></a>
+      <a data-bind="string: 'nav.prev', attr: { href: '?file=' + prev }"></a>
       <!-- /ko -->
       <!-- ko if: next -->
-      <a data-bind="string: 'nav.next', attr: { href: '?file=' + next() }"></a>
+      <a data-bind="string: 'nav.next', attr: { href: '?file=' + next }"></a>
       <!-- /ko -->
       </span>
     </h6>
-    <file-display params="url: '/' + file()"></file-display>
+    <file-display params="url: '/' + file"></file-display>
   </div>
 </section>

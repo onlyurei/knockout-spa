@@ -1,4 +1,4 @@
-define(['knockout', 'knockout-amd-helpers', 'lib-ext/knockout-custom-bindings'], function (ko) {
+define(['knockout', 'knockout-amd-helpers', 'knockout-es5-option4', 'lib-ext/knockout-custom-bindings'], function (ko) {
 
   //TODO: turn off if it breaks your existing code, see http://knockoutjs.com/documentation/deferred-updates.html
   ko.options.deferUpdates = true;

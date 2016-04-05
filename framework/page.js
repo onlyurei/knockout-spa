@@ -4,13 +4,13 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
 
   var initialRun = true;
 
-  var Page = {
+  var Page = ko.observe({
     init: function (name, data, controller, path) {
-      Page.loading(false);
+      Page.loading = false;
 
       name = name.toLowerCase();
 
-      if ((Page.page().name == name) && (Page.page().data == data)) { // if the requested page is the same page, immediately call controller without going further
+      if ((Page.page.name == name) && (Page.page.data == data)) { // if the requested page is the same page, immediately call controller without going further
         if (controller) {
           controller(data);
         }
@@ -24,12 +24,12 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
         return data;
       }
 
-      var autoDispose = Page.page().data.dispose && Page.page().data.dispose(Page);
+      var autoDispose = Page.page.data.dispose && Page.page.data.dispose(Page);
       if (!initialRun && (autoDispose !== false)) { // if not initial run and the requested page is not the same page, dispose current page first before swap to the new page
         // auto-dispose page's exposed observables and primitive properties to initial values. if not desired, return
         // false in dispose function to suppress auto-disposal for all public properties of the page, or make the
         // particular properties private
-        PageDisposer.dispose(Page.page().data);
+        PageDisposer.dispose(Page.page.data);
       }
 
       PageDisposer.init(data); //store initial observable and primitive properties values of the page
@@ -41,12 +41,12 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
         controller(data);
       }
 
-      Page.pageClass([name, ('ontouchstart' in document.documentElement) ? 'touch' : 'no-touch'].join(' '));
-      Page.page({
+      Page.pageClass = [name, ('ontouchstart' in document.documentElement) ? 'touch' : 'no-touch'].join(' ');
+      Page.page = {
         name: name,
         data: data,
         path: path
-      }); // to test if template finished rendering, use afterRender binding in the template binding
+      }; // to test if template finished rendering, use afterRender binding in the template binding
 
       document.title = Page.title();
 
@@ -61,16 +61,16 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
 
       return data;
     },
-    page: ko.observable({
+    page: {
       name: '', // name of the page - auto-set by the framework, no need to worry
       data: {} // init, afterRender, controllers, dispose
-    }),
-    pageClass: ko.observable(''),
-    loading: ko.observable(false),
+    },
+    pageClass: '',
+    loading: false,
     title: function () {
-      return Page.page().name.titleize(); // override in RootBindings as needed
+      return Page.page.name.titleize(); // override in RootBindings as needed
     }
-  };
+  });
 
   Object.merge(Page, RootBindings); // additional root bindings as needed by the app
 

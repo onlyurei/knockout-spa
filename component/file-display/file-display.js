@@ -4,18 +4,19 @@ define([
 
   var ViewModel = Class({
     constructor: function (params) {
-      this.content = ko.observable('');
-      this.getContent(ko.utils.unwrapObservable(params.url));
+      this.content = '';
       if (ko.isObservable(params.url)) {
         params.url.subscribe(this.getContent.bind(this));
       }
-      this.affix = ko.computed(function () {
+      ko.observe(this);
+      ko.defineComputedProperty(this, 'affix', function () {
         var url = ko.utils.unwrapObservable(params.url);
         return url.from(url.lastIndexOf('.')).remove('.')
       });
+      this.getContent(ko.utils.unwrapObservable(params.url));
     },
     getContent: function (url) {
-      require(['text!' + url], this.content);
+      require(['text!' + url], this._content);
     }
   });
 

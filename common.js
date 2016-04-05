@@ -9,6 +9,7 @@ require.config({
     'jsface': 'node_modules/jsface/dist/jsface',
     'knockout': 'node_modules/knockout/build/output/knockout-latest',
     'knockout-amd-helpers': 'node_modules/knockout-amd-helpers/build/knockout-amd-helpers',
+    'knockout-es5-option4': 'node_modules/knockout-es5-option4/knockout-es5-option4',
     'marked': 'node_modules/marked/lib/marked',
     'materialize': 'node_modules/materialize-css/dist/js/materialize.min',
     'i18n': 'lib/require-i18n',
