@@ -23,7 +23,8 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 * **No any grunt/gulp/watcher/transpiler/build tasks required during development - you debug directly the exact same JS/CSS/HTML/Any file you edit in the IDE. Changes made to a file will be immediately reflected upon refreshing the browser (or use [Chrome devtools workspace](https://developer.chrome.com/devtools/docs/workspaces) or similar tool to have the changes live-rerendered without having to refresh the page).** Only build task required for production is the RequireJS r.js optimizer task that's already predefined in `build.js`. Just figure out a config-based way to serve the assets from `/build` folder for production.
 * Organized folder structure to help you stay sane for organizing and reusing modules/files.
 * Use [`require-i18n`](https://github.com/requirejs/i18n) for scalable internationalization/localization.
-* Using Knockout 3.4.0+ so ready for [Knockout's flavor of web component and custom tags](http://knockoutjs.com/documentation/component-overview.html).
+* **Using Knockout 3.4.0+ so ready for [Knockout's flavor of web component and custom tags](http://knockoutjs.com/documentation/component-overview.html).**
+* **Provide [Knockout ES5 POJO style binding](https://github.com/nathanboktae/knockout-es5-option4) to help you write cleaner code and make it easier to replace Knockout with other MVVM libraries in the future.**
 * All documentation are in the major dependencies' own homepages, so that you don't need to completely learn a new framework (**learn and practice general and reusable frontend development skills, not specific giant framework and tooling skills**):
   * [Knockout](http://knockoutjs.com) (MVVM)
   * [Require](http://requirejs.org) (Module Organizer/Loader/Optimizer)

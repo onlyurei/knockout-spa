@@ -23,7 +23,8 @@
 * **在开发时无需任何grunt/gulp/监视/构建任务 - 你可以直接在浏览器里debug你在IDE里编辑的对应文件，文件更改保存后刷新浏览器就能看到改变（或者使用[Chrome开发者工具工作空间](https://developer.chrome.com/devtools/docs/workspaces)或类似工具来自动重渲染改变，无须刷新页面）。**唯一需要的构建任务是用RequireJS r.js来优化构建生产环境资源。该任务已经在 `build.js` 定义好。你只需确保把保存在 `/build` 文件夹里的构建好的生产环境资源用于生产环境。
 * 整齐的目录结构帮助你清楚地归类和重用模块和文件。
 * 用 [`require-i18n`](https://github.com/requirejs/i18n) 来做可扩展的国际化/本地化。
-* 采用 Knockout 3.4.0+，所以可以用[Knockout风味的组件和自建标签](http://knockoutjs.com/documentation/component-overview.html)。
+* **采用 Knockout 3.4.0+，所以可以用[Knockout风味的组件和自建标签](http://knockoutjs.com/documentation/component-overview.html)。**
+* **提供 [Knockout ES5 POJO风格binding](https://github.com/nathanboktae/knockout-es5-option4)，帮助写出更干净的代码以及保留用别的MVVM框架代替Knockout的可能。**
 * 所有帮助文档都在主要依赖库自己的主页里，所以你无需完全从头学习一个新框架 (**学习及练习通用及可重用的前端开发技术，而不是特定的巨型框架和工具技术**):
   * [Knockout](http://knockoutjs.com) (MVVM库)
   * [Require](http://requirejs.org) (模块组织器/加载器/优化器)
