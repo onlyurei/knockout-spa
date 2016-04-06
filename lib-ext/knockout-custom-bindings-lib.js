@@ -51,6 +51,13 @@ define(['knockout', 'jquery', 'sugar'], function (ko) {
               cy.elements().removeClass('faded');
             }
           });
+
+          // This will be called when the element is removed by Knockout or
+          // if some other part of your code calls ko.removeNode(element)
+          // http://knockoutjs.com/documentation/custom-bindings-disposal.html
+          ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
+            cy.destroy(); // memory leak: https://github.com/cytoscape/cytoscape.js/issues/663
+          });
         });
       }
     }
@@ -104,6 +111,8 @@ define(['knockout', 'jquery', 'sugar'], function (ko) {
    * You can also use the combination of component and custom binding when appropriate.
    * It's always about writing modular code and separating concerns.
    * See the Files page provided in the boilerplate for reference.
+   *
+   * NOTE: be defensive of memory leaks on custom bindings! See cytoscape binding above for reference.
    *
    * */
 
