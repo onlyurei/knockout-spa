@@ -35,7 +35,7 @@
     "director": "^1.2.8",
     "express": "^4.13.4",
     "express-history-api-fallback": "^2.0.0",
-    "jquery": "^2.2.2",
+    "jquery": "^2.2.3",
     "jsface": "^2.4.9",
     "knockout": "^3.4.0",
     "knockout-amd-helpers": "^0.7.4",
