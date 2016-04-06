@@ -24,7 +24,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 * Organized folder structure to help you stay sane for organizing and reusing modules/files.
 * Use [`require-i18n`](https://github.com/requirejs/i18n) for scalable internationalization/localization.
 * **Using Knockout 3.4.0+ so ready for [Knockout's flavor of web component and custom tags](http://knockoutjs.com/documentation/component-overview.html).**
-* **Provide [Knockout ES5 POJO style binding](https://github.com/nathanboktae/knockout-es5-option4) to help you write cleaner code and make it easier to replace Knockout with other MVVM libraries in the future.**
+* **Provide [Knockout ES5 POJO style viewModel/binding option](https://github.com/nathanboktae/knockout-es5-option4) to help you write cleaner code and make it easier to replace Knockout with other MVVM libraries in the future.**
 * All documentation are in the major dependencies' own homepages, so that you don't need to completely learn a new framework (**learn and practice general and reusable frontend development skills, not specific giant framework and tooling skills**):
   * [Knockout](http://knockoutjs.com) (MVVM)
   * [Require](http://requirejs.org) (Module Organizer/Loader/Optimizer)

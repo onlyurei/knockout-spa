@@ -24,7 +24,7 @@
 * 整齐的目录结构帮助你清楚地归类和重用模块和文件。
 * 用 [`require-i18n`](https://github.com/requirejs/i18n) 来做可扩展的国际化/本地化。
 * **采用 Knockout 3.4.0+，所以可以用[Knockout风味的组件和自建标签](http://knockoutjs.com/documentation/component-overview.html)。**
-* **提供 [Knockout ES5 POJO风格binding](https://github.com/nathanboktae/knockout-es5-option4)，帮助写出更干净的代码以及保留用别的MVVM框架代替Knockout的可能。**
+* **提供 [Knockout ES5 POJO风格的viewModel/binding](https://github.com/nathanboktae/knockout-es5-option4)，帮助写出更干净的代码以及保留用别的MVVM框架代替Knockout的可能。**
 * 所有帮助文档都在主要依赖库自己的主页里，所以你无需完全从头学习一个新框架 (**学习及练习通用及可重用的前端开发技术，而不是特定的巨型框架和工具技术**):
   * [Knockout](http://knockoutjs.com) (MVVM库)
   * [Require](http://requirejs.org) (模块组织器/加载器/优化器)
