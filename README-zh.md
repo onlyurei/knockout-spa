@@ -48,7 +48,7 @@
 * 看一下初始的文件结构和注释以及 `TODO`，然后用你的浏览器开发工具来把玩一下 - 你应该能在10分钟内搞明白项目的大致原理 (假定你对 Knockout 及 AMD/Require 有较好了解)。 用**显示本页源码**工具来快速查看每页的 `JS`, `HTML`, `CSS` 文件。 
   * **`文件` 页面是一个演示几乎所有SPA开发所应考虑到问题的好例子：路由以及URL搜索字符串处理; 用 `ko` 组件来封装可重用逻辑，及在页面的HTML模板里用自定义标签 `file` 来传递可观察参数并且初始化组件实例; 用 `ko` 自定义绑定来显示格式化后的源文件内容; 用 `api-file` api 客户端来简化 api 请求等。**
   * `文件依赖关系` 页面显示项目文件模块的依赖图。**你可以观察2层的构建设置是如何从 [开发模式](//knockout-spa.mybluemix.net/files/dependencies) 模式到 [生产模式](//knockout-spa-prod.mybluemix.net/files/dependencies) 模式改变此图的。**
-* 用提供的脚手架开始搭建你自己的SPA。改变在 `/js/framework`，`/js/util`，`/js/widget` 文件夹里的文件时需格外小心，除此之外你可以任意改动提供的任何文件! **用你喜欢的IDE修改文件，刷新浏览器即可看到所做的改变，无需任何监视任务.** 如果你启用了Chrome开发者工具里的工作空间 (workspace) 并且映射到项目本地文件夹，你可以免费得到实时编辑/重渲染。https://developer.chrome.com/devtools/docs/workspaces
+* 用提供的脚手架开始搭建你自己的SPA。看哪里不爽就改哪里！**用你喜欢的IDE修改文件，刷新浏览器即可看到所做的改变，无需任何监视任务.** 如果启用了Chrome开发者工具里的工作空间 (workspace) 并且映射到项目本地文件夹，你可以免费得到实时编辑/重渲染。https://developer.chrome.com/devtools/docs/workspaces
   * 如果你是第一次用Knockout，你可以访问 http://learn.knockoutjs.com 来进行快速交互式学习。
 * 如果你需要安装新的库，运行 `npm install 库名字 --save` 来安装库的包并且将库的条目保存到 `package.json`，然后在 `/js/common.js` 里设置库名和文件包路径 (这样你就不用在使用该库时在各文件里用很长的相对路径)。
 * 在项目文件夹运行 `npm run build` 来为生产环境构建优化的资源，或者运行 `npm run prod` 来构建及以生产环境方式运行 app。详细完整的优化配置请参考 http://requirejs.org/docs/optimization.html 。
