@@ -25,14 +25,19 @@ define(['app/shared/api/api', 'ko', 'sugar', 'css!./files.css'], function (Api, 
     error: ''
   });
 
-  ko.defineComputedProperty(Page, 'prev', function () {
-    var index = this.files.indexOf(this.file);
-    return (index > 0) ? this.files[index - 1] : null;
-  });
+  var computed = {
+    prev: function () {
+      var index = this.files.indexOf(this.file);
+      return (index > 0) ? this.files[index - 1] : null;
+    },
+    next: function () {
+      var index = this.files.indexOf(this.file);
+      return (index < (this.files.length - 1)) ? this.files[index + 1] : null;
+    }
+  };
 
-  ko.defineComputedProperty(Page, 'next', function () {
-    var index = this.files.indexOf(this.file);
-    return (index < (this.files.length - 1)) ? this.files[index + 1] : null;
+  Object.each(computed, function (key, value) {
+    ko.defineComputedProperty(Page, key, value);
   });
 
   return Page;

@@ -9,10 +9,15 @@ define([
         params.url.subscribe(this.getContent.bind(this));
       }
       ko.observe(this);
-      ko.defineComputedProperty(this, 'affix', function () {
-        var url = ko.utils.unwrapObservable(params.url);
-        return url.from(url.lastIndexOf('.')).remove('.')
-      });
+      var computed = {
+        affix: function () {
+          var url = ko.utils.unwrapObservable(params.url);
+          return url.from(url.lastIndexOf('.')).remove('.')
+        }
+      };
+      Object.each(computed, function (key, value) {
+        ko.defineComputedProperty(this, key, value);
+      }.bind(this));
       this.getContent(ko.utils.unwrapObservable(params.url));
     },
     getContent: function (url) {
