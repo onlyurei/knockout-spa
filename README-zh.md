@@ -12,6 +12,12 @@
 
 迷你但五脏俱全的单页程序 (SPA) 框架和脚手架，用于快速创建SPA并且保证能够优雅地扩展成巨型应用。
 
+<a href="http://knockoutjs.com/"><img src="http://knockoutjs.com/img/ko-logo.png" width="144"></a>
+<a href="http://requirejs.org/"><img src="http://requirejs.org/i/logo.png" width="67">
+<a href="https://github.com/flatiron/director"><img src="https://raw.githubusercontent.com/flatiron/director/master/img/director.png" width="111"></a>
+<a href="http://jquery.com/"><img src="https://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg" width="155"></a>
+<a href="http://sugarjs.com/"><img src="http://sugarjs.com/images/header.png" width="149"></a>
+
 ### 功能特色 ###
 
 * 路由 (基于[Flatiron](https://github.com/flatiron)的[Director](https://github.com/flatiron/director))：HTML5历史API (pushState) 或者hash。
