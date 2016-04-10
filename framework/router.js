@@ -6,7 +6,10 @@ define(['framework/page', 'app/shared/routes', 'util/dom', 'director', 'jquery',
     require([pageModulePath], function (page) {
       var pathParts = pageModulePath.split('/');
       var pageName = pathParts.slice(1, pathParts.length - 1).join('-');
-      Page.init(pageName, page, controller, pageModulePath);
+      var initialized = Page.init(pageName, page, controller, pageModulePath);
+      if (initialized === false) {
+        routes['/error/:code'](403);
+      }
     });
   }
 

@@ -6,34 +6,34 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
 
   var Page = ko.observe({
     init: function (name, data, controller, path) {
-      Page.loading = false;
+      this.loading = false;
 
       name = name.toLowerCase();
 
-      if ((Page.page.name == name) && (Page.page.data == data)) { // if the requested page is the same page, immediately call controller without going further
+      if ((this.page.name == name) && (this.page.data == data)) { // if the requested page is the same page, immediately call controller without going further
         if (controller) {
           controller(data);
         }
 
-        document.title = Page.title();
+        document.title = this.title();
 
-        if (Page.initExtra) {
-          Page.initExtra(name, data, controller);
+        if (this.initExtra) {
+          this.initExtra(name, data, controller);
         }
 
         return data;
       }
 
-      var autoDispose = Page.page.data.dispose && Page.page.data.dispose(Page);
+      var autoDispose = this.page.data.dispose && this.page.data.dispose(this);
       if (!initialRun && (autoDispose !== false)) { // if not initial run and the requested page is not the same page, dispose current page first before swap to the new page
         // auto-dispose page's exposed observables and primitive properties to initial values. if not desired, return
         // false in dispose function to suppress auto-disposal for all public properties of the page, or make the
         // particular properties private
-        PageDisposer.dispose(Page.page.data);
+        PageDisposer.dispose(this.page.data);
       }
 
       PageDisposer.init(data); //store initial observable and primitive properties values of the page
-      var initialized = (data.init && data.init(Page)) || true; // init view model and call controller (optional) before template is swapped-in
+      var initialized = data.init && data.init(this); // init view model and call controller (optional) before template is swapped-in
       if (initialized === false) {
         return false; // stop initialization if page's init function return false (access control, etc.)
       }
@@ -41,21 +41,21 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
         controller(data);
       }
 
-      Page.pageClass = [name, ('ontouchstart' in document.documentElement) ? 'touch' : 'no-touch'].join(' ');
-      Page.page = {
+      this.pageClass = [name, ('ontouchstart' in document.documentElement) ? 'touch' : 'no-touch'].join(' ');
+      this.page = {
         name: name,
         data: data,
         path: path
       }; // to test if template finished rendering, use afterRender binding in the template binding
 
-      document.title = Page.title();
+      document.title = this.title();
 
-      if (Page.initExtra) {
-        Page.initExtra(name, data, controller); // useful for common init tasks for all pages such as anaylitics page view tracking, can be set in RootBindings
+      if (this.initExtra) {
+        this.initExtra(name, data, controller); // useful for common init tasks for all pages such as anaylitics page view tracking, can be set in RootBindings
       }
 
       if (initialRun) {
-        ko.applyBindings(Page, document.getElementsByTagName('html')[0]); // apply binding at root node to be able to bind to anywhere
+        ko.applyBindings(this, document.getElementsByTagName('html')[0]); // apply binding at root node to be able to bind to anywhere
         initialRun = false;
       }
 
@@ -68,7 +68,7 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
     pageClass: '',
     loading: false,
     title: function () {
-      return Page.page.name.titleize(); // override in RootBindings as needed
+      return this.page.name.titleize(); // override in RootBindings as needed
     }
   });
 

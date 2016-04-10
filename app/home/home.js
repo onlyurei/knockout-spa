@@ -1,17 +1,19 @@
 define(['css!./home.css'/* TODO: add dependencies of this page */], function () {
 
   var Page = {
-    /* TODO: preparation before the page's template is rendered, e.g. class instantiation, access control
-     e.g.: redirect to login page if not logged in, etc. (optional)
-     init: function () {},
+    /* TODO: preparation before the page's template is rendered, e.g. class instantiation, access control (return false in function),
+     redirect to login page if not logged in, etc. (optional)
+     try uncommenting the following line to see the effect of returning false.
+     init: function () { return false; },
 
-     // TODO: do things after the page's template has finished rendering (e.g. DOM manipulations) (optional)
+     // TODO: do things after the page's template has finished rendering (e.g. DOM manipulations)
+     may need setTimeout(1) to yield wait for UI to be ready sometimes (optional)
      afterRender: function () {},
 
      /!* TODO: properly dispose this page to prevent memory leaks and UI leftovers (optional)
      e.g.: release event listeners, dispose knockout manual subscriptions, etc.
      NOTE: all primitives and ko observables defined on the page module object will have their values reset to initial
-     states when leaving the page, unless false is returned in dispose function *!/
+     values when leaving the page, unless false is returned in dispose function (try returning true/false to see the effect) *!/
      dispose: function () {},
 
      // TODO: controllers to handle url params/query strings (optional)
