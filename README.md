@@ -43,7 +43,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 * DEV mode: [knockout-spa.mybluemix.net](//knockout-spa.mybluemix.net)
 * PROD mode: [knockout-spa-prod.mybluemix.net](//knockout-spa-prod.mybluemix.net)
 
-### How do I use it? ###
+### Getting started ###
 * Install `node` and `npm` if you haven't.
 * [Clone](https://github.com/onlyurei/knockout-spa.git)/[Download](https://github.com/onlyurei/knockout-spa/archive/latest.zip) the repo. You can also run `npm install knockout-spa` to install from [NPM](https://www.npmjs.com/package/knockout-spa), then manually move `knockout-spa` folder out of the `node_modules` folder to where your projects are normally located.
 * `cd` into the repo's folder in your OS terminal. Run `npm run dev` to run the app in DEV mode, or run `npm run prod` to run the app in PROD mode.
@@ -51,6 +51,8 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
   * Using history api fallback so `index.html` will be served for all 404s. 
   * You can also change `server.js` so that it can proxy your CORS requests to endpoints which don't have CORS header present.
   * This is the dev-only simple static asset server to allow easier bootstrapping/running/testing of the app. In real life use cases, you can either deploy the frontend to a CDN and enable CORS on your endpoint API server(s) to accept CORS requests from the CDN origin(s), or deploy the frontend along with endpoint API server under the same origin.
+
+### How do I use it? ###
 * Take a look at the file structure and comments/`TODO`s in the bootstrapped setup, and use your browser devtool of choice to poke around - you'll figure out everything in 10 minutes or less (assuming you know Knockout and Require fairly well). Use **Show Page Source** toggle on each page to quickly review the `JS`, `HTML`, `CSS` files of the page.
   * **The `Files` page is a great example that demonstrates almost all of the SPA development aspects: routing and url query handling; using `ko` component to encapsulate reusable logic, and using custom tag `file` in the page's template and pass observable params to initialize the component; using `ko` custom binding `highlight` to display the highlighted file source; using the `api-file` api client to make api calls easier, etc.**
   * The `Files Dependencies` page shows the modules dependencies graph of the repo. **You can observe how the 2-tier build structure changes the graph from [DEV mode](//knockout-spa.mybluemix.net/files/dependencies) to [PROD mode](//knockout-spa-prod.mybluemix.net/files/dependencies)**
@@ -63,3 +65,12 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
   * CSS and HTML template files will be inlined and minified with the corresponding JS modules (assuming you use `css!` and/or `text!` prefixes to add them as the JS module's dependencies) for pure modularization/portability, and reduce HTTP requests to improve app performance.
   * **As you create new pages, remember to add the page modules to the build file `build.js`, and add their common dependencies to the `common` module.**
   * **You should serve the optimized assets for production to avoid numerous AMD require calls and serving unminified files.**
+
+### Workfolow of adding a new page ###
+* Add the page's route(s) to [```app/shared/routes.js```](https://github.com/onlyurei/knockout-spa/blob/master/app/shared/routes.js)
+* Add the page's module folder. Folder's relative path to root should match the newly added route definiton, example: [```app/files```](https://github.com/onlyurei/knockout-spa/tree/master/app/files)
+  * JS and HTML files are required, CSS file is optional. If CSS file is added, reference it with the ```css!``` prefix in the AMD dependencies array in the JS file.
+  * JS file exposes the View Model of the page and the lifecyle hooks (callback functions): ```init```, ```afterRender```, ```dispose```, ```controllers```, see [```app/home/home.js```](https://github.com/onlyurei/knockout-spa/blob/master/app/home/home.js) for detailed explanation.
+  * Page's CSS class will be set on the ```<html>``` element. It's the dasherized version of the page folder's relative path to app root, without the 'app' part.
+  * Prefix all CSS rules with the page's class in the CSS file.
+* Add the page's module to [```build.js```](https://github.com/onlyurei/knockout-spa/blob/master/build.js).
