@@ -10,7 +10,7 @@ define([
     config: Config,
     resources: Resources,
     strings: Strings,
-    initExtra: function () {
+    initExtra: function (pageName, pageData, pagePath, pageController) { // useful for common init tasks for all pages
       GA.trackPageView();
       /* TODO: modify to cater your app's needs (called on every page after the page's init handler) */
     }

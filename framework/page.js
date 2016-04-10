@@ -5,7 +5,7 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
   var initialRun = true;
 
   var Page = ko.observe({
-    init: function (name, data, controller, path) {
+    init: function (name, data, path, controller) {
       this.loading = false;
 
       name = name.toLowerCase();
@@ -17,9 +17,7 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
 
         document.title = this.title();
 
-        if (this.initExtra) {
-          this.initExtra(name, data, controller);
-        }
+        this.initExtra && this.initExtra.apply(this, Array.prototype.slice.call(arguments, 0));
 
         return data;
       }
@@ -50,9 +48,7 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
 
       document.title = this.title();
 
-      if (this.initExtra) {
-        this.initExtra(name, data, controller); // useful for common init tasks for all pages such as anaylitics page view tracking, can be set in RootBindings
-      }
+      this.initExtra && this.initExtra.apply(this, Array.prototype.slice.call(arguments, 0));
 
       if (initialRun) {
         ko.applyBindings(this, document.getElementsByTagName('html')[0]); // apply binding at root node to be able to bind to anywhere

@@ -6,7 +6,7 @@ define(['framework/page', 'app/shared/routes', 'util/dom', 'director', 'jquery',
     require([pageModulePath], function (page) {
       var pathParts = pageModulePath.split('/');
       var pageName = pathParts.slice(1, pathParts.length - 1).join('-');
-      var initialized = Page.init(pageName, page, controller, pageModulePath);
+      var initialized = Page.init(pageName, page, pageModulePath, controller);
       if (initialized === false) {
         routes['/error/:code'](403);
       }
@@ -20,9 +20,8 @@ define(['framework/page', 'app/shared/routes', 'util/dom', 'director', 'jquery',
     var controllerName = values[1];
     routes[key] = function () {
       Page.loading = true;
-      var args = Array.prototype.slice.call(arguments, 0);
       var controller = controllerName ? function (page) {
-        page.controllers[controllerName].apply(page, args);
+        page.controllers[controllerName].apply(page, Array.prototype.slice.call(arguments, 0));
       } : null;
       initPage(pageModulePath, controller);
     };
