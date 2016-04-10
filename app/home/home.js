@@ -3,8 +3,9 @@ define(['css!./home.css'/* TODO: add dependencies of this page */], function () 
   var Page = {
     /* TODO: preparation before the page's template is rendered, e.g. class instantiation, access control (return false in function),
      redirect to login page if not logged in, etc. (optional)
+     root binging object is passed as the function param.
      try uncommenting the following line to see the effect of returning false.
-     init: function () { return false; },
+     init: function (root) { console.log(root); return false; },
 
      // TODO: do things after the page's template has finished rendering (e.g. DOM manipulations)
      may need setTimeout(1) to yield wait for UI to be ready sometimes (optional)
@@ -14,7 +15,8 @@ define(['css!./home.css'/* TODO: add dependencies of this page */], function () 
      e.g.: release event listeners, dispose knockout manual subscriptions, etc.
      NOTE: all primitives and ko observables defined on the page module object will have their values reset to initial
      values when leaving the page, unless false is returned in dispose function (try returning true/false to see the effect) *!/
-     dispose: function () {},
+     root binging object is passed as the function param.
+     dispose: function (root) {},
 
      // TODO: controllers to handle url params/query strings (optional)
      controllers: {}
