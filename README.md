@@ -65,7 +65,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
   * **As you create new pages, remember to add the page modules to the build file `build.js`, and add their common dependencies to the `common` module.**
   * **You should serve the optimized assets for production to avoid numerous AMD require calls and serving unminified files.**
 
-### Workfolow of adding a new page ###
+### Workflow of adding a new page ###
 * Add the page's route(s) to [`app/shared/routes.js`](https://github.com/onlyurei/knockout-spa/blob/master/app/shared/routes.js).
 * Add the page's module folder. Folder's relative path to root should match the newly added route definiton, example: [`app/files`](https://github.com/onlyurei/knockout-spa/tree/master/app/files).
   * JS and HTML files are required, CSS file is optional. If CSS file is added, reference it with the `css!` prefix in the AMD dependencies array in the JS file.
