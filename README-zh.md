@@ -43,7 +43,7 @@
 * 开发模式：[knockout-spa.mybluemix.net](//knockout-spa.mybluemix.net)
 * 生产模式：[knockout-spa-prod.mybluemix.net](//knockout-spa-prod.mybluemix.net)
 
-### 怎么用? ###
+### 快速开始指南 ###
 * 安装 `node` 和 `npm`，如果还没有的话。
 * [克隆](https://github.com/onlyurei/knockout-spa.git)/[下载](https://github.com/onlyurei/knockout-spa/archive/latest.zip) 本项目。你也可以运行 `npm install knockout-spa` 来从 [NPM](https://www.npmjs.com/package/knockout-spa) 安装，然后手动把 `knockout-spa` 文件夹移出 `node_modules` 文件夹，放到你通常放项目文件夹的地方。
 * 在你操作系统的终端上 `cd` 到你保存本项目的文件夹。运行 `npm run dev` 来运行开发模式，或者运行 `npm run prod` 来运行生产模式。
@@ -51,6 +51,8 @@
   * 采用历史API适配所以 `index.html` 会被用于所有404请求。
   * 你也可以修改 `server.js` 用来做跨域资源请求 (CORS) 代理.
   * 这只是个仅用于开发环境的简单资源服务器。用于帮助更容易地运行和测试所开发的app。在现实生活中，你可以把前端完全部署到CDN上，然后开启后台API服务器的CORS设定以接受来自该CDN域名的跨域资源请求。或者你可以把前端和后端API部署到同一个域。
+
+### 怎么用？ ###
 * 看一下初始的文件结构和注释以及 `TODO`，然后用你的浏览器开发工具来把玩一下 - 你应该能在10分钟内搞明白项目的大致原理 (假定你对 Knockout 及 AMD/Require 有较好了解)。 用**显示本页源码**工具来快速查看每页的 `JS`, `HTML`, `CSS` 文件。 
   * **`文件` 页面是一个演示几乎所有SPA开发所应考虑到问题的好例子：路由以及URL搜索字符串处理; 用 `ko` 组件来封装可重用逻辑，及在页面的HTML模板里用自定义标签 `file` 来传递可观察参数并且初始化组件实例; 用 `ko` 自定义绑定来显示格式化后的源文件内容; 用 `api-file` api 客户端来简化 api 请求等。**
   * `文件依赖关系` 页面显示项目文件模块的依赖图。**你可以观察2层的构建设置是如何从 [开发模式](//knockout-spa.mybluemix.net/files/dependencies) 模式到 [生产模式](//knockout-spa-prod.mybluemix.net/files/dependencies) 模式改变此图的。**
@@ -63,3 +65,16 @@
   * CSS和HTML模板会被优化及合并到依赖它们的对应的JS模块里 (如果你用 `css!` 和 `text!` AMD前缀来声明它们作为该JS模块的依赖项) 从而保证纯正的模块性和可移植性，并且减少HTTP请求提高性能。
   * **当你创建新页面时，记得把该页面模块加到 `build.js` 构建配置文件里，并且把页面的共用依赖模块加到 `common` 模块里。**
   * **在生产环境，你应当使用优化构建好的资源，避免大量的 AMD 请求以及使用未优化的文件。**
+
+### 加新页面的流程 ###
+* 加该页面的路由到 [`app/shared/routes.js`](https://github.com/onlyurei/knockout-spa/blob/master/app/shared/routes.js)。
+* 加该页面的模块文件夹。文件夹到根目录的相对路径应带跟新加的路由定义匹配，例子：[`app/files`](https://github.com/onlyurei/knockout-spa/tree/master/app/files)。
+  * JS和HTML文件是必须的，CSS文件可选。如果加了CSS文件，在JS文件的AMD依赖项里加`css!`前缀来引用它。
+  * JS文件暴露该页面的视图模型（View Model）以及生命周期钩子： `init`，`afterRender`，`dispose`，`controllers`，参照 [`app/home/home.js`](https://github.com/onlyurei/knockout-spa/blob/master/app/home/home.js)来看具体定义。
+  * 页面的CSS类名将会被加到 `<html>` 元素上。它就是该页面文件相对于根目录的路径（用破折号代替斜杠），除去“app”部分。
+  * 用该页面的CSS类名来作为CSS文件里所有规则的前缀。
+* 将该页面的模块加到[`build.js`](https://github.com/onlyurei/knockout-spa/blob/master/build.js)里。
+* 如需加入新的库， 运行`npm install dependency-package-name --save`来安装以及加入库依赖声明到[`package.json`](https://github.com/onlyurei/knockout-spa/blob/master/package.json)，然后加入库名和路径到[`common.js`](https://github.com/onlyurei/knockout-spa/blob/master/common.js)里（这样在各处引用该库时就不用打很长的相对路径）。
+* 如果加入第三方操纵DOM节点的库（比如jQuery插件），千万不要用选择器来引用要操纵的DOM节点。将该库加到自定义绑定里，参见[`lib-ext/knockout-custom-bindings-lib.js`](https://github.com/onlyurei/knockout-spa/blob/master/lib-ext/knockout-custom-bindings-lib.js)来看具体例子和指南。
+* 如果创建可重用的UI部件，考虑把它们做成组件并发布到NPM以便将来能在不同项目重用。参考例子[`component/file-display/file-display.js`](https://github.com/onlyurei/knockout-spa/blob/master/component/file-display/file-display.js)和[`component/page-source-display/page-source-display.js`](https://github.com/onlyurei/knockout-spa/blob/master/component/page-source-display/page-source-display.js)。
+  * 因为在[`lib-ext/knockout-extended.js`](https://github.com/onlyurei/knockout-spa/blob/master/lib-ext/knockout-extended.js#L10)定义了组件默认协定，无须预注册组件。这让组件的模块能够动态按需加载，提高性能和可扩展性。如果需要可修改该默认协定。
