@@ -12,12 +12,6 @@ Take a SPA with Knockout.
 
 A mini but full-fledged SPA framework and boilerplate to build SPAs fast and scalable.
 
-<a href="http://knockoutjs.com/"><img src="http://knockoutjs.com/img/ko-logo.png" height="42"></a>
-<a href="http://requirejs.org/"><img src="http://requirejs.org/i/logo.png" height="42">
-<a href="https://github.com/flatiron/director"><img src="https://raw.githubusercontent.com/flatiron/director/master/img/director.png" height="42"></a>
-<a href="http://jquery.com/"><img src="https://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg" height="42"></a>
-<a href="http://sugarjs.com/"><img src="http://sugarjs.com/images/header.png" height="42"></a>
-
 ### Features ###
 
 * Routing (based on [Flatiron](https://github.com/flatiron)'s [Director](https://github.com/flatiron/director): HTML5 history (pushState) or hash.
