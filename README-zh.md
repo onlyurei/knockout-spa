@@ -18,6 +18,9 @@
 <a href="http://jquery.com/"><img src="https://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg" height="42"></a>
 <a href="http://sugarjs.com/"><img src="http://sugarjs.com/images/header.png" height="42"></a>
 
+<a href="https://knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-ko.png" style="max-width: 49%"></a>
+<a href="https://knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-framework-page.png" style="max-width: 49%"></a>
+
 ### 功能特色 ###
 
 * 路由 (基于[Flatiron](https://github.com/flatiron)的[Director](https://github.com/flatiron/director))：HTML5历史API (pushState) 或者hash。
