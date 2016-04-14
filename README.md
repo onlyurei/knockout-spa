@@ -18,8 +18,8 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 <a href="http://jquery.com/"><img src="https://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg" height="42"></a>
 <a href="http://sugarjs.com/"><img src="http://sugarjs.com/images/header.png" height="42"></a>
 
-<a href="https://knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-ko.png" style="max-width: 49%"></a>
-<a href="https://knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-framework-page.png" style="max-width: 49%"></a>
+<a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-ko.png" style="max-width: 49%"></a>
+<a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-framework-page.png" style="max-width: 49%"></a>
 
 ### Features ###
 
