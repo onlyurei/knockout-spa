@@ -1,3 +1,8 @@
+<!-- ko if: inlineTag -->
+<div data-bind="html: content" class="inline-tag"></div>
+<!-- /ko -->
+<!-- ko ifnot: inlineTag -->
 <pre data-bind="highlight: content">
   <code data-bind="text: content, attr: { 'class': affix }"></code>
 </pre>
+<!-- /ko -->

@@ -1,3 +1,7 @@
+file-display .inline-tag img {
+  max-width: 100%;
+}
+
 file-display pre,
 file-display code {
   width: 100%;
