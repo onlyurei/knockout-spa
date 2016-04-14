@@ -15,16 +15,16 @@ define([
       }
       this.inlineTag = '';
       ko.observe(this);
-      var url = ko.utils.unwrapObservable(params.url);
       var computed = {
         affix: function () {
+          var url = ko.utils.unwrapObservable(params.url);
           return url.from(url.lastIndexOf('.')).remove('.')
         }
       };
       Object.each(computed, function (key, value) {
         ko.defineComputedProperty(this, key, value);
       }.bind(this));
-      this.getContent(url);
+      this.getContent(ko.utils.unwrapObservable(params.url));
     },
     getContent: function (url) {
       var parts = url.toLowerCase().split('.');
