@@ -1,4 +1,5 @@
 var fallback = require('express-history-api-fallback');
+var compression = require('compression');
 var express = require('express');
 var app = express();
 var madge = require('madge');
@@ -40,6 +41,7 @@ app.get('/api/file/dependencies', function (req, res) {
 });
 
 var root = __dirname;
+app.use(compression());
 app.use(express.static(root));
 app.use(fallback('index.html', { root: root }));
 var port = process.env.PORT || 8080;
