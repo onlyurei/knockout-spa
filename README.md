@@ -12,14 +12,14 @@ Take a SPA with Knockout.
 
 A mini but full-fledged SPA framework and boilerplate to build SPAs fast and scalable.
 
-<a href="http://knockoutjs.com/"><img src="http://knockoutjs.com/img/ko-logo.png" height="42"></a>
-<a href="http://requirejs.org/"><img src="http://requirejs.org/i/logo.png" height="42">
-<a href="https://github.com/flatiron/director"><img src="https://raw.githubusercontent.com/flatiron/director/master/img/director.png" height="42"></a>
-<a href="http://jquery.com/"><img src="https://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg" height="42"></a>
-<a href="http://sugarjs.com/"><img src="http://sugarjs.com/images/header.png" height="42"></a>
+<a href="http://knockoutjs.com/"><img src="http://knockoutjs.com/img/ko-logo.png" height="42" alt="KnockoutJS logo"></a>
+<a href="http://requirejs.org/"><img src="http://requirejs.org/i/logo.png" height="42" alt="RequireJS logo">
+<a href="https://github.com/flatiron/director"><img src="https://raw.githubusercontent.com/flatiron/director/master/img/director.png" height="42" alt="DirectorJS logo"></a>
+<a href="http://jquery.com/"><img src="https://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg" height="42" alt="jQuery logo"></a>
+<a href="http://sugarjs.com/"><img src="http://sugarjs.com/images/header.png" height="42" alt="SugarJS logo"></a>
 
-<a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-ko.png" style="max-width: 49%"></a>
-<a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-framework-page.png" style="max-width: 49%"></a>
+<a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-ko.png" style="max-width: 49%" alt="ko dependencies graph"></a>
+<a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-framework-page.png" style="max-width: 49%" alt="framework/page dependencies logo"></a>
 
 ### Features ###
 
