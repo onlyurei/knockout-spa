@@ -1,4 +1,4 @@
-define(['jsface', 'knockout', 'text!./page-source-display.html', 'css!./page-source-display.css', 'sugar'], function (
+define(['jsface', 'ko', 'text!./page-source-display.html', 'css!./page-source-display.css', 'sugar'], function (
   Class, ko, template) {
 
   var ViewModel = Class({
