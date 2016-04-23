@@ -32,7 +32,7 @@
   "author": "Cheng Fan",
   "dependencies": {
     "compression": "^1.6.1",
-    "cytoscape": "^2.6.8",
+    "cytoscape": "^2.6.9",
     "director": "^1.2.8",
     "express": "^4.13.4",
     "express-history-api-fallback": "^2.0.0",
