@@ -6,7 +6,8 @@ define([
    Access root bindings in various templates using $root.<propertyNameOnRootObject>), e.g. $root.strings */
 ], function (Config, Resources, Strings, GA) {
 
-  var RootBindings = {
+  // This object will be merged into the object exposed from /framework/page.js and override it
+  return {
     config: Config,
     resources: Resources,
     strings: Strings,
@@ -19,7 +20,5 @@ define([
       return title ? (Object.isFunction(title) ? title.call(this.page.data) : title) : this.page.name.titleize();
     }
   };
-
-  return RootBindings;
 
 });
