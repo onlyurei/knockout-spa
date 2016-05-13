@@ -20,8 +20,9 @@ define(['framework/page', 'app/shared/routes', 'util/dom', 'director', 'jquery',
     var controllerName = values[1];
     routes[key] = function () {
       Page.loading = true;
+      var args = Array.prototype.slice.call(arguments, 0);
       var controller = controllerName ? function (page) {
-        page.controllers[controllerName].apply(page, Array.prototype.slice.call(arguments, 0));
+        page.controllers[controllerName].apply(page, args);
       } : null;
       initPage(pageModulePath, controller);
     };
