@@ -25,7 +25,7 @@ define(['knockout', 'knockout-amd-helpers', 'knockout-es5-option4', 'lib-ext/kno
 
   //TODO: change the following ko component convention as needed
   //establish a component AMD path convention for the configuration of component/custom elements
-  //each component should be a file with the corresponding filename under /js/component/ folder
+  //each component should be a file with the corresponding filename under /component/ folder
   //http://knockoutjs.com/documentation/component-loaders.html#getconfigname-callback
   //http://knockoutjs.com/documentation/component-registration.html#a-recommended-amd-module-pattern
   ko.components.loaders.push({
