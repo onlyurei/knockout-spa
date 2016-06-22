@@ -32,6 +32,12 @@
     baseUrl: '/',
     waitSeconds: 60
   });
+  require.onError = function (err) {
+    err.requireModules && err.requireModules.length && err.requireModules.forEach(function (module) {
+      require.undef(module);
+    });
+    throw err;
+  };
 </script>
 </body>
 </html>
