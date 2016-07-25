@@ -47,6 +47,6 @@
     "require-css": "^0.1.8",
     "requirejs": "^2.2.0",
     "requirejs-text": "^2.0.12",
-    "sugar": "^2.0.0"
+    "sugar": "^1.5.0"
   }
 }
