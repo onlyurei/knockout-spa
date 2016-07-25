@@ -14,7 +14,7 @@ require.config({
     'materialize': 'node_modules/materialize-css/dist/js/materialize.min',
     'i18n': 'lib/require-i18n',
     'text': 'node_modules/requirejs-text/text',
-    'sugar': 'node_modules/sugar/release/sugar-full.development',
+    'sugar': 'node_modules/sugar/sugar-full',
 
     //lib-ext
     'ko': 'lib-ext/knockout-extended'
