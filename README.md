@@ -45,6 +45,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 ### Demo ###
 * DEV mode: [knockout-spa.mybluemix.net](//knockout-spa.mybluemix.net)
 * PROD mode: [knockout-spa-prod.mybluemix.net](//knockout-spa-prod.mybluemix.net)
+* Real World App: [http://rentever.com](http://rentever.com) Social Rental Marketplace - Rent anything from anyone nearby
 
 ### Getting started ###
 * Install `node` and `npm` if you haven't.
