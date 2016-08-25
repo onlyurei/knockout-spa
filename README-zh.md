@@ -45,6 +45,7 @@
 ### 演示 ###
 * 开发模式：[knockout-spa.mybluemix.net](//knockout-spa.mybluemix.net)
 * 生产模式：[knockout-spa-prod.mybluemix.net](//knockout-spa-prod.mybluemix.net)
+* 真实世界应用： [http://rentever.com](http://rentever.com) 社交租赁平台－从周围的人租任何东西
 
 ### 快速开始指南 ###
 * 安装 `node` 和 `npm`，如果还没有的话。
