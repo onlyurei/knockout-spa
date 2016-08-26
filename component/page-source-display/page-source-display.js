@@ -1,12 +1,12 @@
 define(['jsface', 'ko', 'text!./page-source-display.html', 'css!./page-source-display.css', 'sugar'], function (
   Class, ko, template) {
 
-  var ViewModel = Class({
+  var PageSourceDisplay = Class({
     $static: {
       FILE_TYPES: ['js', 'html', 'css']
     },
     constructor: function (params) {
-      this.files = ViewModel.FILE_TYPES.map(function (type) {
+      this.files = PageSourceDisplay.FILE_TYPES.map(function (type) {
         return {
           type: type,
           path: params[type]
@@ -18,7 +18,7 @@ define(['jsface', 'ko', 'text!./page-source-display.html', 'css!./page-source-di
   });
 
   return {
-    viewModel: ViewModel,
+    viewModel: PageSourceDisplay,
     template: template
   };
 

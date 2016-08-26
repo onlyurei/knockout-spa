@@ -1,6 +1,6 @@
 define(['app/shared/api/api', 'ko', 'sugar', 'css!./files.css'], function (Api, ko) {
 
-  var Page = ko.observe({
+  var Files = ko.observe({
     init: function () {
       !this.files.length && Api.call('file', 'list', null, null, this._error, this._loading).done(this._files);
       //Api call with full params example:
@@ -37,9 +37,9 @@ define(['app/shared/api/api', 'ko', 'sugar', 'css!./files.css'], function (Api, 
   };
 
   Object.each(computed, function (key, value) {
-    ko.defineComputedProperty(Page, key, value);
+    ko.defineComputedProperty(Files, key, value);
   });
 
-  return Page;
+  return Files;
 
 });

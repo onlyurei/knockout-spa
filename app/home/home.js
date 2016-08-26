@@ -1,6 +1,6 @@
 define(['css!./home.css'/* TODO: add dependencies of this page */], function () {
 
-  var Page = {
+  var Home = {
     /* TODO: preparation before the page's template is rendered, e.g. class instantiation, access control (return false in function),
      redirect to login page if not logged in, etc. (optional)
      root binging object is passed as the function param.
@@ -29,6 +29,6 @@ define(['css!./home.css'/* TODO: add dependencies of this page */], function () 
    feel free to make the data separate module(s) and merge them into the page module as needed.
    */
 
-  return Page;
+  return Home;
 
 });

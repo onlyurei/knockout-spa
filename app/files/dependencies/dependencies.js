@@ -2,7 +2,7 @@ define(['app/shared/api/api', 'ko', 'sugar', 'css!./dependencies.css'], function
 
   var allDependencies = ko.observable({});
 
-  var Page = ko.observe({
+  var Dependencies = ko.observe({
     init: function () {
       Object.isEmpty(allDependencies()) && Api.call('file', 'dependencies', null, null, this._error,
         this._loading).done(allDependencies);
@@ -49,9 +49,9 @@ define(['app/shared/api/api', 'ko', 'sugar', 'css!./dependencies.css'], function
   };
 
   Object.each(computed, function (key, value) {
-    ko.defineComputedProperty(Page, key, value);
+    ko.defineComputedProperty(Dependencies, key, value);
   });
 
-  return Page;
+  return Dependencies;
 
 });
