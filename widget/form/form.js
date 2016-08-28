@@ -44,7 +44,7 @@ define(['util/json', 'jsface', 'ko', 'sugar'], function (Json, Class, ko) {
 
       return this;
     },
-    serialize: function (toHash) {
+    serialize: function (toHash, keepEmptyValues) {
       var queries = {};
       if (toHash) {
         Object.values(this.inputs).each(function (input) {
@@ -53,14 +53,16 @@ define(['util/json', 'jsface', 'ko', 'sugar'], function (Json, Class, ko) {
       } else {
         var queryString = Object.values(this.inputs).map(function (input) {
           return input.serialize();
-        }).exclude(function (query) { return !query.compact(); }).join('&');
+        }).join('&');
         queries = Object.fromQueryString(queryString);
       }
-      Object.each(queries, function (key, value) {
-        if ((value === undefined) || (value === null) || ((typeof value == 'string') && (value.compact() === ''))) {
-          delete queries[key];
-        }
-      });
+      if (!keepEmptyValues) {
+        Object.each(queries, function (key, value) {
+          if ((value === undefined) || (value === null) || ((typeof value == 'string') && (value.compact() === ''))) {
+            delete queries[key];
+          }
+        });
+      }
       return toHash ? Json.unflatten(queries) : Object.toQueryString(queries);
     },
     deserialize: function (json) {

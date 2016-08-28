@@ -11,6 +11,9 @@ define(['jsface', 'ko', 'sugar'], function (Class, ko) {
       this.required = required;
 
       this.filled = ko.computed(function () {
+        if (this.value() === null) {
+          return false;
+        }
         return !!('' + this.value()).compact();
       }.bind(this));
 
