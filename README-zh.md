@@ -21,6 +21,12 @@
 <a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-ko.png" style="max-width: 49%" alt="ko dependencies graph"></a>
 <a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-framework-page.png" style="max-width: 49%" alt="framework/page dependencies logo"></a>
 
+### 演示 ###
+* 开发模式：[knockout-spa.mybluemix.net](//knockout-spa.mybluemix.net)
+* 生产模式：[knockout-spa-prod.mybluemix.net](//knockout-spa-prod.mybluemix.net)
+* 实现著名的[TodoMVC](http://todomvc.com/): [https://onlyurei.github.io/todomvc-knockout-spa/](https://onlyurei.github.io/todomvc-knockout-spa/)
+* 真实世界应用： [http://rentever.com](http://rentever.com) 社交租赁平台－从周围的人租任何东西
+
 ### 功能特色 ###
 
 * 路由 (基于[Flatiron](https://github.com/flatiron)的[Director](https://github.com/flatiron/director))：HTML5历史API (pushState) 或者hash。
@@ -41,11 +47,6 @@
   * [jQuery](http://jquery.com) (DOM工具集)
   * [Sugar](http://sugarjs.com) (原生对象工具集)
 * **本迷你框架的重要优势：如果你不喜欢这些主要依赖库，你可以把它们换掉而不用完全重写整个项目。例如: 用[Vue](https://vuejs.org/)来换掉Knockout，用[Webpack](http://webpack.github.io/)来换掉Require，用[Crossroads](https://millermedeiros.github.io/crossroads.js/)来换掉Director，用[Prototype](http://prototypejs.org/)来换掉jQuery，用[Lodash](https://lodash.com/)或者[Underscore](http://underscorejs.org/)来换掉Sugar，等等。另外，如果你不喜欢此框架的一些内容，你可以容易地改变它们。**
-
-### 演示 ###
-* 开发模式：[knockout-spa.mybluemix.net](//knockout-spa.mybluemix.net)
-* 生产模式：[knockout-spa-prod.mybluemix.net](//knockout-spa-prod.mybluemix.net)
-* 真实世界应用： [http://rentever.com](http://rentever.com) 社交租赁平台－从周围的人租任何东西
 
 ### 快速开始指南 ###
 * 安装 `node` 和 `npm`，如果还没有的话。
