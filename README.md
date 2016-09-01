@@ -21,6 +21,12 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 <a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-ko.png" style="max-width: 49%" alt="ko dependencies graph"></a>
 <a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-framework-page.png" style="max-width: 49%" alt="framework/page dependencies logo"></a>
 
+### Demo ###
+* DEV mode: [knockout-spa.mybluemix.net](//knockout-spa.mybluemix.net)
+* PROD mode: [knockout-spa-prod.mybluemix.net](//knockout-spa-prod.mybluemix.net)
+* Implementaion of the famous [TodoMVC](http://todomvc.com/): [https://onlyurei.github.io/todomvc-knockout-spa/](https://onlyurei.github.io/todomvc-knockout-spa/)
+* Real World App: [http://rentever.com](http://rentever.com) Social Rental Marketplace - Rent anything from anyone nearby
+
 ### Features ###
 
 * Routing (based on [Flatiron](https://github.com/flatiron)'s [Director](https://github.com/flatiron/director): HTML5 history (pushState) or hash.
@@ -41,11 +47,6 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
   * [jQuery](http://jquery.com) (DOM Utilities)
   * [Sugar](http://sugarjs.com) (Native Objects Utilities)
 * **One important advantage of this mini framework: if you don't like some of the major dependencies, you can swap them out without having to completely rewrite your entire app. Example: use [Vue](https://vuejs.org/) to replace Knockout, use [Webpack](http://webpack.github.io/) to replace Require, use [Crossroads](https://millermedeiros.github.io/crossroads.js/) to replace Director, use [Prototype](http://prototypejs.org/) to replace jQuery, use [Lodash](https://lodash.com/) or [Underscore](http://underscorejs.org/) to replace Sugar, etc. Also, if you don't like certain things of this mini framework, you can easily change them to cater to your own needs/taste.**
-
-### Demo ###
-* DEV mode: [knockout-spa.mybluemix.net](//knockout-spa.mybluemix.net)
-* PROD mode: [knockout-spa-prod.mybluemix.net](//knockout-spa-prod.mybluemix.net)
-* Real World App: [http://rentever.com](http://rentever.com) Social Rental Marketplace - Rent anything from anyone nearby
 
 ### Getting started ###
 * Install `node` and `npm` if you haven't.
