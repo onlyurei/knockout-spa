@@ -25,22 +25,23 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 * DEV mode: [knockout-spa.mybluemix.net](//knockout-spa.mybluemix.net)
 * PROD mode: [knockout-spa-prod.mybluemix.net](//knockout-spa-prod.mybluemix.net)
 * Implementaion of the famous [TodoMVC](http://todomvc.com/): https://onlyurei.github.io/todomvc-knockout-spa/
-    * Source: https://github.com/onlyurei/todomvc-knockout-spa
+  * Source: https://github.com/onlyurei/todomvc-knockout-spa
 * Real World App: [http://rentever.com](http://rentever.com) Social Rental Marketplace - Rent anything from anyone nearby
 
 ### Features ###
 
+* Fast and lightweight (Under 100 KB of JS minified and gzipped for initial core setup).
+* Use [2-tier bundle build strategy](https://github.com/requirejs/example-multipage) for production: common module that will be used by most pages, and page-specific modules that will be lazy-loaded. This allows the app to scale to very large - not doing a lump-sum load of giant bundled files for the entire app on first page load - only the needed parts of the page, and common dependencies of all modules will be loaded. As user navigates to other parts of the app, the needed files (js, css, html) are lazy loaded. This is important for the app to be performant especially on mobile devices, since the lump-sum bundle files are not only slower to download due to size, but also slower to parse.
+  * Use [`require-css`](https://github.com/guybedford/require-css) and [`require-text`](https://github.com/requirejs/text) AMD plugins to load CSS and HTML templates dynamically ondemand along with the JS modules requiring them; these CSS and HTML template files will be inlined and minified into the corresponding JS modules for production build.
+* Use [`require-i18n`](https://github.com/requirejs/i18n) for scalable internationalization/localization.
+* **No any grunt/gulp/watcher/transpiler/build tasks required during development - you debug directly the exact same JS/CSS/HTML/Any file you edit in the IDE. Changes made to a file will be immediately reflected upon refreshing the browser (or use [Chrome devtools workspace](https://developer.chrome.com/devtools/docs/workspaces) or similar tool to have the changes live-rerendered without having to refresh the page).** The only build task required for production is the RequireJS r.js optimizer task that's already predefined in `build.js`. Just figure out a config-based way to serve the assets from `/build` folder for production.
+* **Using Knockout 3.4.0+ so ready for [Knockout's flavor of web component and custom tags](http://knockoutjs.com/documentation/component-overview.html).**
+  * Component files (html, js, css) are [loaded dynamically on-demand](http://knockoutjs.com/documentation/component-loaders.html): only when the component is in the view. 
+* **Provide [Knockout ES5 POJO style viewModel/binding option](https://github.com/nathanboktae/knockout-es5-option4) to help you write cleaner code and make it easier to replace Knockout with other MVVM libraries in the future.**
 * Routing (based on [Flatiron](https://github.com/flatiron)'s [Director](https://github.com/flatiron/director): HTML5 history (pushState) or hash.
 * Highly composable and reusable: pick modules/components for a page in the page-specific JS and they will be auto-wired for the page's HTML template.
 * SEO ready ([prerender.io](https://prerender.io/)).
-* Fast and lightweight (Under 100 KB of JS minified and gzipped for initial core setup).
-* Use [2-tier bundle build strategy](https://github.com/requirejs/example-multipage) for production: common module that will be used by most pages, and page-specific modules that will be lazy-loaded.
-* Use [`require-css`](https://github.com/guybedford/require-css) and [`require-text`](https://github.com/requirejs/text) AMD plugins to load CSS and HTML templates dynamically ondemand along with the JS modules requiring them; these CSS and HTML template files will be inlined and minified into the corresponding JS modules for production build.
-* **No any grunt/gulp/watcher/transpiler/build tasks required during development - you debug directly the exact same JS/CSS/HTML/Any file you edit in the IDE. Changes made to a file will be immediately reflected upon refreshing the browser (or use [Chrome devtools workspace](https://developer.chrome.com/devtools/docs/workspaces) or similar tool to have the changes live-rerendered without having to refresh the page).** Only build task required for production is the RequireJS r.js optimizer task that's already predefined in `build.js`. Just figure out a config-based way to serve the assets from `/build` folder for production.
-* Organized folder structure to help you stay sane for organizing and reusing modules/files.
-* Use [`require-i18n`](https://github.com/requirejs/i18n) for scalable internationalization/localization.
-* **Using Knockout 3.4.0+ so ready for [Knockout's flavor of web component and custom tags](http://knockoutjs.com/documentation/component-overview.html).**
-* **Provide [Knockout ES5 POJO style viewModel/binding option](https://github.com/nathanboktae/knockout-es5-option4) to help you write cleaner code and make it easier to replace Knockout with other MVVM libraries in the future.**
+* Organized folder structure to help you stay sane for organizing and reusing modules/files. Not using the file type folder structure such as `/js`, `/css`, `/html`, `/template`, etc, as files belonging to the same module/component are easier to navigate when grouped together under the same folder. If a part of the app should be removed, in theory you just need to delete the corresponding module/component folder, and touch very few other places.
 * All documentation are in the major dependencies' own homepages, so that you don't need to completely learn a new framework (**learn and practice general and reusable frontend development skills, not specific giant framework and tooling skills**):
   * [Knockout](http://knockoutjs.com) (MVVM)
   * [Require](http://requirejs.org) (Module Organizer/Loader/Optimizer)

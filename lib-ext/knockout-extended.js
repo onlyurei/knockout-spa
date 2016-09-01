@@ -4,19 +4,19 @@ define(['knockout', 'knockout-amd-helpers', 'knockout-es5-option4', 'lib-ext/kno
   ko.options.deferUpdates = true;
 
   //TODO: change to your template folder path and suffix if needed
-  ko.amdTemplateEngine.defaultPath = '/';
+  ko.amdTemplateEngine.defaultPath = '';
   ko.amdTemplateEngine.defaultSuffix = '.html';
 
   //TODO: change the following ko component convention as needed
   //this allows the usage of custom elements (http://knockoutjs.com/documentation/component-custom-elements.html)
   //without having to explicitly register them beforehand
   //the catch is that if unrecognized HTML tags are found, and they are not custom elements, error will be thrown
-  ko.components['getComponentNameForNode'] = function (node) {
+  ko.components.getComponentNameForNode = function (node) {
     var tagNameLower = node.tagName && node.tagName.toLowerCase(node);
     // Try to determine that this node can be considered a *custom* element; see
     // https://github.com/knockout/knockout/issues/1603
     if (!node.hasAttribute('data-bind')) {
-      if ((tagNameLower.indexOf('-') != -1) || (('' + node) == '[object HTMLUnknownElement]') ||
+      if ((tagNameLower.indexOf('-') != -1) || (String(node) == '[object HTMLUnknownElement]') ||
           ((ko.utils.ieVersion <= 8) && (node.tagName === tagNameLower))) {
         return tagNameLower;
       }
