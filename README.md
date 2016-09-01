@@ -24,7 +24,8 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 ### Demo ###
 * DEV mode: [knockout-spa.mybluemix.net](//knockout-spa.mybluemix.net)
 * PROD mode: [knockout-spa-prod.mybluemix.net](//knockout-spa-prod.mybluemix.net)
-* Implementaion of the famous [TodoMVC](http://todomvc.com/): [https://onlyurei.github.io/todomvc-knockout-spa/](https://onlyurei.github.io/todomvc-knockout-spa/)
+* Implementaion of the famous [TodoMVC](http://todomvc.com/): https://onlyurei.github.io/todomvc-knockout-spa/
+    * Source: https://github.com/onlyurei/todomvc-knockout-spa
 * Real World App: [http://rentever.com](http://rentever.com) Social Rental Marketplace - Rent anything from anyone nearby
 
 ### Features ###

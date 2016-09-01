@@ -24,7 +24,8 @@
 ### 演示 ###
 * 开发模式：[knockout-spa.mybluemix.net](//knockout-spa.mybluemix.net)
 * 生产模式：[knockout-spa-prod.mybluemix.net](//knockout-spa-prod.mybluemix.net)
-* 实现著名的[TodoMVC](http://todomvc.com/): [https://onlyurei.github.io/todomvc-knockout-spa/](https://onlyurei.github.io/todomvc-knockout-spa/)
+* 实现著名的[TodoMVC](http://todomvc.com/): https://onlyurei.github.io/todomvc-knockout-spa/
+    * 源码: https://github.com/onlyurei/todomvc-knockout-spa
 * 真实世界应用： [http://rentever.com](http://rentever.com) 社交租赁平台－从周围的人租任何东西
 
 ### 功能特色 ###
