@@ -16,7 +16,10 @@
       include: [
         'app/shared/root-bindings',
         'framework/router',
-        'framework/page'
+        'framework/page',
+        'text',
+        'css',
+        'jsface'
         /* TODO: add other common modules */
       ]
     },
@@ -39,8 +42,16 @@
     {
       name: 'app/resources/resources',
       exclude: ['common']
+    },
+    {
+      name: 'component/file-display/file-display',
+      exclude: ['common']
+    },
+    {
+      name: 'component/page-source-display/page-source-display',
+      exclude: ['common']
     }
-    /* TODO: add other page modules */
+    /* TODO: add other page modules and component modules */
   ],
   paths: {
     materialize: 'empty:'
