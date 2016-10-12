@@ -8,7 +8,7 @@ define(['css!./home.css'/* TODO: add dependencies of this page */], function () 
      init: function (root) { console.log(root); return false; },
 
      // TODO: do things after the page's template has finished rendering (e.g. DOM manipulations)
-     may need setTimeout(1) to yield wait for UI to be ready sometimes (optional)
+     may need setTimeout(1) to yield and wait for UI to be ready sometimes (optional)
      afterRender: function () {},
 
      /!* TODO: properly dispose this page to prevent memory leaks and UI leftovers (optional)
