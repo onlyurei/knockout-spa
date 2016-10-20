@@ -53,7 +53,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 ### Getting started ###
 * Install `node` and `npm` if you haven't.
 * [Clone](https://github.com/onlyurei/knockout-spa.git)/[Download](https://github.com/onlyurei/knockout-spa/archive/latest.zip) the repo. You can also run `npm install knockout-spa` to install from [NPM](https://www.npmjs.com/package/knockout-spa), then manually move `knockout-spa` folder out of the `node_modules` folder to where your projects are normally located.
-* `cd` into the repo's folder in your OS terminal. Run `npm run dev` to run the app in DEV mode, or run `npm run prod` to run the app in PROD mode.
+* `cd` into the repo's folder in your OS terminal and run `npm install`. Run `npm start` to run the app in DEV mode, or run `npm run prod` to run the app in PROD mode.
 * visit http://localhost:8080 (or the port you specify) to see the app. Notes: 
   * Using history api fallback so `index.html` will be served for all 404s. 
   * You can also change `server.js` so that it can proxy your CORS requests to endpoints which don't have CORS header present.

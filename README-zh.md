@@ -52,7 +52,7 @@
 ### 快速开始指南 ###
 * 安装 `node` 和 `npm`，如果还没有的话。
 * [克隆](https://github.com/onlyurei/knockout-spa.git)/[下载](https://github.com/onlyurei/knockout-spa/archive/latest.zip) 本项目。你也可以运行 `npm install knockout-spa` 来从 [NPM](https://www.npmjs.com/package/knockout-spa) 安装，然后手动把 `knockout-spa` 文件夹移出 `node_modules` 文件夹，放到你通常放项目文件夹的地方。
-* 在你操作系统的终端上 `cd` 到你保存本项目的文件夹。运行 `npm run dev` 来运行开发模式，或者运行 `npm run prod` 来运行生产模式。
+* 在你操作系统的终端上 `cd` 到你保存本项目的文件夹并运行 `npm install`。运行 `npm start` 来运行开发模式，或者运行 `npm run prod` 来运行生产模式。
 * 访问 http://localhost:8080 (或者你制定的端口) 来看运行的app。注意：
   * 采用历史API适配所以 `index.html` 会被用于所有404请求。
   * 你也可以修改 `server.js` 用来做跨域资源请求 (CORS) 代理.
