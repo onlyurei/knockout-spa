@@ -1,6 +1,6 @@
 {
   "name": "knockout-spa",
-  "version": "3.12.3",
+  "version": "3.13.0",
   "description": "A mini but full-fledged SPA framework built on top of Knockout, Require, Director, jQuery, Sugar.",
   "repository": {
     "type": "git",
