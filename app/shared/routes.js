@@ -30,5 +30,6 @@ define({
   '/files/dependencies': 'app/files/dependencies/dependencies',
 
   //resources
-  '/resources': 'app/resources/resources'
+  '/resources': 'app/resources/resources /',
+  '/resources/:resource': 'app/resources/resources /:resource'
 });

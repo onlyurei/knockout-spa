@@ -4,12 +4,14 @@
                                css: 'app/resources/resources.css'">
   </page-source-display>
   <p data-bind="string: 'resources.instruction'"></p>
-  <ul data-bind="jquery: { method: 'collapsible' }" class="collapsible" data-collapsible="expandable">
+  <ul class="collapsible">
     <li>
-      <div class="collapsible-header vertical-align-middle hoverable">
-        <img src="http://knockoutjs.com/img/ko-logo.png"><span>Knockout - simplify dynamic JavaScript UIs with the Model-View-View Model (MVVM)</span>
-      </div>
-      <div class="collapsible-body padding-left-right">
+      <a data-bind="attr: { href: (resource == 'knockout') ? '/resources' : '/resources/knockout' }" class="collapsible-header vertical-align-middle hoverable">
+        <img src="http://knockoutjs.com/img/ko-logo.png">
+        <span>Knockout - simplify dynamic JavaScript UIs with the Model-View-View Model (MVVM)</span>
+      </a>
+      <!-- ko if: resource == 'knockout' -->
+      <div class="padding-left-right">
         <a href="http://knockoutjs.com/documentation/introduction.html">
           <h2>API</h2>
           <div>http://knockoutjs.com/documentation/introduction.html</div>
@@ -49,12 +51,15 @@
         <hr>
         <div data-bind="marked: { url: 'https://raw.githubusercontent.com/wiki/knockout/knockout/Recipes.md' }"></div>
       </div>
+      <!-- /ko -->
     </li>
     <li>
-      <div class="collapsible-header vertical-align-middle hoverable">
-        <img src="http://requirejs.org/i/logo.png"><span>Require - a file and module loader for JavaScript</span>
-      </div>
-      <div class="collapsible-body padding-left-right">
+      <a data-bind="attr: { href: (resource == 'require') ? '/resources' : '/resources/require' }" class="collapsible-header vertical-align-middle hoverable">
+        <img src="http://requirejs.org/i/logo.png">
+        <span>Require - a file and module loader for JavaScript</span>
+      </a>
+      <!-- ko if: resource == 'require' -->
+      <div class="padding-left-right">
         <a href="http://requirejs.org/docs/api.html">
           <h2>API</h2>
           <div>http://requirejs.org/docs/api.html</div>
@@ -74,13 +79,15 @@
         <hr>
         <div data-bind="marked: { url: 'https://raw.githubusercontent.com/wiki/requirejs/requirejs/Test-frameworks.md' }"></div>
       </div>
+      <!-- /ko -->
     </li>
     <li>
-      <div class="collapsible-header vertical-align-middle hoverable">
+      <a data-bind="attr: { href: (resource == 'director') ? '/resources' : '/resources/director' }" class="collapsible-header vertical-align-middle hoverable">
         <img src="https://raw.githubusercontent.com/flatiron/director/master/img/director.png">
         <span>Director - a tiny and isomorphic URL router for JavaScript</span>
-      </div>
-      <div class="collapsible-body padding-left-right">
+      </a>
+      <!-- ko if: resource == 'director' -->
+      <div class="padding-left-right">
         <a href="https://github.com/flatiron/director">
           <h2>API</h2>
           <div>https://github.com/flatiron/director</div>
@@ -88,13 +95,15 @@
         <hr>
         <div data-bind="marked: { url: 'https://raw.githubusercontent.com/flatiron/director/master/README.md' }"></div>
       </div>
+      <!-- /ko -->
     </li>
     <li>
-      <div class="collapsible-header vertical-align-middle hoverable">
+      <a data-bind="attr: { href: (resource == 'jquery') ? '/resources' : '/resources/jquery' }" class="collapsible-header vertical-align-middle hoverable">
         <img src="//jquery.com/jquery-wp-content/themes/jquery/images/logo-jquery@2x.png">
         <span>jQuery - write less, do more</span>
-      </div>
-      <div class="collapsible-body padding-left-right">
+      </a>
+      <!-- ko if: resource == 'jquery' -->
+      <div class="padding-left-right">
         <a href="https://api.jquery.com/">
           <h2>API</h2>
           <div>https://api.jquery.com/</div>
@@ -102,13 +111,15 @@
         <hr>
         <iframe src="https://api.jquery.com/"></iframe>
       </div>
+      <!-- /ko -->
     </li>
     <li>
-      <div class="collapsible-header vertical-align-middle hoverable">
+      <a data-bind="attr: { href: (resource == 'sugar') ? '/resources' : '/resources/sugar' }" class="collapsible-header vertical-align-middle hoverable">
         <img src="http://sugarjs.com/assets/images/sugar.svg">
         <span>Sugar - a Javascript library for working with native objects</span>
-      </div>
-      <div class="collapsible-body padding-left-right">
+      </a>
+      <!-- ko if: resource == 'sugar' -->
+      <div class="padding-left-right">
         <a href="http://sugarjs.com/api">
           <h2>API</h2>
           <div>http://sugarjs.com/api</div>
@@ -116,12 +127,14 @@
         <hr>
         <iframe src="http://sugarjs.com/api"></iframe>
       </div>
+      <!-- /ko -->
     </li>
     <li>
-      <div class="collapsible-header vertical-align-middle hoverable">
+      <a data-bind="attr: { href: (resource == 'jsface') ? '/resources' : '/resources/jsface' }" class="collapsible-header vertical-align-middle hoverable">
         <span>JSFace - small, fast, elegant, powerful, and cross platform JavaScript OOP library</span>
-      </div>
-      <div class="collapsible-body padding-left-right">
+      </a>
+      <!-- ko if: resource == 'jsface' -->
+      <div class="padding-left-right">
         <a href="https://github.com/tnhu/jsface">
           <h2>API</h2>
           <div>https://github.com/tnhu/jsface</div>
@@ -129,6 +142,7 @@
         <hr>
         <div data-bind="marked: { url: 'https://raw.githubusercontent.com/tnhu/jsface/master/README.md' }"></div>
       </div>
+      <!-- /ko -->
     </li>
   </ul>
 </section>

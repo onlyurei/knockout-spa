@@ -1,3 +1,7 @@
+.resources .collapsible > li > a {
+  color: rgba(0, 0, 0, 0.87);
+}
+
 .resources .collapsible .collapsible-header {
   background-color: #f3f3f3;
 }
