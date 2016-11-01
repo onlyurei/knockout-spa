@@ -1,6 +1,6 @@
 define([
   'app/shared/config', 'locale/resources', 'locale/strings', 'util/google-analytics', 'jquery', 'sugar', 'materialize',
-  'css!../../node_modules/materialize-css/dist/css/materialize.css', 'css!./shared.css'
+  'css!node_modules/materialize-css/dist/css/materialize.css', 'css!./shared.css'
   /* TODO: add other common dependencies and root bindings most pages need (this module is implicitly required by all pages).
    E.g.: swap Materialize UI to other CSS framework such as Bootstrap, Foundation, etc.
    Access root bindings in various templates using $root.<propertyNameOnRootObject>), e.g. $root.strings */
