@@ -1,5 +1,6 @@
-define({
-  flatten: function (data) {
+define(function () {
+
+  function flatten(object) {
     var result = {};
 
     function recurse(cur, prop) {
@@ -26,28 +27,47 @@ define({
       }
     }
 
-    recurse(data, '');
+    recurse(object, '');
     return result;
-  },
-  unflatten: function (data) {
+  }
+
+  function unflatten(object) {
     'use strict';
-    if (Object(data) !== data || Array.isArray(data)) {
-      return data;
+    if (Object(object) !== object || Array.isArray(object)) {
+      return object;
     }
     var regex = /\.?([^.\[\]]+)|\[(\d+)\]/g,
       resultholder = {};
-    for (var p in data) {
-      if (data.hasOwnProperty(p)) {
+    for (var i in object) {
+      if (object.hasOwnProperty(i)) {
         var cur = resultholder,
           prop = '',
           m;
-        while (!!(m = regex.exec(p))) {
+        while (!!(m = regex.exec(i))) {
           cur = cur[prop] || (cur[prop] = (m[2] ? [] : {}));
           prop = m[2] || m[1];
         }
-        cur[prop] = data[p];
+        cur[prop] = object[i];
       }
     }
     return resultholder[''] || resultholder;
   }
+
+  function traverse(object, cb) {
+    for (var i in object) {
+      if (object.hasOwnProperty(i)) {
+        cb.apply(this, [i, object[i], object]);
+        if (object[i] !== null && typeof(object[i]) == "object") {
+          traverse(object[i], cb);
+        }
+      }
+    }
+  }
+
+  return {
+    flatten: flatten,
+    unflatten: unflatten,
+    traverse: traverse
+  };
+
 });

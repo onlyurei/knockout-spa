@@ -7,8 +7,11 @@ define(['ko', 'sugar'], function (ko) {
     init: function (page) {
       initialValues = {};
       Object.each(page, function (key, value) {
+        var _key = '_' + key;
         if (ko.isObservable(value) && !ko.isComputed(value)) { /* non-computed observables */
           initialValues[key] = value();
+        } else if (page[_key] && ko.isObservable(page[_key]) && !ko.isComputed(page[_key])) { /* non-computed observables (es5-option4) */
+          initialValues[_key] = page[_key]();
         } else if ((value === null) || (value === undefined) || Object.isString(value) || Object.isNumber(value) || Object.isBoolean(value)) { /* primitives */
           initialValues[key] = value;
         }
@@ -31,4 +34,3 @@ define(['ko', 'sugar'], function (ko) {
   return PageDisposer;
 
 });
-

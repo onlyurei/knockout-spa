@@ -1,25 +1,35 @@
 /*! knockout-spa (https://github.com/onlyurei/knockout-spa) * Copyright 2015-2016 Cheng Fan * MIT Licensed (https://raw.githubusercontent.com/onlyurei/knockout-spa/master/LICENSE) */
-define(['util/storage', 'ko'], function (Storage, ko) {
+define(['util/json', 'util/storage', 'jsface', 'ko', 'sugar'], function (Json, Storage, Class, ko) {
 
-  function unwrapInitialValueFallback(initialValueFallback) {
-    if (ko.isObservable(initialValueFallback) || (typeof initialValueFallback == 'function')) {
-      return initialValueFallback();
+  var PersistedObservable = Class({
+    constructor: function (storageKey, defaults, persist) {
+      var data = Object.merge(Object.isObject(defaults) ? defaults : {}, Storage.get(storageKey), true);
+      Object.merge(this, data, true);
+      ko.observe(this);
+
+      Json.traverse(this, function (key, value, object) {
+        var _key = '_' + key;
+        if (ko.isObservable(object[_key])) {
+          var subscription = object[_key].subscribe(persist || function () { //CAUTION: beware of memory leak, be sure to call dispose() when disposing
+              Storage.set(storageKey, this.serialize && this.serialize() || this);
+            }.bind(this));
+          Object.defineProperty(object, _key + '_subscription', {
+            value: subscription,
+            enumerable: false
+          })
+        }
+      }.bind(this));
+
+      return this;
+    },
+    dispose: function () {
+      Json.traverse(this, function (key, value, object) {
+        var _key = '_' + key + '_subscription';
+        object[_key] && object[_key].dispose && object[_key].dispose();
+      }.bind(this));
     }
-    return initialValueFallback;
-  }
+  });
 
-  return function (storageKey, initialValueFallback, permanent) {
-    var value = Storage.get(storageKey, permanent);
-    var observable = ko.observable((value || (typeof value == 'boolean')) ? value : unwrapInitialValueFallback(initialValueFallback));
-    return ko.computed({
-      read: function () {
-        return observable();
-      },
-      write: function (value) {
-        observable(value);
-        Storage.set(storageKey, value, permanent);
-      }
-    });
-  };
+  return PersistedObservable;
 
 });
