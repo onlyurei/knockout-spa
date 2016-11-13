@@ -15,6 +15,10 @@ define([
       GA.trackPageView();
       /* TODO: modify to cater your app's needs (called on every page after the page's init handler) */
     },
+    afterRenderExtra: function (pageName, pageData, pagePath) { // useful for common afterRender tasks for all pages
+    },
+    disposeExtra: function (pageName, pageData, pagePath) { // useful for common dispose tasks for all pages
+    },
     title: function () {
       var title = this.page.data.title;
       return title ? (Object.isFunction(title) ? title.call(this.page.data) : title) : this.page.name.titleize();

@@ -23,6 +23,7 @@ define(['app/shared/root-bindings', 'framework/page-disposer', 'ko', 'sugar'], f
       }
 
       var autoDispose = this.page.data.dispose && this.page.data.dispose(this);
+      this.disposeExtra && this.disposeExtra(this.page.name, this.page.data, this.page.path);
       if (!initialRun && (autoDispose !== false)) { // if not initial run and the requested page is not the same page, dispose current page first before swap to the new page
         // auto-dispose page's exposed observables and primitive properties to initial values. if not desired, return
         // false in dispose function to suppress auto-disposal for all public properties of the page, or make the
