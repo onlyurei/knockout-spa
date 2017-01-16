@@ -3,41 +3,49 @@ var compression = require('compression');
 var express = require('express');
 var app = express();
 var madge = require('madge');
+var fs = require('fs');
 require('sugar');
 
-app.get('/api/config', function (req, res) {
-  var result = {
+var apiRes = {
+  config: {
     credentials: {
       google: {
         analytics: 'UA-74965434-1'
       }
     }
-  };
-  res.send(result);
-});
-
-app.get('/api/file', function (req, res) {
-  walk('.', function (err, files) {
-    if (err) throw err;
-    // TODO: modify this list of top-level folders to scan files for when needed
-    var allowedFilesRegex = /^\.\/((app)|(component)|(framework)|(lib)|(lib-ext)|(locale)|(nls)|(util)|(widget))\//i;
-    var notAllowedFilesRegex = /^(\.|_)/;
-    res.send((files.remove(function (file) {
-      var parts = file.split('/');
-      if (notAllowedFilesRegex.test(parts[parts.length - 1])) return true;
-      if (parts.length === 2) return false;
-      return !allowedFilesRegex.test(file);
-    }).map(function (file) { return file.remove(/^\.\//) })));
-  });
-});
-
-app.get('/api/file/dependencies', function (req, res) {
-  res.send(madge('.', {
+  },
+  file: null,
+  fileDependencies: madge('.', {
     exclude: 'node_modules\/|^build',
     format: 'amd',
     requireConfig: './common.js',
     findNestedDependencies: true
-  }).tree);
+  }).tree
+};
+
+walk('.', function (err, files) {
+  if (err) throw err;
+  // TODO: modify this list of top-level folders to scan files for when needed
+  var allowedFilesRegex = /^\.\/((app)|(component)|(framework)|(lib)|(lib-ext)|(locale)|(nls)|(util)|(widget))\//i;
+  var notAllowedFilesRegex = /^(\.|_)/;
+  apiRes.file = files.remove(function (file) {
+    var parts = file.split('/');
+    if (notAllowedFilesRegex.test(parts[parts.length - 1])) return true;
+    if (parts.length === 2) return false;
+    return !allowedFilesRegex.test(file);
+  }).map(function (file) { return file.remove(/^\.\//) });
+});
+
+app.get('/api/config', function (req, res) {
+  res.send(apiRes.config);
+});
+
+app.get('/api/file', function (req, res) {
+  res.send(apiRes.file);
+});
+
+app.get('/api/file/dependencies', function (req, res) {
+  res.send(apiRes.fileDependencies);
 });
 
 var root = __dirname;
@@ -48,7 +56,6 @@ var port = process.env.PORT || 8080;
 app.listen(port);
 console.log('Visit http://localhost:' + port + ' to see the app.');
 
-var fs = require('fs');
 function walk(dir, done) {
   var results = [];
   fs.readdir(dir, function (err, list) {
