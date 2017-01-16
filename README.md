@@ -16,7 +16,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
 <a href="http://requirejs.org/"><img src="http://requirejs.org/i/logo.png" height="42" alt="RequireJS logo">
 <a href="https://github.com/flatiron/director"><img src="https://raw.githubusercontent.com/flatiron/director/master/img/director.png" height="42" alt="DirectorJS logo"></a>
 <a href="http://jquery.com/"><img src="https://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg" height="42" alt="jQuery logo"></a>
-<a href="http://sugarjs.com/"><img src="http://sugarjs.com/assets/images/sugar.svg" height="42" alt="SugarJS logo"></a>
+<a href="https://sugarjs.com/"><img src="https://sugarjs.com/assets/images/sugar.svg" height="42" alt="SugarJS logo"></a>
 
 <a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-ko.png" style="max-width: 49%" alt="ko dependencies graph"></a>
 <a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-framework-page.png" style="max-width: 49%" alt="framework/page dependencies logo"></a>
@@ -47,7 +47,7 @@ A mini but full-fledged SPA framework and boilerplate to build SPAs fast and sca
   * [Require](http://requirejs.org) (Module Organizer/Loader/Optimizer)
   * [Director](https://github.com/flatiron/director) (Router)
   * [jQuery](http://jquery.com) (DOM Utilities)
-  * [Sugar](http://sugarjs.com) (Native Objects Utilities)
+  * [Sugar](https://sugarjs.com) (Native Objects Utilities)
 * **One important advantage of this mini framework: if you don't like some of the major dependencies, you can swap them out without having to completely rewrite your entire app. Example: use [Vue](https://vuejs.org/) to replace Knockout, use [Webpack](http://webpack.github.io/) to replace Require, use [Crossroads](https://millermedeiros.github.io/crossroads.js/) to replace Director, use [Prototype](http://prototypejs.org/) to replace jQuery, use [Lodash](https://lodash.com/) or [Underscore](http://underscorejs.org/) to replace Sugar, etc. Also, if you don't like certain things of this mini framework, you can easily change them to cater to your own needs/taste.**
 
 ### Getting started ###
