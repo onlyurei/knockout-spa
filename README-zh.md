@@ -18,8 +18,8 @@
 <a href="http://jquery.com/"><img src="https://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg" height="42" alt="jQuery logo"></a>
 <a href="https://sugarjs.com/"><img src="https://sugarjs.com/assets/images/sugar.svg" height="42" alt="SugarJS logo"></a>
 
-<a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-ko.png" style="max-width: 49%" alt="ko dependencies graph"></a>
 <a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-framework-page.png" style="max-width: 49%" alt="framework/page dependencies logo"></a>
+<a href="//knockout-spa.mybluemix.net/files/dependencies"><img src="https://raw.githubusercontent.com/onlyurei/knockout-spa/master/dependencies-graph-ko.png" style="max-width: 49%" alt="ko dependencies graph"></a>
 
 ### 演示 ###
 * 开发模式：[knockout-spa.mybluemix.net](//knockout-spa.mybluemix.net)
