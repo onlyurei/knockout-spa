@@ -10,7 +10,9 @@
   "scripts": {
     "clean": "rm -rf build && rm -rf node_modules",
     "build": "npm run clean && npm install && ./node_modules/.bin/r.js -o ./build.js",
-    "prod": "npm run build && cd build && npm start"
+    "prod": "npm run build && cd build && npm start",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "knockoutjs",
@@ -46,6 +48,8 @@
     "require-css": "^0.1.8",
     "requirejs": "^2.3.1",
     "requirejs-text": "^2.0.12",
-    "sugar": "^1.5.0"
-  }
+    "sugar": "^1.5.0",
+    "snyk": "^1.47.0"
+  },
+  "snyk": true
 }
