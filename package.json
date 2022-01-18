@@ -41,7 +41,7 @@
     "knockout-amd-helpers": "^0.7.4",
     "knockout-es5-option4": "^0.7.0",
     "madge": "^0.5.5",
-    "marked": "^0.3.5",
+    "marked": "^4.0.10",
     "materialize-css": "onlyurei/materialize#AMD-fix",
     "require-css": "^0.1.8",
     "requirejs": "^2.3.1",
